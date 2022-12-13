@@ -1,0 +1,209 @@
+\documentclass[10pt]{beamer}
+\setlength{\topsep}{0pt}
+\begin{document}
+
+\section{Overfitting and Regularization}
+\subsection{Need for regularization}
+\begin{frame}[fragile]{A Hard 1D classification task}
+
+{\tiny
+<<myChunk, fig.width=3, fig.height=2.5, out.width='.49\\linewidth', fig.show='hold',fig.align='center'>>=
+## true conditional probabilities
+truep <- function(x) {
+  return(0.05+0.9*pmax(exp(-(x-3)^2/4),exp(-(x+3)^2/4)))
+}
+x  <- seq(-15,15,.1)
+condp  <- truep(x) #P(Y=+1 | x)
+par(mar=c(4,4,.1,.1),cex.lab=.95,cex.axis=.9,mgp=c(2,.7,0),tcl=-.3)
+plot(x,condp,type='l',lwd=2,col=2,ylim=c(-.1,1.1),ylab='P(Y=+1 | x)')
+lines(c(-15,15),c(0.5,0.5),lty=2)
+plot(x,log(condp/(1-condp)),type='l',lwd=2,col=2,ylab='log-odds')
+lines(c(-15,15),c(0.0,0.0),lty=2)
+@
+}
+A linear decision boundary is not helpful. Log-odds are far from linear.
+\end{frame}
+
+\begin{frame}[fragile]{Nonlinear features}
+Use the transformed dataset $$x\mapsto \varphi(x)=(x,x^2,x^3,\ldots,x^p).$$
+\scriptsize
+<<>>=
+## extract nonlinear features: {x^i}
+phi <- function(x,deg) {
+  d <- matrix(0,length(x),deg)
+  for (i in 1:deg) {
+    d[,i] <- x ^ i
+  }
+  return (data.frame(d))
+}
+@
+\end{frame}
+
+
+\begin{frame}[fragile]{Demo on Overfitting in Logistic Regression}
+\tiny
+<<>>=
+set.seed(123)
+## demo learning logistic regression, with different datasets generated,
+## and using different degree polynomials as features
+demolearn <- function(trainx,testx,truep,deg) {
+  trainp <- truep(trainx)
+  testp  <- truep(testx)
+  par(mfrow=c(3,4),ann=FALSE,cex=.3,mar=c(1,1,1,1))
+  predp <- matrix(0,length(testx),11)
+  for (i in 1:11) {
+    trainy <- as.numeric(runif(length(trainx)) < trainp)
+    lr <- glm(trainy ~ .,data=phi(trainx,deg),family=binomial)
+    predp[,i] <- predict(lr,newdata=phi(testx,deg),type="response")
+    plot(testx,testp,type="l",col=2,lwd=3,ylim=c(-.1,1.1))
+    lines(testx,predp[,i],type="l")
+    points(trainx,trainy,pch=1,col=4,cex=2)
+  } 
+  plot(testx,testp,type="l",lwd=3,col=2,ylim=c(-.1,1.1))
+  for (i in 1:11) {
+    lines(testx,predp[,i],type="l")
+  } 
+  return(predp)
+} 
+
+trainx <- seq(-12,12,.5)
+testx  <- seq(-15,15,.1)
+@
+\end{frame}
+
+\begin{frame}[fragile]
+\tiny
+<<warning=F, out.width='\\textwidth',out.height='0.95\\textheight'>>=
+pp <- demolearn(trainx,testx,truep,1)
+@
+\end{frame}
+
+\begin{frame}[fragile]
+\tiny
+<<warning=F, out.width='\\textwidth',out.height='0.95\\textheight'>>=
+pp <- demolearn(trainx,testx,truep,2)
+@
+\end{frame}
+
+\begin{frame}[fragile]
+\tiny
+<<warning=F, out.width='\\textwidth',out.height='0.95\\textheight'>>=
+pp <- demolearn(trainx,testx,truep,3)
+@
+\end{frame}
+
+\begin{frame}[fragile]
+\tiny
+<<warning=F, out.width='\\textwidth',out.height='0.95\\textheight'>>=
+pp <- demolearn(trainx,testx,truep,4)
+@
+\end{frame}
+
+\begin{frame}[fragile]
+\tiny
+<<warning=F, out.width='\\textwidth',out.height='0.95\\textheight'>>=
+pp <- demolearn(trainx,testx,truep,5)
+@
+\end{frame}
+
+\begin{frame}[fragile]
+\tiny
+<<warning=F, out.width='\\textwidth',out.height='0.95\\textheight'>>=
+pp <- demolearn(trainx,testx,truep,6)
+@
+\end{frame}
+
+\begin{frame}[fragile]
+\tiny
+<<warning=F, out.width='\\textwidth',out.height='0.95\\textheight'>>=
+pp <- demolearn(trainx,testx,truep,10)
+@
+\end{frame}
+
+\begin{frame}[fragile]{$L_1$-regularization in {\bf R}: \texttt{glmnet}}
+
+\texttt{glmnet} computes the regularization for the Lasso or elastic net penalty at a grid of values for the regularization parameter $\lambda$. 
+
+{\tiny
+<<warning=FALSE,message=FALSE,,tidy=TRUE,>>=
+library(glmnet)
+trainy <- as.numeric(runif(length(trainx)) < truep(trainx))
+slr <- glmnet(as.matrix(phi(trainx,6)),as.factor(trainy),
+          family="binomial")
+@
+}
+
+Can obtain actual coefficients at various values of $\lambda$.
+
+{\tiny
+<<>>=
+coef(slr,s=c(0.001,0.01,0.1))
+@
+}
+
+\end{frame}
+
+\begin{frame}[fragile]{Regularization path}
+\scriptsize
+<<myChunk2, fig.width=3, fig.height=2.5, out.width='.49\\linewidth', fig.show='hold',fig.align='center'>>=
+par(mar=c(4,4,.1,.1),cex.lab=.95,cex.axis=.9,mgp=c(2,.7,0),tcl=-.1)
+plot(slr)
+plot(slr,xvar="lambda")
+@
+\end{frame}
+
+\begin{frame}[fragile]
+Fitting $\lambda$ by cross-validation.
+\tiny
+<<warning=FALSE,out.width='0.5\\textwidth',fig.align='center'>>=
+cv.slr <- cv.glmnet(as.matrix(phi(trainx,6)),as.factor(trainy),
+          family="binomial")
+cv.slr$lambda.min #minimum mean cross-validated error
+cv.slr$lambda.1se #most regularized model within one std error of minimum
+plot(cv.slr)
+@
+\end{frame}
+
+
+\begin{frame}[fragile]{Demo on $L_1$-Regularized Logistic Regression}
+\tiny
+<<warning=F,message=F,tidy=TRUE>>=
+demolearnL1 <- function(trainx,testx,truep,deg=6) {
+  trainp <- truep(trainx)
+  testp  <- truep(testx)
+  par(mfrow=c(3,4),ann=FALSE,cex=.3,mar=c(1,1,1,1))
+  predp <- matrix(0,length(testx),11)
+  for (i in 1:11) {
+    trainy <- as.numeric(runif(length(trainx)) < trainp)
+    cv.slr <- cv.glmnet(as.matrix(phi(trainx,deg)),as.factor(trainy),
+          family="binomial")
+    predp[,i] <- predict(cv.slr,newx=as.matrix(phi(testx,deg)),s=cv.slr$lambda.1se,
+                         type="response")
+    plot(testx,testp,type="l",col=2,lwd=3,ylim=c(-.1,1.1))
+    lines(testx,predp[,i],type="l")
+    points(trainx,trainy,pch=1,col=4,cex=2)
+  } 
+  plot(testx,testp,type="l",lwd=3,col=2,ylim=c(-.1,1.1))
+  for (i in 1:11) {
+    lines(testx,predp[,i],type="l")
+  } 
+}
+@
+\end{frame}
+
+\begin{frame}
+\scriptsize
+<<warning=F, out.width='\\textwidth',out.height='0.95\\textheight'>>=
+demolearnL1(trainx,testx,truep,deg=6)
+@
+\end{frame}
+
+\begin{frame}
+\scriptsize
+<<warning=F, out.width='\\textwidth',out.height='0.95\\textheight'>>=
+demolearnL1(trainx,testx,truep,deg=10)
+@
+\end{frame}
+
+
+\end{document}

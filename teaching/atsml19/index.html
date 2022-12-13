@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>ATSML HT 2019</title>
+
+  
+  <meta name="author" content="Dino Sejdinovic">
+  
+
+  <meta name="description" content="| | **SC4/SM8 Advanced Topics in Statistical Machine Learning** | |----------------------|---| | Term: | Hilary Term 2019, Jan 14 - Mar 8 | | Lectures: | **weeks 1-6,8: Tue 3pm &amp; Thu 4pm, LG.01; week 7: Thu 4pm &amp; Fri 4pm, LG.01 (note the time change in week 7)** |...">
+
+  
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Home" href="https://sejdino.github.io/feed.xml">
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Home">
+  <meta property="og:title" content="ATSML HT 2019">
+  <meta property="og:description" content="| | **SC4/SM8 Advanced Topics in Statistical Machine Learning** | |----------------------|---| | Term: | Hilary Term 2019, Jan 14 - Mar 8 | | Lectures: | **weeks 1-6,8: Tue 3pm &amp; Thu 4pm, LG.01; week 7: Thu 4pm &amp; Fri 4pm, LG.01 (note the time change in week 7)** |...">
+
+  
+  <meta property="og:image" content="https://sejdino.github.io/img/dino.jpg">
+  
+
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sejdino.github.io/teaching/atsml19/">
+  <link rel="canonical" href="https://sejdino.github.io/teaching/atsml19/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@sejdino">
+  <meta name="twitter:creator" content="@sejdino">
+
+  <meta property="twitter:title" content="ATSML HT 2019">
+  <meta property="twitter:description" content="| | **SC4/SM8 Advanced Topics in Statistical Machine Learning** | |----------------------|---| | Term: | Hilary Term 2019, Jan 14 - Mar 8 | | Lectures: | **weeks 1-6,8: Tue 3pm &amp; Thu 4pm, LG.01; week 7: Thu 4pm &amp; Fri 4pm, LG.01 (note the time change in week 7)** |...">
+
+  
+  <meta name="twitter:image" content="https://sejdino.github.io/img/dino.jpg">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="https://sejdino.github.io/">Home</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/publications">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/group">Group</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/talks">Talks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/teaching">Teaching</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Links</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="http://csml.stats.ox.ac.uk/">OxCSML</a>
+                  <a class="dropdown-item" href="https://statml.io/">StatML</a>
+                  <a class="dropdown-item" href="https://imiracli.web.ox.ac.uk/">iMiracli</a>
+                  <a class="dropdown-item" href="https://ellis.eu/">ELLIS</a>
+            </div>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/biography">About Me</a>
+          </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="https://sejdino.github.io/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/img/dino.jpg" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="page-heading">
+          <h1>ATSML HT 2019</h1>
+          
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md " role="main">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+      
+
+      <table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th><strong>SC4/SM8 Advanced Topics in Statistical Machine Learning</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Term:</td>
+      <td>Hilary Term 2019, Jan 14 - Mar 8</td>
+    </tr>
+    <tr>
+      <td>Lectures:</td>
+      <td><strong>weeks 1-6,8: Tue 3pm &amp; Thu 4pm, LG.01; week 7: Thu 4pm &amp; Fri 4pm, LG.01 (note the time change in week 7)</strong></td>
+    </tr>
+    <tr>
+      <td>Part C / OMMS Classes</td>
+      <td><a href="https://weblearn.ox.ac.uk/portal/site/:mpls:stats:mmathba_math:class-signup">Class Sign-Up</a>  (via Weblearn)</td>
+    </tr>
+    <tr>
+      <td>Set 1: Tue 9am (3,5,7,TT1), LG.05</td>
+      <td>class tutor: <a href="mailto:jean-francois.ton@spc.ox.ac.uk">Jean-Francois Ton</a>, TA: Charline Le Lan</td>
+    </tr>
+    <tr>
+      <td>Set 2: Tue 10.30am (3,5,7,TT1), LG.05</td>
+      <td>class tutor: <a href="mailto:jean-francois.ton@spc.ox.ac.uk">Jean-Francois Ton</a>, TA: Charline Le Lan</td>
+    </tr>
+    <tr>
+      <td>Set 3: Tue 9am (3,5,7,TT1), LG.04</td>
+      <td>class tutor: <a href="mailto:tomas.vaskevicius@spc.ox.ac.uk">Tomas Vaskevicius</a>, TA: Tomas Vaskevicius</td>
+    </tr>
+    <tr>
+      <td>Part C Problem Sheet Deadlines:</td>
+      <td>Fri noon, weeks 2,4,6 (Sheets 1-3, no hand-in for Sheet 4)</td>
+    </tr>
+    <tr>
+      <td>MSc Classes:</td>
+      <td>Fri 10am (3,5,7,TT1), LG.01</td>
+    </tr>
+    <tr>
+      <td>Part C Revision Classes:</td>
+      <td><strong>Tue 2pm, TT week 3</strong>, SC4 2017 exam</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>Tue 2pm, TT week 5</strong>, SC4 2018 exam</td>
+    </tr>
+    <tr>
+      <td>Part C Consultation Sessions (with class tutors):</td>
+      <td><strong>Mon 10am, TT week 3, LG.05</strong></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td><strong>Mon 10am, TT week 5, LG.05</strong></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="announcements">Announcements</h3>
+<ul>
+  <li><strong>Part C revision classes will be at Tue 2pm in weeks 3 and 5 of Trinity Term.</strong></li>
+  <li><strong>There will be no lecture at Tue 3pm in week 7. Lectures will be held at Thu 4pm (Feb 28th) and Fri 4pm (Mar 1st) that week.</strong></li>
+  <li><strong>Solutions to problem sheets 1-3 will be made available on the course website by the end of HT week 8. Solutions to problem sheet 4 will be made available during TT week 0.</strong></li>
+</ul>
+
+<h3 id="course-materials">Course Materials</h3>
+<p>The course materials will appear here before the course starts. They consist of notes, slides, and <a href="http://jupyter.readthedocs.io/en/latest/install.html">Jupyter</a> notebooks. Notes may not be exhaustive and should be used in conjunction with the slides. All materials may be updated during the course and are thus best read on screen. Please <a href="mailto:dino.sejdinovic@stats.ox.ac.uk?subject=[ATSML_corrections]">email me</a> any typos or corrections.</p>
+
+<h4 id="lecture-notes">Lecture Notes</h4>
+<ul>
+  <li><a href="notes.pdf">pdf</a> - <strong>(last updated on 11/02/2019: fixed typos in Section 8.5)</strong>.</li>
+</ul>
+
+<h4 id="slides">Slides</h4>
+<ul>
+  <li><a href="19_slides1.pdf">Chapter 1: Review of Fundamentals</a></li>
+  <li><a href="19_slides2.pdf">Chapter 2: Support Vector Machines</a></li>
+  <li><a href="19_slides3.pdf">Chapter 3: Kernel Methods</a></li>
+  <li><a href="19_slides4.pdf">Chapter 4: Similarity Graphs and Laplacians</a></li>
+  <li><a href="19_slides5.pdf">Chapter 5: Latent Variable Models and EM Algorithm</a></li>
+  <li><a href="19_slides6.pdf">Chapter 6: Collaborative Filtering</a></li>
+  <li><a href="19_slides7.pdf">Chapter 7: Bayesian Learning</a></li>
+  <li><a href="19_slides8.pdf">Chapter 8: Variational Methods</a></li>
+  <li><a href="19_slides9.pdf">Chapter 9: Gaussian Processes</a></li>
+  <li><a href="19_slides10.pdf">Chapter 10: Bayesian Optimization</a></li>
+</ul>
+
+<h4 id="problem-sheets">Problem Sheets</h4>
+<ul>
+  <li><a href="ATSML1Q.pdf">Problem Sheet 1</a> - due Jan 25th noon,</li>
+  <li><a href="ATSML2Q.pdf">Problem Sheet 2</a> - due Feb 8th noon,</li>
+  <li><a href="ATSML3Q.pdf">Problem Sheet 3</a> - due Feb 22nd noon,</li>
+  <li><a href="ATSML4Q.pdf">Problem Sheet 4</a> - no submissions.</li>
+</ul>
+
+<h4 id="notebooks">Notebooks</h4>
+<ul>
+  <li>Kernel Ridge Regression: <a href="KRR.ipynb">ipynb</a>, <a href="KRR.html">html</a></li>
+  <li>Spectral Clustering: <a href="SpectralClustering.ipynb">ipynb</a>, <a href="SpectralClustering.html">html</a></li>
+  <li>Mixtures: <a href="Mixtures.ipynb">ipynb</a>, <a href="Mixtures.html">html</a></li>
+  <li>CF Movielens: <a href="UBCF_IBCF.ipynb">ipynb</a>, <a href="UBCF_IBCF.html">html</a></li>
+  <li>CF Parliament: <a href="ParliamentData.ipynb">ipynb</a>, <a href="ParliamentData.html">html</a></li>
+</ul>
+
+<h3 id="aims-and-objectives">Aims and objectives:</h3>
+<p>Machine learning is widely used across many scientific and engineering disciplines to construct methods for finding interesting patterns in large datasets, devising complex models and prediction tools. This course introduces several widely used machine learning techniques and describes their underpinning statistical principles and properties. The course studies both unsupervised and supervised learning and several advanced topics are covered in detail, including some state-of-the-art machine learning techniques. The course will also cover computational considerations of machine learning algorithms and how they can scale to large datasets.</p>
+
+<h3 id="prerequisites">Prerequisites:</h3>
+<p><em>A8 Probability</em> and <em>A9 Statistics</em>.<br />
+Some material from this year’s syllabus of <em>SB2.2 Statistical Machine Learning</em>, PCA and the basics of clustering, will be used (which is mainly taught in the first three lectures of SB2.2, also in HT2019), but SB2.2 is not a prerequisite and background notes will be provided.</p>
+
+<h3 id="synopsis">Synopsis:</h3>
+<p>Review of unsupervised and supervised learning.<br />
+Duality in convex optimization and support vector machines.<br />
+Kernel methods and reproducing kernel Hilbert spaces. Representer theorem. Representation of probabilities in RKHS.<br />
+Kernel PCA. Spectral clustering. Manifold regularization.<br />
+Probabilistic and Bayesian machine learning: latent variable models, variational free energy, EM algorithm, mixtures, probabilistic PCA.<br />
+Laplace Approximation. Variational Bayes, Latent Dirichlet Allocation.<br />
+Collaborative filtering models, probabilistic matrix factorization.<br />
+Gaussian processes for regression and classification. Bayesian optimization.</p>
+
+<h3 id="textbooks-and-background-reading">Textbooks and Background Reading</h3>
+<h4 id="recommended-textbooks">Recommended textbooks:</h4>
+<ul>
+  <li>Bishop, <em>Pattern Recognition and Machine Learning</em>, Springer.</li>
+  <li>Murphy, <em>Machine Learning: A Probabilistic Perspective</em>, MIT Press.</li>
+  <li>Hastie, Tibshirani and Friedman, <em>The Elements of Statistical Learning</em>, Springer. <a href="http://www-stat.stanford.edu/%7Etibs/ElemStatLearn/">ebook</a></li>
+  <li>Shalev-Shwartz and Ben-David, <em>Understanding Machine Learning: From Theory to Algorithms</em>, Cambridge University Press.</li>
+</ul>
+
+<h4 id="background-review-aids">Background Review Aids:</h4>
+<ul>
+  <li><a href="http://www.cs.nyu.edu/~roweis/notes/matrixid.pdf">Matrix</a> and <a href="http://www.cs.nyu.edu/~roweis/notes/gaussid.pdf">Gaussian</a> identities - short useful reference for machine learning.</li>
+  <li><a href="http://cs229.stanford.edu/section/cs229-linalg.pdf">Linear Algebra Review and Reference</a>- useful selection for machine learning.</li>
+  <li><a href="http://www.cs.cmu.edu/~zkolter/course/linalg/index.html">Video reviews on Linear Algebra</a> by Zico Kolter</li>
+  <li><a href="https://www.youtube.com/channel/UC7gOYDYEgXG1yIH_rc2LgOw/playlists">Video reviews on Multivariate Calculus and SVD</a> by Aaditya Ramdas</li>
+  <li><a href="http://www2.imm.dtu.dk/pubdb/views/edoc_download.php/3274/pdf/imm3274.pdf">The Matrix Cookbook</a> - extensive reference.</li>
+</ul>
+
+<h3 id="software">Software</h3>
+
+<h4 id="r">R</h4>
+
+<ul>
+  <li><a href="http://cran.r-project.org/">Installation</a></li>
+  <li><a href="a href=&quot;http://cran.r-project.org/doc/manuals/R-intro.pdf">Introduction</a></li>
+</ul>
+
+<h4 id="python">Python</h4>
+
+<ul>
+  <li><a href="https://www.python.org/about/gettingstarted/">Getting started</a></li>
+  <li><a href="http://scikit-learn.org/stable/tutorial/">Scikit-learn tutorials</a></li>
+</ul>
+
+<p>Knowledge of Python is not required for this course, but some descriptive examples in lectures may be done in Python. Students interested in further Python training are referred to the <a href="https://help.it.ox.ac.uk/courses/overview">free University IT online courses</a>.</p>
+
+
+
+      
+
+      
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="https://github.com/sejdino" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/sejdino" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://linkedin.com/in/dinosejdinovic" title="LinkedIn">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">LinkedIn</span>
+   </a>
+  </li><li class="list-inline-item">
+   <a href="https://orcid.org/0000-0001-5547-9213" title="ORCID">
+     <span class="fa-stack fa-lg" aria-hidden="true">
+       <i class="fas fa-circle fa-stack-2x"></i>
+       <i class="fab fa-orcid fa-stack-1x fa-inverse"></i>
+     </span>
+     <span class="sr-only">ORCID</span>
+   </a>
+ </li><li class="list-inline-item">
+    <a href="https://scholar.google.com/citations?user=v8Dg1lIAAAAJ" title="Google Scholar">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Google Scholar</span>
+    </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Dino Sejdinovic
+        &nbsp;&bull;&nbsp;
+      
+      2022
+
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>

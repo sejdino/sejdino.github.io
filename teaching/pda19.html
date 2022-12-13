@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta content="text/html; charset=windows-1252"
+      http-equiv="content-type">
+    <title>Prelims Data Analysis</title>
+  </head>
+  <body>
+    <font face="Helvetica, Arial, sans-serif"> </font>
+    <h1><font face="Helvetica, Arial, sans-serif">Prelims Data Analysis
+        TT 2019</font></h1>
+    <font face="Helvetica, Arial, sans-serif"> </font>
+    <p><font face="Helvetica, Arial, sans-serif">
+	<b>Course lecturer</b>: <a href="http://www.stats.ox.ac.uk/~sejdinov/">Prof Dino Sejdinovic</a>. The course and all course materials were designed by <a href="https://jmarchini.org/">Prof Jonathan Marchini</a>.<br><br>
+      <a href="https://courses.maths.ox.ac.uk/node/37534">The course synopsis</a>
+    </font></p>
+    
+<p><font face="Helvetica, Arial, sans-serif"><br>	
+The aim of the Data Analysis course
+        is to introduce students to the theory and practice of <b>
+          unsupervised learning</b>. <br>
+      </font> <font face="Helvetica, Arial, sans-serif"><br>
+        Unsupervised learning can be described as finding structure in
+        datasets, and has applications in many areas such as finance,
+        retail, medical imaging, sports performance analysis, genetics,
+        medicine, studies of the environment and social networks.<br>
+      </font> </p>
+    <font face="Helvetica, Arial, sans-serif"> </font>
+    <p><font face="Helvetica, Arial, sans-serif">Unsupervised learning methods are important parts of 
+<a href="https://en.wikipedia.org/wiki/Computational_statistics">Computational Statistics</a>,
+<a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a>,
+<a href="https://en.wikipedia.org/wiki/Artificial_intelligence"> Artificial Intelligence</a>, and
+<a href="https://en.wikipedia.org/wiki/Big_data">Big Data</a>.
+
+<br></font> </p>
+    <font face="Helvetica, Arial, sans-serif"> </font>
+    <h3><font color="#006600" face="Helvetica, Arial, sans-serif">Motivating
+
+
+
+
+
+
+
+
+        example</font><font face="Helvetica, Arial, sans-serif"><br>
+      </font> </h3>
+    <font face="Helvetica, Arial, sans-serif"> </font>
+    <table border="0" cellpadding="2" cellspacing="2" width="100%"
+      height="491">
+      <tbody>
+        <tr>
+          <td valign="top" align="center">
+            <div align="left"><font face="Helvetica, Arial, sans-serif"><b>Raw
+
+
+
+
+
+
+
+
+                  dataset</b> : 300 x 8686 matrix of gene expression
+                measurements from <br>
+              </font> <font face="Helvetica, Arial, sans-serif"><br>
+              </font> <font face="Helvetica, Arial, sans-serif"><a
+                  href="http://www.nature.com/nbt/journal/v32/n10/abs/nbt.2967.html">Pollen
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  et al (2014) Nature Biotechnology 32, 1053-1058</a><a
+href="http://www.nature.com/nbt/journal/v32/n10/abs/nbt.2967.html"><span
+                    style="color: rgb(51, 51, 51); font-family: arial,
+                    helvetica, '&#65325;&#65331; &#65328;&#12468;&#12471;&#12483;&#12463;', '&#65325;&#65331; &#12468;&#12471;&#12483;&#12463;', Osaka, 'MS
+                    PGothic', sans-serif; font-size: 14.495px;
+                    font-style: normal; font-variant: normal;
+                    font-weight: normal; letter-spacing: normal;
+                    line-height: 23.9167px; orphans: auto; text-align:
+                    start; text-indent: 0px; text-transform: none;
+                    white-space: normal; widows: 1; word-spacing: 0px;
+                    -webkit-text-stroke-width: 0px; display: inline
+                    !important; float: none; background-color: rgb(255,
+                    255, 255);"><span class="Apple-converted-space"> </span></span><span
+                    style="color: rgb(51, 51, 51); font-family: arial,
+                    helvetica, '&#65325;&#65331; &#65328;&#12468;&#12471;&#12483;&#12463;', '&#65325;&#65331; &#12468;&#12471;&#12483;&#12463;', Osaka, 'MS
+                    PGothic', sans-serif; font-size: 14.495px;
+                    font-style: normal; font-variant: normal;
+                    font-weight: normal; letter-spacing: normal;
+                    line-height: 23.9167px; orphans: auto; text-align:
+                    start; text-indent: 0px; text-transform: none;
+                    white-space: normal; widows: 1; word-spacing: 0px;
+                    -webkit-text-stroke-width: 0px; display: inline
+                    !important; float: none; background-color: rgb(255,
+                    255, 255);"></span></a><span style="font-weight:
+                  normal;"></span><a
+                  href="http://www.nature.com/nbt/journal/v32/n10/abs/nbt.2967.html"><span
+                    style="color: rgb(51, 51, 51); font-family: arial,
+                    helvetica, '&#65325;&#65331; &#65328;&#12468;&#12471;&#12483;&#12463;', '&#65325;&#65331; &#12468;&#12471;&#12483;&#12463;', Osaka, 'MS
+                    PGothic', sans-serif; font-size: 14.495px;
+                    font-style: normal; font-variant: normal;
+                    font-weight: normal; letter-spacing: normal;
+                    line-height: 23.9167px; orphans: auto; text-align:
+                    start; text-indent: 0px; text-transform: none;
+                    white-space: normal; widows: 1; word-spacing: 0px;
+                    -webkit-text-stroke-width: 0px; display: inline
+                    !important; float: none; background-color: rgb(255,
+                    255, 255);"><span class="Apple-converted-space"></span></span></a><br>
+              </font> <font face="Helvetica, Arial, sans-serif"><br>
+                Viewing the raw data it is very difficult to see any
+                clear structure or similarity between the samples.<br>
+              </font> <font face="Helvetica, Arial, sans-serif"><br>
+              </font> <font face="Helvetica, Arial, sans-serif"><br>
+              </font> </div>
+            <font face="Helvetica, Arial, sans-serif"><img alt=""
+                src="gene_X.png" width="416" height="276"><br>
+            </font> </td>
+          <td valign="top"><font face="Helvetica, Arial, sans-serif"><b>3D
+
+
+
+
+
+
+
+
+                Projection and clustering </b>: The method of Principal
+              Components Analysis (PCA) has been applied to the dataset
+              in order to uncover structure. A clustering method
+              (k-means) has then been applied to group observations in
+              distinct groupings or clusters. <br>
+            </font> <font face="Helvetica, Arial, sans-serif"><br>
+              Students will learn the theory and practical skills to
+              reproduce this analysis.<br>
+            </font>
+            <div align="left"><font face="Helvetica, Arial, sans-serif"><img
+                  alt="" src="movie.gif" width="390"
+                  height="417"><br>
+              </font> </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <font face="Helvetica, Arial, sans-serif"> <br>
+    </font>
+    <h3>
+      <font face="Helvetica, Arial, sans-serif"> <font color="#006600"><span
+            style="font-weight: bold;">Course notes, Lectures and
+            Exercise Sheets</span></font> </font></h3>
+ 
+    <font face="Helvetica, Arial, sans-serif"> Course
+      notes, lecture slides and exercise sheets will be available <a href="https://courses.maths.ox.ac.uk/node/37534/materials">here</a>.<br>
+    </font>
+
+    <h3><font color="#006600" face="Helvetica, Arial, sans-serif">Optional
+
+
+
+
+
+
+
+
+        exercises in R<br>
+      </font></h3>
+    <font face="Helvetica, Arial, sans-serif"> Each exercise sheet will
+      contain a mix of written and optional questions using R.<br>
+      <br>
+      It is up to each college tutor to decide whether students should
+      attempt these questions, but it is <b>strongly recommended</b>,
+      as these questions will help with understanding of the theory. <br>
+      <br>
+      Modern statistics is pervasive in the era of "Big Data". The
+      majority of Maths graduates will go on to careers that involve
+      some use of data, so a firm practical grounding in statistical
+      analysis is highly valuable. An aim of this course is to get
+      students started on being able to independently carry out
+      statistical data analysis.<br>
+      <br>
+      As many student will not have worked with R, here is a short
+      tutorial document that will introduce R, show students how to
+      install R and get started with some basics. <br>
+      <br>
+      <a
+        href="http://www.stats.ox.ac.uk/%7Esejdinov/teaching/R_Intro.pdf">R_intro.pdf</a><br>
+    </font>
+    <h3><font color="#006600" face="Helvetica, Arial, sans-serif">Future
+        Courses</font></h3>
+    <font face="Helvetica, Arial, sans-serif"> </font>
+    <p><font face="Helvetica, Arial, sans-serif">This course leads onto
+        several more advanced courses in future years that students
+        should consider if they wish to learn more about Statistical
+        Data Analysis, Machine Learning, Big Data and Artificial
+        Intelligence.<br>
+      </font> </p>
+    <font face="Helvetica, Arial, sans-serif"> </font>
+    <table border="1" cellpadding="2" cellspacing="2" width="100%">
+      <tbody>
+        <tr>
+          <td valign="top"><font face="Helvetica, Arial, sans-serif">Part
+
+
+
+
+
+
+
+
+              A<br>
+            </font> </td>
+          <td valign="top"><font face="Helvetica, Arial, sans-serif">Part
+
+
+
+
+
+
+
+
+              B<br>
+            </font> </td>
+          <td valign="top"><font face="Helvetica, Arial, sans-serif">Part
+
+
+
+
+
+
+
+
+              C<br>
+            </font> </td>
+        </tr>
+        <tr>
+          <td valign="top"><font face="Helvetica, Arial, sans-serif"><a
+                href="https://courses.maths.ox.ac.uk/node/5443">Probability</a><br>
+            </font> <font face="Helvetica, Arial, sans-serif"><a
+                href="https://courses.maths.ox.ac.uk/node/5449">Statistics</a><br>
+              <a href="http://www.stats.ox.ac.uk/%7Eberestyc/teaching/A12.html">Simulation</a> and <a
+                href="http://www.stats.ox.ac.uk/~nicholls/PartASSP/">Statistical
+                Programming</a><br>
+            </font> </td>
+          <td valign="top"><font face="Helvetica, Arial, sans-serif"><a
+href="http://www.stats.ox.ac.uk/%7Eberestyc/teaching/SB2a.html">Foundations of Statistical Inference</a>
+            <br></font><font face="Helvetica, Arial, sans-serif"><a
+                href="http://www.stats.ox.ac.uk/%7Epalamara/teaching/SML19/SML19.html">Statistical Machine Learning</a><br>
+            </font> </td>
+          <td valign="top"><font face="Helvetica, Arial, sans-serif"><a
+                href="http://www.stats.ox.ac.uk/%7Esejdinov/atsml19/">Advanced Topics in Statistical Machine Learning</a><br>
+            </font> <font face="Helvetica, Arial, sans-serif"><a
+                href="http://www.stats.ox.ac.uk/~deligian/teaching/">Advanced Simulation Methods</a><br>
+            </font><font face="Helvetica, Arial, sans-serif"><a
+                href="http://www.stats.ox.ac.uk/~rebeschi/teaching/AFoL/18/">Algorithmic Foundations of Learning</a><br>
+            </font>  
+		</td>
+        </tr>
+      </tbody>
+    </table>
+    <font face="Helvetica, Arial, sans-serif"> </font>
+    <h3><font color="#006600" face="Helvetica, Arial, sans-serif">Book</font></h3>
+    <font face="Helvetica, Arial, sans-serif"> The following book gives
+      a good overview of the methods covered in this course<br>
+      <br>
+      This book is freely available online here <a
+        href="http://www-bcf.usc.edu/%7Egareth/ISL/">http://www-bcf.usc.edu/~gareth/ISL/</a><br>
+      <br>
+      G. James, D. Witten, T. Hastie, R. Tibshirani<span
+        class="Apple-converted-space">&nbsp;</span><i>An Introduction to
+        Statistical Learning</i><span class="Apple-converted-space">&nbsp;</span>(with
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      Applications in R) (Springer 2013) <br>
+      <br>
+      Chapter 10 covers unsupervised learning. </font>
+    <meta charset="utf-8">
+    <h3><font face="Helvetica, Arial, sans-serif"><br>
+      </font> </h3>
+    <font face="Helvetica, Arial, sans-serif"> <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </font>
+  </body>
+</html>

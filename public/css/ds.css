@@ -1,0 +1,23 @@
+
+.social-icons img {
+    width: 32px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.social-icons ul {
+    text-align: center;
+    list-style: none;
+}
+
+.social-icons li {
+    margin: 0;
+    float: left;	
+}
+
+.centered-div {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+

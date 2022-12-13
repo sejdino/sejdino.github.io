@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Talks</title>
+
+  
+  <meta name="author" content="Dino Sejdinovic">
+  
+
+  <meta name="description" content="| 2022/06/01 | CSIRO's Machine Learning and Artificial Intelligence Future Science Platform Conference, MARS 2022 (remotely) | Developments at the Interface Between Kernel Embeddings and Gaussian Processes | [video](https://vimeo.com/747097714/225e3c4b3c), [slides](pdf/2022-MARS.pdf)| | 2021/12/02 | Secondmind, Cambridge (remotely) | Developments at the Interface Between Kernel Embeddings and Gaussian Processes | [video](https://www.youtube.com/watch?v=63zYSzxAYag)| |...">
+
+  
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Home" href="https://sejdino.github.io/feed.xml">
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Home">
+  <meta property="og:title" content="Talks">
+  <meta property="og:description" content="| 2022/06/01 | CSIRO's Machine Learning and Artificial Intelligence Future Science Platform Conference, MARS 2022 (remotely) | Developments at the Interface Between Kernel Embeddings and Gaussian Processes | [video](https://vimeo.com/747097714/225e3c4b3c), [slides](pdf/2022-MARS.pdf)| | 2021/12/02 | Secondmind, Cambridge (remotely) | Developments at the Interface Between Kernel Embeddings and Gaussian Processes | [video](https://www.youtube.com/watch?v=63zYSzxAYag)| |...">
+
+  
+  <meta property="og:image" content="https://sejdino.github.io/img/dino.jpg">
+  
+
+  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sejdino.github.io/talks/">
+  <link rel="canonical" href="https://sejdino.github.io/talks/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@sejdino">
+  <meta name="twitter:creator" content="@sejdino">
+
+  <meta property="twitter:title" content="Talks">
+  <meta property="twitter:description" content="| 2022/06/01 | CSIRO's Machine Learning and Artificial Intelligence Future Science Platform Conference, MARS 2022 (remotely) | Developments at the Interface Between Kernel Embeddings and Gaussian Processes | [video](https://vimeo.com/747097714/225e3c4b3c), [slides](pdf/2022-MARS.pdf)| | 2021/12/02 | Secondmind, Cambridge (remotely) | Developments at the Interface Between Kernel Embeddings and Gaussian Processes | [video](https://www.youtube.com/watch?v=63zYSzxAYag)| |...">
+
+  
+  <meta name="twitter:image" content="https://sejdino.github.io/img/dino.jpg">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="https://sejdino.github.io/">Home</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/publications">Publications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/group">Group</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/talks">Talks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/teaching">Teaching</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Links</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="http://csml.stats.ox.ac.uk/">OxCSML</a>
+                  <a class="dropdown-item" href="https://statml.io/">StatML</a>
+                  <a class="dropdown-item" href="https://imiracli.web.ox.ac.uk/">iMiracli</a>
+                  <a class="dropdown-item" href="https://ellis.eu/">ELLIS</a>
+            </div>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/biography">About Me</a>
+          </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="https://sejdino.github.io/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/img/dino.jpg" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="page-heading">
+          <h1>Talks</h1>
+          
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md " role="main">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+      
+
+      <table>
+  <tbody>
+    <tr>
+      <td>2022/06/01</td>
+      <td>CSIRO’s Machine Learning and Artificial Intelligence Future Science Platform Conference, MARS 2022 (remotely)</td>
+      <td>Developments at the Interface Between Kernel Embeddings and Gaussian Processes</td>
+      <td><a href="https://vimeo.com/747097714/225e3c4b3c">video</a>, <a href="pdf/2022-MARS.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2021/12/02</td>
+      <td>Secondmind, Cambridge (remotely)</td>
+      <td>Developments at the Interface Between Kernel Embeddings and Gaussian Processes</td>
+      <td><a href="https://www.youtube.com/watch?v=63zYSzxAYag">video</a></td>
+    </tr>
+    <tr>
+      <td>2019/06/19</td>
+      <td>London Machine Learning Meetup</td>
+      <td>Kernel Embeddings, Meta Learning, and Distributional Transfer</td>
+      <td><a href="https://www.youtube.com/watch?v=vjG-2RjHnAA">video</a></td>
+    </tr>
+    <tr>
+      <td>2019/06/07</td>
+      <td>DeepMind, London</td>
+      <td>Kernel Embeddings, Meta Learning, and Distributional Transfer</td>
+      <td><a href="pdf/2019-06-07_deepmind.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2019/03/28</td>
+      <td><a href="https://ismseminar.github.io/fimi2019/">Workshop on Functional Inference and Machine Intelligence</a>, ISM Tokyo</td>
+      <td>Hyperparameter Learning via Distributional Transfer</td>
+      <td><a href="pdf/2019-03-28_ISM.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2019/02/26</td>
+      <td>2nd <a href="http://isp.uv.es/kermes.html">KERMES</a> Workshop, UPM Madrid</td>
+      <td>Learning on Aggregate Outputs with Kernels</td>
+      <td><a href="pdf/2019-02-26_Madrid.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2018/11/28</td>
+      <td>Machine Learning Tutorial, Department of Computing, Imperial College London</td>
+      <td>Kernel Methods, Embeddings, and Aggregates</td>
+      <td><a href="pdf/2018-11-28_imperialtutorial.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2018/09/06</td>
+      <td><a href="http://gpss.cc/gpss18/workshop.html">Advances in Kernel Methods Workshop</a>, Gaussian Process Summer School, Sheffield</td>
+      <td>Approximate Kernel Methods and Learning on Aggregates</td>
+      <td><a href="http://gpss.cc/gpss18/slides/Sejdinovic2018.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2017/05/06</td>
+      <td><a href="http://lcsl.mit.edu/courses/regml/regml2017/">RegML 2017 Workshop</a>, Oslo</td>
+      <td>Learning with Approximate Kernel Embeddings</td>
+      <td><a href="pdf/2017-05-06_Oslo.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2017/03/23</td>
+      <td><a href="http://www.lancaster.ac.uk/maths/stats_learning_workshop/">Statistical Learning Workshop</a>, Lancaster</td>
+      <td>Learning with Approximate Kernel Embeddings</td>
+      <td><a href="pdf/2017-03-23_Lancaster.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2016/11/28</td>
+      <td><a href="http://www.dagstuhl.de/16481">Dagstuhl Workshop: New Directions for Learning with Kernels and Gaussian Processes</a></td>
+      <td>Kernel Embeddings and Gaussian Processes</td>
+      <td><a href="http://materials.dagstuhl.de/files/16/16481/16481.DinoSejdinovic.Slides.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2016/10/07</td>
+      <td><a href="http://www.oxwasp-cdt.ac.uk/workshop-2016.html">OxWaSP Workshop</a>, Warwick</td>
+      <td>Inference with Kernel Embeddings</td>
+      <td><a href="pdf/2016-10-07_Warwick.pdf">slides</a>, <a href="https://youtu.be/bnT0MH8uZl8">video</a></td>
+    </tr>
+    <tr>
+      <td>2016/09/13</td>
+      <td><a href="https://www.sustain.bris.ac.uk/ws-final/">SuSTaIn Closing Workshop</a>, Bristol</td>
+      <td>Inference with Kernel Embeddings</td>
+      <td><a href="pdf/2016-09-13_SuSTaInBristol.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2016/09/07</td>
+      <td>RSS 2016 Conference, Manchester</td>
+      <td>Inference with Kernel Embeddings</td>
+      <td><a href="pdf/2016-09-07_RSSManchester.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2016/03/30</td>
+      <td>The Institute of Statistical Mathematics, Tokyo</td>
+      <td>Kernel Embeddings for Inference with Intractable Likelihoods</td>
+      <td><a href="pdf/2016-03-30_ISMTokyo.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2015/06/22</td>
+      <td>Dept of Power, Electronics and Communication Engineering, University of Novi Sad</td>
+      <td>Tutorial on Statistical Machine Learning</td>
+      <td>slides: <a href="pdf/2015-06-22_NoviSad.pdf">1</a>, <a href="pdf/2015-06-23_NoviSad.pdf">2</a></td>
+    </tr>
+    <tr>
+      <td>2015/04/09</td>
+      <td><a href="http://www.dagstuhl.de/15152">Dagstuhl Seminar</a> on Machine Learning with Interdependent and Non-identically Distributed Data</td>
+      <td>Hypothesis Testing with Kernel Embeddings on Interdependent Data</td>
+      <td><a href="pdf/2015-04-09_Dagstuhl.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2015/02/06</td>
+      <td>Dept of Statistics, London School of Economics</td>
+      <td>Hypothesis Testing with Kernel Embeddings on Big and Interdependent Data</td>
+      <td><a href="pdf/2015-02-06_LSE.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2015/01/09</td>
+      <td>UCL Workshop on the Theory of Big Data</td>
+      <td>Big Hypothesis Testing with Kernel Embeddings</td>
+      <td><a href="pdf/2015-01-09_UCLBDW.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2014/11/18</td>
+      <td>Oxford-Warwick Statistics CDT (OxWaSP)</td>
+      <td>Kernel Methods and Hypothesis Testing</td>
+      <td><a href="pdf/2014-11-18_oxwasp.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2014/07/29</td>
+      <td>Dept of Software Engineering and Theoretical Computer Science, TU Berlin</td>
+      <td>Kernel Adaptive Metropolis-Hastings</td>
+      <td><a href="pdf/2014-07-29_TUBerlin.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2014/07/28</td>
+      <td><a href="http://www.shogun-toolbox.org/page/Events/workshop2014_program">The Shogun Machine Learning Toolbox Workshop 2014</a>, Berlin, Germany</td>
+      <td>Kernel Hypothesis Testing and Feature Selection</td>
+      <td><a href="pdf/2014-07-28_Shogun.pdf">slides</a>, <a href="https://www.youtube.com/watch?v=L25zCJcPadU">video</a></td>
+    </tr>
+    <tr>
+      <td>2014/03/31</td>
+      <td><a href="http://math.univ-lille1.fr/~jacques/KernelMethod-Lille-2014.html">Workshop on Kernel Methods for Big Data</a>, Lille, France</td>
+      <td>MCMC Kameleon: Kernel Adaptive Metropolis-Hastings</td>
+      <td><a href="pdf/2014-03-31_Lille.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2014/03/20</td>
+      <td><a href="http://www.i-like.org.uk/i-like-workshop-oxford.html">Workshop on Intractable Likelihoods</a>, St Anne’s College, University of Oxford</td>
+      <td>MCMC Kameleon: Kernel Adaptive Metropolis-Hastings</td>
+      <td><a href="pdf/2014-03-19_kameleon-mcmc.pdf">poster</a></td>
+    </tr>
+    <tr>
+      <td>2013/12/07</td>
+      <td>NIPS 2013, Lake Tahoe, NV</td>
+      <td>A kernel test for three-variable interactions</td>
+      <td><a href="pdf/NIPS13_slides.pdf">slides</a>, <a href="http://www.youtube.com/watch?v=sD8-knSuTng">video</a>, <a href="pdf/NIPS13_poster.pdf">poster</a></td>
+    </tr>
+    <tr>
+      <td>2012/11/12</td>
+      <td>Dept of Statistical Science, UCL</td>
+      <td>Hypothesis testing with kernel embeddings</td>
+      <td><a href="pdf/StatisticsUCL_talk_Nov12.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2012/10/26</td>
+      <td><a href="http://www.csml.ucl.ac.uk/events/73">CSML Lunch Talk</a>, UCL</td>
+      <td>Equivalence of distance-based and RKHS-based statistics in hypothesis testing</td>
+      <td><a href="pdf/CSML_Seminar.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2012/10/24</td>
+      <td>Gatsby Machine Learning Journal Club, UCL</td>
+      <td>Topology and data</td>
+      <td><a href="pdf/TDA_MLJC.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2012/06/27</td>
+      <td><a href="http://www.icml.cc/2012/">ICML 2012</a>, Edinburgh</td>
+      <td>Hypothesis testing using pairwise distances and associated kernels</td>
+      <td><a href="pdf/ICML2012.pdf">slides</a>, <a href="http://techtalks.tv/talks/57320/">video</a></td>
+    </tr>
+    <tr>
+      <td>2012/04/13</td>
+      <td>Signal Processing and Communications Laboratory, University of Cambridge</td>
+      <td>Combinatorial channel signature modulation for wireless networks</td>
+      <td><a href="pdf/2012-02-08_Cambridge.pdf">slides</a></td>
+    </tr>
+    <tr>
+      <td>2011/07/14</td>
+      <td>Dept of Electrical and Electronic Engineering, Imperial College London</td>
+      <td>Nonparametric changepoint detection via string matching</td>
+      <td><a href="pdf/2011-07-14_Imperial.pdf">slides</a></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+      
+
+      
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="https://github.com/sejdino" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/sejdino" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://linkedin.com/in/dinosejdinovic" title="LinkedIn">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">LinkedIn</span>
+   </a>
+  </li><li class="list-inline-item">
+   <a href="https://orcid.org/0000-0001-5547-9213" title="ORCID">
+     <span class="fa-stack fa-lg" aria-hidden="true">
+       <i class="fas fa-circle fa-stack-2x"></i>
+       <i class="fab fa-orcid fa-stack-1x fa-inverse"></i>
+     </span>
+     <span class="sr-only">ORCID</span>
+   </a>
+ </li><li class="list-inline-item">
+    <a href="https://scholar.google.com/citations?user=v8Dg1lIAAAAJ" title="Google Scholar">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fa fa-graduation-cap fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Google Scholar</span>
+    </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Dino Sejdinovic
+        &nbsp;&bull;&nbsp;
+      
+      2022
+
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
