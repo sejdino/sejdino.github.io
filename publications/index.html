@@ -4385,7 +4385,7 @@ ol.bibliography > li {
 		}
 </style>
 
-<h3 class="bibliography" style="counter-reset:bibitem 133">Preprints</h3>
+<h3 class="bibliography" style="counter-reset:bibitem 136">Preprints</h3>
 
 <!--### Preprints-->
 <ol class="bibliography"><li><span id="BouFawSej2023">S. Bouabid, J. Fawkes, and D. Sejdinovic, <b>Returning The Favour: When Regression Benefits From Probabilistic Causal Knowledge</b>, <i>ArXiv e-prints:2301.11214</i>, 2023.</span>
@@ -9278,7 +9278,95 @@ Window Fountain (EWF) codes as a scalable and efficient solution for real-time m
 </li></ol>
 
 <h3 id="selected-non-archival-papers-and-abstracts">Selected Non-Archival Papers and Abstracts</h3>
-<ol class="bibliography"><li><span id="BouWatSej2022w">S. Bouabid, D. Watson-Parris, and D. Sejdinovic, <b>Bayesian Inference for Aerosol Vertical Profiles</b>, in <i>NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning</i>, 2022.</span>
+<ol class="bibliography"><li><span id="BouSejWat2023">S. Bouabid, D. Sejdinovic, and D. Watson-Parris, <b>Probabilistic climate emulation with physics-constrained Gaussian processes</b>, in <i>EGU General Assembly</i>, 2023, EGU23–15660.</span>
+
+<span id="BouSejWat2023_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#BouSejWat2023_abstract" data-toggle="collapse" href="#BouSejWat2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#BouSejWat2023_bibtex" data-toggle="collapse" href="#BouSejWat2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+    <li><a class="bib-materials" href="https://meetingorganizer.copernicus.org/EGU23/EGU23-15660.html" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="BouSejWat2023_abstract" class="collapse">Emulators, or reduced complexity climate models, are surrogate Earth system models that produce projections of key climate quantities with minimal computational resources. Using time-series modeling or more advanced machine learning techniques, statistically-driven emulators have emerged as a promising venue, producing spatially resolved climate responses that are visually indistinguishable from state-of-the-art Earth system models. Yet, their lack of physical interpretability limits their wider adoption. In fact, the exploration of future emission scenarios still relies on one-dimensional energy balance models which can lack the flexibility to capture certain climate responses. Here, we propose a statistically-driven emulator that hinges on an energy balance model. Using Gaussian processes, we formulate an emulator of temperature response that exactly satisfies the physical thermal response equations of an energy balance model. The result is an emulator that (1) enjoys the flexibility of statistical machine learning models and can be fitted against observations to produce spatially-resolved predictions (2) has physically-interpretable parameters that can be used to make inference about the climate system. This model shows skilfull prediction of annual mean global distribution of temperature, even over scenarios outside the range of observed emissions of greenhouse gases and aerosols during training — improvement in RMSE of 27% against the energy balance model and of 60% against a physics-free machine learning model. In addition, the Bayesian nature of our formulation provides a principled way to perform uncertainty quantification on the predictions. We outline how the probabilistic nature of this emulator makes it a natural candidate for detection and attribution studies and discuss extension to a precipitation emulator also incorporating physical constraints. We hope that by combining the ability of machine learning techniques to capture complex patterns with the interpretability of energy balance models, our work will produce a reliable tool for efficiently and accurately exploring future climates.</p>
+  
+
+  <pre id="BouSejWat2023_bibtex" class="pre pre-scrollable collapse">@inproceedings{BouSejWat2023,
+  author = {Bouabid, S. and Sejdinovic, D. and Watson-Parris, D.},
+  title = {{{Probabilistic climate emulation with physics-constrained Gaussian processes}}},
+  booktitle = {EGU General Assembly},
+  year = {2023},
+  pages = {EGU23--15660},
+  keywords = {nonarch},
+  url = {https://meetingorganizer.copernicus.org/EGU23/EGU23-15660.html}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="LenQuaSej2023">J. Lenhardt, J. Quaas, and D. Sejdinovic, <b>From MODIS cloud properties to cloud types using semi-supervised learning</b>, in <i>EGU General Assembly</i>, 2023, EGU23–13250.</span>
+
+<span id="LenQuaSej2023_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#LenQuaSej2023_abstract" data-toggle="collapse" href="#LenQuaSej2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#LenQuaSej2023_bibtex" data-toggle="collapse" href="#LenQuaSej2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+    <li><a class="bib-materials" href="https://meetingorganizer.copernicus.org/EGU23/EGU23-13250.html" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="LenQuaSej2023_abstract" class="collapse">Clouds are classified into types, classes, or regimes. The World Meteorological Organization distinguishes stratus and cumulus clouds and three altitude layers. Cloud types exhibit very different radiative properties and interact in numerous ways with aerosol particles in the atmosphere. However, it has proven difficult to define cloud regimes objectively and from remote sensing data, hindering the understanding we have of the processes and adjustments involved. Building on the method we previously developed, we combine synoptic observations and passive satellite remote-sensing retrievals to constitute a database of cloud types and cloud properties to eventually train a cloud classification algorithm. The cloud type labels come from the global marine meteorological observations dataset (UK Met Office, 2006) which is comprised of near-global synoptic observations. This data record reports back information about cloud type and other meteorological quantities at the surface. The cloud classification model is built on different cloud-top and cloud optical properties (Level 2 products MOD06/MYD06 from the MODIS sensor) extracted temporally close to the observation time and on a 128km x 128km grid around the synoptic observation location. To make full use of the large quantity of remote sensing data available and to investigate the variety in cloud settings, a convolutional variational auto-encoder (VAE) is applied as a dimensionality reduction tool in a first step. Furthermore, such model architecture allows to account for spatial relationships while describing non-linear patterns in the input data. The cloud classification task is subsequently performed drawing on the constructed latent representation of the VAE. Associating information from underneath and above the cloud enables to build a robust model to classify cloud types. For the training we specify a study domain in the Atlantic ocean around the equator and evaluate the method globally. Further experiments and evaluation are done on simulation data produced by the ICON model.</p>
+  
+
+  <pre id="LenQuaSej2023_bibtex" class="pre pre-scrollable collapse">@inproceedings{LenQuaSej2023,
+  author = {Lenhardt, J. and Quaas, J. and Sejdinovic, D.},
+  title = {{{From MODIS cloud properties to cloud types using semi-supervised learning}}},
+  booktitle = {EGU General Assembly},
+  year = {2023},
+  pages = {EGU23--13250},
+  keywords = {nonarch},
+  url = {https://meetingorganizer.copernicus.org/EGU23/EGU23-13250.html}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="BouWatSej2022w">S. Bouabid, D. Watson-Parris, and D. Sejdinovic, <b>Bayesian Inference for Aerosol Vertical Profiles</b>, in <i>NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning</i>, 2022.</span>
 
 <span id="BouWatSej2022w_materials">
   <ul class="nav nav-pills">
@@ -9316,6 +9404,51 @@ Window Fountain (EWF) codes as a scalable and efficient solution for real-time m
   url = {https://www.climatechange.ai/papers/neurips2022/4},
   keywords = {nonarch},
   year = {2022}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="LenQuaSej2022">J. Lenhardt, J. Quaas, and D. Sejdinovic, <b>Combining cloud properties and synoptic observations to predict cloud base height using machine learning</b>, in <i>EGU General Assembly</i>, 2022, EGU22–7355.</span>
+
+<span id="LenQuaSej2022_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#LenQuaSej2022_abstract" data-toggle="collapse" href="#LenQuaSej2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#LenQuaSej2022_bibtex" data-toggle="collapse" href="#LenQuaSej2022" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+    <li><a class="bib-materials" href="https://doi.org/10.5194/egusphere-egu22-7355" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="LenQuaSej2022_abstract" class="collapse">Cloud base height (CBH) is an important geometric parameter of a cloud and shapes its radiative properties. The CBH is also further of practical interest in the aviation community regarding pilot visibility and aircraft icing hazards. While the cloud-top height has been successfully derived from passive imaging radiometers on satellites during recent years, the derivation of the CBH remains a more difficult challenge with these same retrievals. In our study we combine surface observations and passive satellite remote-sensing retrievals to create a database of CBH labels and cloud properties to ultimately train a machine learning model predicting CBH. The labels come from the global marine meteorological observations dataset (UK Met Office, 2006) which consists of near-global synoptic observations made on sea. This data set provides information about CBH, cloud type, cloud cover and other meteorological surface quantities with CBH being the main interest here. The features based upon which the machine learning model is trained consist in different cloud-top and cloud optical properties (Level 2 products MOD06/MYD06 from the MODIS sensor) extracted on a 127km x 127km grid around the synoptic observation point. To study the large diversity in cloud scenes, an auto-encoder architecture is chosen. The regression task is then carried out in the modelled latent space which is output by the encoder part of the model. To account for the spatial relationships in our input data the model architecture is based on Convolutional Neural Networks. We define a study domain in the Atlantic ocean, around the equator. The combination of information from below and over the cloud could allow us to build a robust model to predict CBH and then extend predictions to regions where surface measurements are not available.</p>
+  
+
+  <pre id="LenQuaSej2022_bibtex" class="pre pre-scrollable collapse">@inproceedings{LenQuaSej2022,
+  author = {Lenhardt, J. and Quaas, J. and Sejdinovic, D.},
+  title = {{{Combining cloud properties and synoptic observations to predict cloud base height using machine learning}}},
+  booktitle = {EGU General Assembly},
+  year = {2022},
+  pages = {EGU22--7355},
+  keywords = {nonarch},
+  doi = {10.5194/egusphere-egu22-7355},
+  url = {https://doi.org/10.5194/egusphere-egu22-7355}
 }
 </pre>
 
