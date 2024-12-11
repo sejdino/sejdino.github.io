@@ -244,6 +244,48 @@
 
 </span>
 </li>
+<li><span id="Doanetal2025">B. G. Doan, A. Shamsi, X.-Y. Guo, A. Mohammadi, H. Alinejad-Rokny, D. Sejdinovic, D. C. Ranasinghe, and E. Abbasnejad, <b>Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian Neural Networks</b>, in <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 2025.</span>
+
+<span id="Doanetal2025_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#Doanetal2025_abstract" data-toggle="collapse" href="#Doanetal2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#Doanetal2025_bibtex" data-toggle="collapse" href="#Doanetal2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2407.20891" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="Doanetal2025_abstract" class="collapse">Computational complexity of Bayesian learning is impeding its adoption in practical, large-scale tasks. Despite demonstrations of significant merits such as improved robustness and resilience to unseen or out-of-distribution inputs over their non- Bayesian counterparts, their practical use has faded to near insignificance. In this study, we introduce an innovative framework to mitigate the computational burden of Bayesian neural networks (BNNs). Our approach follows the principle of Bayesian techniques based on deep ensembles, but significantly reduces their cost via multiple low-rank perturbations of parameters arising from a pre-trained neural network. Both vanilla version of ensembles as well as more sophisticated schemes such as Bayesian learning with Stein Variational Gradient Descent (SVGD), previously deemed impractical for large models, can be seamlessly implemented within the proposed framework, called Bayesian Low-Rank LeArning (Bella). In a nutshell, i) Bella achieves a dramatic reduction in the number of trainable parameters required to approximate a Bayesian posterior; and ii) it not only maintains, but in some instances, surpasses the performance of conventional Bayesian learning methods and non-Bayesian baselines. Our results with large-scale tasks such as ImageNet, CAMELYON17, DomainNet, VQA with CLIP, LLaVA demonstrate the effectiveness and versatility of Bella in building highly scalable and practical Bayesian deep models for real-world applications.</p>
+  
+
+  <pre id="Doanetal2025_bibtex" class="pre pre-scrollable collapse">@inproceedings{Doanetal2025,
+  title = {Bayesian {{Low-Rank LeArning}} ({{Bella}}): {{A Practical Approach}} to {{Bayesian Neural Networks}}},
+  author = {Doan, Bao Gia and Shamsi, Afshar and Guo, Xiao-Yu and Mohammadi, Arash and {Alinejad-Rokny}, Hamid and Sejdinovic, Dino and Ranasinghe, Damith C. and Abbasnejad, Ehsan},
+  year = {2025},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  arxiv = {https://arxiv.org/abs/2407.20891}
+}
+</pre>
+
+</span>
+</li>
 <li><span id="OliSejHowBon2024">R. Oliveira, D. Sejdinovic, D. Howard, and E. Bonilla, <b>Bayesian Adaptive Calibration and Optimal Design</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2024.</span>
 
 <span id="OliSejHowBon2024_materials">
@@ -5202,10 +5244,52 @@ ol.bibliography > li {
 		}
 </style>
 
-<h3 class="bibliography" style="counter-reset:bibitem 149">Preprints</h3>
+<h3 class="bibliography" style="counter-reset:bibitem 150">Preprints</h3>
 
 <!--### Preprints-->
-<ol class="bibliography"><li><span id="Sej2024">D. Sejdinovic, <b>An Overview of Causal Inference using Kernel Embeddings</b>, <i>ArXiv e-prints:2410.22754</i>, 2024.</span>
+<ol class="bibliography"><li><span id="ZhaTsuSej2024">D. Zhang, R. Tsuchida, and D. Sejdinovic, <b>Label Distribution Learning using the Squared Neural Family on the Probability Simplex</b>, <i>ArXiv e-prints:2412.07324</i>, 2024.</span>
+
+<span id="ZhaTsuSej2024_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#ZhaTsuSej2024_abstract" data-toggle="collapse" href="#ZhaTsuSej2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#ZhaTsuSej2024_bibtex" data-toggle="collapse" href="#ZhaTsuSej2024" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2412.07324" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="ZhaTsuSej2024_abstract" class="collapse">Label distribution learning (LDL) provides a framework wherein a distribution over categories rather than a single category is predicted, with the aim of addressing ambiguity in labeled data. Existing research on LDL mainly focuses on the task of point estimation, i.e., pinpointing an optimal distribution in the probability simplex conditioned on the input sample. In this paper, we estimate a probability distribution of all possible label distributions over the simplex, by unleashing the expressive power of the recently introduced Squared Neural Family (SNEFY). With the modeled distribution, label distribution prediction can be achieved by performing the expectation operation to estimate the mean of the distribution of label distributions. Moreover, more information about the label distribution can be inferred, such as the prediction reliability and uncertainties. We conduct extensive experiments on the label distribution prediction task, showing that our distribution modeling based method can achieve very competitive label distribution prediction performance compared with the state-of-the-art baselines. Additional experiments on active learning and ensemble learning demonstrate that our probabilistic approach can effectively boost the performance in these settings, by accurately estimating the prediction reliability and uncertainties.</p>
+  
+
+  <pre id="ZhaTsuSej2024_bibtex" class="pre pre-scrollable collapse">@unpublished{ZhaTsuSej2024,
+  title = {{Label Distribution Learning using the Squared Neural Family on the Probability Simplex}},
+  author = {Zhang, Daokun and Tsuchida, Russell and Sejdinovic, Dino},
+  year = {2024},
+  journal = {ArXiv e-prints:2412.07324},
+  arxiv = {https://arxiv.org/abs/2412.07324}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="Sej2024">D. Sejdinovic, <b>An Overview of Causal Inference using Kernel Embeddings</b>, <i>ArXiv e-prints:2410.22754</i>, 2024.</span>
 
 <span id="Sej2024_materials">
   <ul class="nav nav-pills">
@@ -5327,48 +5411,6 @@ ol.bibliography > li {
   year = {2024},
   url = {https://egusphere.copernicus.org/preprints/2024/egusphere-2024-2724/},
   doi = {10.5194/egusphere-2024-2724}
-}
-</pre>
-
-</span>
-</li>
-<li><span id="Doanetal2024">B. G. Doan, A. Shamsi, X.-Y. Guo, A. Mohammadi, H. Alinejad-Rokny, D. Sejdinovic, D. C. Ranasinghe, and E. Abbasnejad, <b>Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian Neural Networks</b>, <i>ArXiv e-prints:2407.20891</i>, 2024.</span>
-
-<span id="Doanetal2024_materials">
-  <ul class="nav nav-pills">
-    
-    <li><a class="bib-materials" data-target="#Doanetal2024_abstract" data-toggle="collapse" href="#Doanetal2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    <li><a class="bib-materials" data-target="#Doanetal2024_bibtex" data-toggle="collapse" href="#Doanetal2024" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-    
-
-    
-
-    
-    
-    
-    <li><a class="bib-materials" href="https://arxiv.org/abs/2407.20891" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    
-	
-    
-
-    
-  </ul>
-
-  
-  <p id="Doanetal2024_abstract" class="collapse">Computational complexity of Bayesian learning is impeding its adoption in practical, large-scale tasks. Despite demonstrations of significant merits such as improved robustness and resilience to unseen or out-of-distribution inputs over their non- Bayesian counterparts, their practical use has faded to near insignificance. In this study, we introduce an innovative framework to mitigate the computational burden of Bayesian neural networks (BNNs). Our approach follows the principle of Bayesian techniques based on deep ensembles, but significantly reduces their cost via multiple low-rank perturbations of parameters arising from a pre-trained neural network. Both vanilla version of ensembles as well as more sophisticated schemes such as Bayesian learning with Stein Variational Gradient Descent (SVGD), previously deemed impractical for large models, can be seamlessly implemented within the proposed framework, called Bayesian Low-Rank LeArning (Bella). In a nutshell, i) Bella achieves a dramatic reduction in the number of trainable parameters required to approximate a Bayesian posterior; and ii) it not only maintains, but in some instances, surpasses the performance of conventional Bayesian learning methods and non-Bayesian baselines. Our results with large-scale tasks such as ImageNet, CAMELYON17, DomainNet, VQA with CLIP, LLaVA demonstrate the effectiveness and versatility of Bella in building highly scalable and practical Bayesian deep models for real-world applications.</p>
-  
-
-  <pre id="Doanetal2024_bibtex" class="pre pre-scrollable collapse">@unpublished{Doanetal2024,
-  title = {Bayesian {{Low-Rank LeArning}} ({{Bella}}): {{A Practical Approach}} to {{Bayesian Neural Networks}}},
-  author = {Doan, Bao Gia and Shamsi, Afshar and Guo, Xiao-Yu and Mohammadi, Arash and {Alinejad-Rokny}, Hamid and Sejdinovic, Dino and Ranasinghe, Damith C. and Abbasnejad, Ehsan},
-  year = {2024},
-  journal = {ArXiv e-prints:2407.20891},
-  arxiv = {https://arxiv.org/abs/2407.20891}
 }
 </pre>
 
@@ -5666,6 +5708,48 @@ ol.bibliography > li {
   journal = {Advances in Data Analysis and Classification},
   pages = {to appear},
   arxiv = {https://arxiv.org/abs/2208.03675}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="Doanetal2025">B. G. Doan, A. Shamsi, X.-Y. Guo, A. Mohammadi, H. Alinejad-Rokny, D. Sejdinovic, D. C. Ranasinghe, and E. Abbasnejad, <b>Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian Neural Networks</b>, in <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 2025.</span>
+
+<span id="Doanetal2025_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#Doanetal2025_abstract" data-toggle="collapse" href="#Doanetal2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#Doanetal2025_bibtex" data-toggle="collapse" href="#Doanetal2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2407.20891" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="Doanetal2025_abstract" class="collapse">Computational complexity of Bayesian learning is impeding its adoption in practical, large-scale tasks. Despite demonstrations of significant merits such as improved robustness and resilience to unseen or out-of-distribution inputs over their non- Bayesian counterparts, their practical use has faded to near insignificance. In this study, we introduce an innovative framework to mitigate the computational burden of Bayesian neural networks (BNNs). Our approach follows the principle of Bayesian techniques based on deep ensembles, but significantly reduces their cost via multiple low-rank perturbations of parameters arising from a pre-trained neural network. Both vanilla version of ensembles as well as more sophisticated schemes such as Bayesian learning with Stein Variational Gradient Descent (SVGD), previously deemed impractical for large models, can be seamlessly implemented within the proposed framework, called Bayesian Low-Rank LeArning (Bella). In a nutshell, i) Bella achieves a dramatic reduction in the number of trainable parameters required to approximate a Bayesian posterior; and ii) it not only maintains, but in some instances, surpasses the performance of conventional Bayesian learning methods and non-Bayesian baselines. Our results with large-scale tasks such as ImageNet, CAMELYON17, DomainNet, VQA with CLIP, LLaVA demonstrate the effectiveness and versatility of Bella in building highly scalable and practical Bayesian deep models for real-world applications.</p>
+  
+
+  <pre id="Doanetal2025_bibtex" class="pre pre-scrollable collapse">@inproceedings{Doanetal2025,
+  title = {Bayesian {{Low-Rank LeArning}} ({{Bella}}): {{A Practical Approach}} to {{Bayesian Neural Networks}}},
+  author = {Doan, Bao Gia and Shamsi, Afshar and Guo, Xiao-Yu and Mohammadi, Arash and {Alinejad-Rokny}, Hamid and Sejdinovic, Dino and Ranasinghe, Damith C. and Abbasnejad, Ehsan},
+  year = {2025},
+  booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  arxiv = {https://arxiv.org/abs/2407.20891}
 }
 </pre>
 
