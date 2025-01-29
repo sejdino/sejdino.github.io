@@ -88,8 +88,8 @@
   
   <meta name="twitter:card" content="summary">
   
-  <meta name="twitter:site" content="@sejdino">
-  <meta name="twitter:creator" content="@sejdino">
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:creator" content="@">
 
   <meta property="twitter:title" content="Tag Index">
   <meta property="twitter:description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag...">
@@ -224,14 +224,6 @@
         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
       </span>
       <span class="sr-only">GitHub</span>
-   </a>
-  </li><li class="list-inline-item">
-    <a href="https://twitter.com/sejdino" title="Twitter">
-      <span class="fa-stack fa-lg" aria-hidden="true">
-        <i class="fas fa-circle fa-stack-2x"></i>
-        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-      </span>
-      <span class="sr-only">Twitter</span>
    </a>
   </li><li class="list-inline-item">
     <a href="https://linkedin.com/in/dinosejdinovic" title="LinkedIn">
