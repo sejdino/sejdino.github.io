@@ -201,7 +201,50 @@
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
       
 
-      <!--<ol class="bibliography"><li><span id="ChaSchGreSejMua2025">S. L. Chau, A. Schrab, A. Gretton, D. Sejdinovic, and K. Muandet, <b>Credal Two-Sample Tests of Epistemic Uncertainty</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2025, to appear.</span>
+      <!--<ol class="bibliography"><li><span id="ZhaTsuSej2025">D. Zhang, R. Tsuchida, and D. Sejdinovic, <b>Label Distribution Learning using the Squared Neural Family on the Probability Simplex</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2025, to appear.</span>
+
+<span id="ZhaTsuSej2025_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#ZhaTsuSej2025_abstract" data-toggle="collapse" href="#ZhaTsuSej2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#ZhaTsuSej2025_bibtex" data-toggle="collapse" href="#ZhaTsuSej2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2412.07324" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="ZhaTsuSej2025_abstract" class="collapse">Label distribution learning (LDL) provides a framework wherein a distribution over categories rather than a single category is predicted, with the aim of addressing ambiguity in labeled data. Existing research on LDL mainly focuses on the task of point estimation, i.e., pinpointing an optimal distribution in the probability simplex conditioned on the input sample. In this paper, we estimate a probability distribution of all possible label distributions over the simplex, by unleashing the expressive power of the recently introduced Squared Neural Family (SNEFY). With the modeled distribution, label distribution prediction can be achieved by performing the expectation operation to estimate the mean of the distribution of label distributions. Moreover, more information about the label distribution can be inferred, such as the prediction reliability and uncertainties. We conduct extensive experiments on the label distribution prediction task, showing that our distribution modeling based method can achieve very competitive label distribution prediction performance compared with the state-of-the-art baselines. Additional experiments on active learning and ensemble learning demonstrate that our probabilistic approach can effectively boost the performance in these settings, by accurately estimating the prediction reliability and uncertainties.</p>
+  
+
+  <pre id="ZhaTsuSej2025_bibtex" class="pre pre-scrollable collapse">@inproceedings{ZhaTsuSej2025,
+  title = {{Label Distribution Learning using the Squared Neural Family on the Probability Simplex}},
+  author = {Zhang, Daokun and Tsuchida, Russell and Sejdinovic, Dino},
+  year = {2025},
+  booktitle = {Uncertainty in Artificial Intelligence (UAI)},
+  pages = {to appear},
+  arxiv = {https://arxiv.org/abs/2412.07324}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="ChaSchGreSejMua2025">S. L. Chau, A. Schrab, A. Gretton, D. Sejdinovic, and K. Muandet, <b>Credal Two-Sample Tests of Epistemic Uncertainty</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2025, to appear.</span>
 
 <span id="ChaSchGreSejMua2025_materials">
   <ul class="nav nav-pills">
@@ -290,16 +333,18 @@
 
 </span>
 </li>
-<li><span id="Doanetal2025">B. G. Doan, A. Shamsi, X.-Y. Guo, A. Mohammadi, H. Alinejad-Rokny, D. Sejdinovic, D. C. Ranasinghe, and E. Abbasnejad, <b>Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian Neural Networks</b>, in <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 2025.</span>
+<li><span id="Doan_etal2025">B. G. Doan, A. Shamsi, X.-Y. Guo, A. Mohammadi, H. Alinejad-Rokny, D. Sejdinovic, D. C. Ranasinghe, and E. Abbasnejad, <b>Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian Neural Networks</b>, in <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 2025, vol. 39, no. 15, 16298–16307.</span>
 
-<span id="Doanetal2025_materials">
+<span id="Doan_etal2025_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Doanetal2025_abstract" data-toggle="collapse" href="#Doanetal2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Doan_etal2025_abstract" data-toggle="collapse" href="#Doan_etal2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Doanetal2025_bibtex" data-toggle="collapse" href="#Doanetal2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Doan_etal2025_bibtex" data-toggle="collapse" href="#Doan_etal2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
+    
+    <li><a class="bib-materials" href="https://ojs.aaai.org/index.php/AAAI/article/view/33790" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
     
@@ -318,14 +363,19 @@
   </ul>
 
   
-  <p id="Doanetal2025_abstract" class="collapse">Computational complexity of Bayesian learning is impeding its adoption in practical, large-scale tasks. Despite demonstrations of significant merits such as improved robustness and resilience to unseen or out-of-distribution inputs over their non- Bayesian counterparts, their practical use has faded to near insignificance. In this study, we introduce an innovative framework to mitigate the computational burden of Bayesian neural networks (BNNs). Our approach follows the principle of Bayesian techniques based on deep ensembles, but significantly reduces their cost via multiple low-rank perturbations of parameters arising from a pre-trained neural network. Both vanilla version of ensembles as well as more sophisticated schemes such as Bayesian learning with Stein Variational Gradient Descent (SVGD), previously deemed impractical for large models, can be seamlessly implemented within the proposed framework, called Bayesian Low-Rank LeArning (Bella). In a nutshell, i) Bella achieves a dramatic reduction in the number of trainable parameters required to approximate a Bayesian posterior; and ii) it not only maintains, but in some instances, surpasses the performance of conventional Bayesian learning methods and non-Bayesian baselines. Our results with large-scale tasks such as ImageNet, CAMELYON17, DomainNet, VQA with CLIP, LLaVA demonstrate the effectiveness and versatility of Bella in building highly scalable and practical Bayesian deep models for real-world applications.</p>
+  <p id="Doan_etal2025_abstract" class="collapse">Computational complexity of Bayesian learning is impeding its adoption in practical, large-scale tasks. Despite demonstrations of significant merits such as improved robustness and resilience to unseen or out-of-distribution inputs over their non- Bayesian counterparts, their practical use has faded to near insignificance. In this study, we introduce an innovative framework to mitigate the computational burden of Bayesian neural networks (BNNs). Our approach follows the principle of Bayesian techniques based on deep ensembles, but significantly reduces their cost via multiple low-rank perturbations of parameters arising from a pre-trained neural network. Both vanilla version of ensembles as well as more sophisticated schemes such as Bayesian learning with Stein Variational Gradient Descent (SVGD), previously deemed impractical for large models, can be seamlessly implemented within the proposed framework, called Bayesian Low-Rank LeArning (Bella). In a nutshell, i) Bella achieves a dramatic reduction in the number of trainable parameters required to approximate a Bayesian posterior; and ii) it not only maintains, but in some instances, surpasses the performance of conventional Bayesian learning methods and non-Bayesian baselines. Our results with large-scale tasks such as ImageNet, CAMELYON17, DomainNet, VQA with CLIP, LLaVA demonstrate the effectiveness and versatility of Bella in building highly scalable and practical Bayesian deep models for real-world applications.</p>
   
 
-  <pre id="Doanetal2025_bibtex" class="pre pre-scrollable collapse">@inproceedings{Doanetal2025,
+  <pre id="Doan_etal2025_bibtex" class="pre pre-scrollable collapse">@inproceedings{Doan_etal2025,
   title = {Bayesian {{Low-Rank LeArning}} ({{Bella}}): {{A Practical Approach}} to {{Bayesian Neural Networks}}},
   author = {Doan, Bao Gia and Shamsi, Afshar and Guo, Xiao-Yu and Mohammadi, Arash and {Alinejad-Rokny}, Hamid and Sejdinovic, Dino and Ranasinghe, Damith C. and Abbasnejad, Ehsan},
   year = {2025},
   booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume = {39},
+  number = {15},
+  pages = {16298--16307},
+  url = {https://ojs.aaai.org/index.php/AAAI/article/view/33790},
+  doi = {10.1609/aaai.v39i15.33790},
   arxiv = {https://arxiv.org/abs/2407.20891}
 }
 </pre>
@@ -342,6 +392,8 @@
 
     <li><a class="bib-materials" data-target="#OliSejHowBon2024_bibtex" data-toggle="collapse" href="#OliSejHowBon2024" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
+    
+    <li><a class="bib-materials" href="https://papers.nips.cc/paper_files/paper/2024/hash/673b9f8cba4ee9f15b88656a69761631-Abstract-Conference.html" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
     
@@ -368,21 +420,22 @@
   author = {Oliveira, Rafael and Sejdinovic, Dino and Howard, David and Bonilla, Edwin},
   year = {2024},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  url = {https://papers.nips.cc/paper_files/paper/2024/hash/673b9f8cba4ee9f15b88656a69761631-Abstract-Conference.html},
   arxiv = {https://arxiv.org/abs/2405.14440}
 }
 </pre>
 
 </span>
 </li>
-<li><span id="Severinetal2024">B. Severin, D. T. Lennon, L. C. Camenzind, F. Vigneau, F. Fedele, D. Jirovec, A. Ballabio, D. Chrastina, G. Isella, M. de Kruijf, M. J. Carballido, S. Svab, A. V. Kuhlmann, S. Geyer, F. N. M. Froning, H. Moon, M. A. Osborne, D. Sejdinovic, G. Katsaros, D. M. Zumbühl, G. A. D. Briggs, and N. Ares, <b>Cross-Architecture Tuning of Silicon and SiGe-based Quantum Devices Using Machine Learning</b>, <i>Scientific Reports</i>, vol. 14, no. 1, 17281, Jul. 2024.</span>
+<li><span id="Severin_etal2024">B. Severin, D. T. Lennon, L. C. Camenzind, F. Vigneau, F. Fedele, D. Jirovec, A. Ballabio, D. Chrastina, G. Isella, M. de Kruijf, M. J. Carballido, S. Svab, A. V. Kuhlmann, S. Geyer, F. N. M. Froning, H. Moon, M. A. Osborne, D. Sejdinovic, G. Katsaros, D. M. Zumbühl, G. A. D. Briggs, and N. Ares, <b>Cross-Architecture Tuning of Silicon and SiGe-based Quantum Devices Using Machine Learning</b>, <i>Scientific Reports</i>, vol. 14, no. 1, 17281, Jul. 2024.</span>
 
-<span id="Severinetal2024_materials">
+<span id="Severin_etal2024_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Severinetal2024_abstract" data-toggle="collapse" href="#Severinetal2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Severin_etal2024_abstract" data-toggle="collapse" href="#Severin_etal2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Severinetal2024_bibtex" data-toggle="collapse" href="#Severinetal2024" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Severin_etal2024_bibtex" data-toggle="collapse" href="#Severin_etal2024" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://doi.org/10.1038/s41598-024-67787-z" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -402,10 +455,10 @@
   </ul>
 
   
-  <p id="Severinetal2024_abstract" class="collapse">The potential of Si and SiGe-based devices for the scaling of quantum circuits is tainted by device variability. Each device needs to be tuned to operation conditions and each device realisation requires a different tuning protocol. We demonstrate that it is possible to automate the tuning of a 4-gate Si FinFET, a 5-gate GeSi nanowire and a 7-gate Ge/SiGe heterostructure double quantum dot device from scratch with the same algorithm. We achieve tuning times of 30, 10, and 92 min, respectively. The algorithm also provides insight into the parameter space landscape for each of these devices, allowing for the characterization of the regions where double quantum dot regimes are found. These results show that overarching solutions for the tuning of quantum devices are enabled by machine learning.</p>
+  <p id="Severin_etal2024_abstract" class="collapse">The potential of Si and SiGe-based devices for the scaling of quantum circuits is tainted by device variability. Each device needs to be tuned to operation conditions and each device realisation requires a different tuning protocol. We demonstrate that it is possible to automate the tuning of a 4-gate Si FinFET, a 5-gate GeSi nanowire and a 7-gate Ge/SiGe heterostructure double quantum dot device from scratch with the same algorithm. We achieve tuning times of 30, 10, and 92 min, respectively. The algorithm also provides insight into the parameter space landscape for each of these devices, allowing for the characterization of the regions where double quantum dot regimes are found. These results show that overarching solutions for the tuning of quantum devices are enabled by machine learning.</p>
   
 
-  <pre id="Severinetal2024_bibtex" class="pre pre-scrollable collapse">@article{Severinetal2024,
+  <pre id="Severin_etal2024_bibtex" class="pre pre-scrollable collapse">@article{Severin_etal2024,
   title = {Cross-Architecture Tuning of Silicon and {{SiGe-based}} Quantum Devices Using Machine Learning},
   author = {Severin, B. and Lennon, D. T. and Camenzind, L. C. and Vigneau, F. and Fedele, F. and Jirovec, D. and Ballabio, A. and Chrastina, D. and Isella, G. and {de Kruijf}, M. and Carballido, M. J. and Svab, S. and Kuhlmann, A. V. and Geyer, S. and Froning, F. N. M. and Moon, H. and Osborne, M. A. and Sejdinovic, D. and Katsaros, G. and Zumb{\"u}hl, D. M. and Briggs, G. A. D. and Ares, N.},
   year = {2024},
@@ -754,15 +807,15 @@
 
 </span>
 </li>
-<li><span id="Craigetal2023">D. L. Craig, H. Moon, F. Fedele, D. T. Lennon, B. V. Straaten, F. Vigneau, L. C. Camenzind, D. M. Zumbuhl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Bridging the Reality Gap in Quantum Devices with Physics-Aware Machine Learning</b>, <i>Physical Review X</i>, vol. 14, no. 1, 011001, 2024.</span>
+<li><span id="Craig_etal2023">D. L. Craig, H. Moon, F. Fedele, D. T. Lennon, B. V. Straaten, F. Vigneau, L. C. Camenzind, D. M. Zumbuhl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Bridging the Reality Gap in Quantum Devices with Physics-Aware Machine Learning</b>, <i>Physical Review X</i>, vol. 14, no. 1, 011001, 2024.</span>
 
-<span id="Craigetal2023_materials">
+<span id="Craig_etal2023_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Craigetal2023_abstract" data-toggle="collapse" href="#Craigetal2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Craig_etal2023_abstract" data-toggle="collapse" href="#Craig_etal2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Craigetal2023_bibtex" data-toggle="collapse" href="#Craigetal2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Craig_etal2023_bibtex" data-toggle="collapse" href="#Craig_etal2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://link.aps.org/doi/10.1103/PhysRevX.14.011001" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -784,10 +837,10 @@
   </ul>
 
   
-  <p id="Craigetal2023_abstract" class="collapse">The discrepancies between reality and simulation impede the optimisation and scalability of solid-state quantum devices. Disorder induced by the unpredictable distribution of material defects is one of the major contributions to the reality gap. We bridge this gap using physics-aware machine learning, in particular, using an approach combining a physical model, deep learning, Gaussian random field, and Bayesian inference. This approach has enabled us to infer the disorder potential of a nanoscale electronic device from electron transport data. This inference is validated by verifying the algorithm’s predictions about the gate voltage values required for a laterally-defined quantum dot device in AlGaAs/GaAs to produce current features corresponding to a double quantum dot regime.</p>
+  <p id="Craig_etal2023_abstract" class="collapse">The discrepancies between reality and simulation impede the optimisation and scalability of solid-state quantum devices. Disorder induced by the unpredictable distribution of material defects is one of the major contributions to the reality gap. We bridge this gap using physics-aware machine learning, in particular, using an approach combining a physical model, deep learning, Gaussian random field, and Bayesian inference. This approach has enabled us to infer the disorder potential of a nanoscale electronic device from electron transport data. This inference is validated by verifying the algorithm’s predictions about the gate voltage values required for a laterally-defined quantum dot device in AlGaAs/GaAs to produce current features corresponding to a double quantum dot regime.</p>
   
 
-  <pre id="Craigetal2023_bibtex" class="pre pre-scrollable collapse">@article{Craigetal2023,
+  <pre id="Craig_etal2023_bibtex" class="pre pre-scrollable collapse">@article{Craig_etal2023,
   title = {{Bridging the Reality Gap in Quantum Devices with Physics-Aware Machine Learning}},
   author = {Craig, D.L. and Moon, H. and Fedele, F. and Lennon, D.T. and Straaten, B. Van and Vigneau, F. and Camenzind, L.C. and Zumbuhl, D.M. and Briggs, G.A.D. and Osborne, M.A. and Sejdinovic, D. and Ares, N.},
   year = {2024},
@@ -941,15 +994,15 @@
 
 </span>
 </li>
-<li><span id="perez-suay2023fair">A. Perez-Suay, P. Gordaliza, J.-M. Loubes, D. Sejdinovic, and G. Camps-Valls, <b>Fair Kernel Regression through Cross-Covariance Operators</b>, <i>Transactions on Machine Learning Research</i>, 2023.</span>
+<li><span id="PerGorLouSejCam2023">A. Perez-Suay, P. Gordaliza, J.-M. Loubes, D. Sejdinovic, and G. Camps-Valls, <b>Fair Kernel Regression through Cross-Covariance Operators</b>, <i>Transactions on Machine Learning Research</i>, 2023.</span>
 
-<span id="perez-suay2023fair_materials">
+<span id="PerGorLouSejCam2023_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#perez-suay2023fair_abstract" data-toggle="collapse" href="#perez-suay2023fair" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#PerGorLouSejCam2023_abstract" data-toggle="collapse" href="#PerGorLouSejCam2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#perez-suay2023fair_bibtex" data-toggle="collapse" href="#perez-suay2023fair" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#PerGorLouSejCam2023_bibtex" data-toggle="collapse" href="#PerGorLouSejCam2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://openreview.net/forum?id=MyQ1e1VQQ3" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -969,10 +1022,10 @@
   </ul>
 
   
-  <p id="perez-suay2023fair_abstract" class="collapse">Ensuring fairness in machine learning models is a difficult problem from both a formulation and implementation perspective. One sensible criterion for achieving fairness is Equalised Odds, which requires that subjects in protected and unprotected groups have equal true and false positive rates. However, practical implementation is challenging. This work proposes two ways to address this issue through the conditional independence operator. First, given the output values, it is used as a fairness measure of independence between model predictions and sensitive variables. Second, it is used as a regularisation term in the problem formulation, which seeks optimal models that balance performance and fairness concerning the sensitive variables. To illustrate the potential of our approach, we consider different scenarios. First, we use the Gaussian model to provide new insights into the problem formulation and numerical results on its convergence. Second, we present the formulation using the conditional cross-covariance operator. We anticipate that a closed-form solution is possible in the general problem formulation, including in the case of a kernel formulation setting. Third, we introduce a normalised criterion of the conditional independence operator. All formulations are posed under the risk minimisation principle, which leads to theoretical results on the performance. Additionally, insights are provided into using these operators under a Gaussian Process setting. Our methods are compared to state-of-the-art methods in terms of performance and fairness metrics on a representative set of real problems. The results obtained with our proposed methodology show promising performance-fairness curves. Furthermore, we discuss the usefulness of linear weights in the fair model to describe the behaviour of the features when enforcing fairness over a particular set of input features.</p>
+  <p id="PerGorLouSejCam2023_abstract" class="collapse">Ensuring fairness in machine learning models is a difficult problem from both a formulation and implementation perspective. One sensible criterion for achieving fairness is Equalised Odds, which requires that subjects in protected and unprotected groups have equal true and false positive rates. However, practical implementation is challenging. This work proposes two ways to address this issue through the conditional independence operator. First, given the output values, it is used as a fairness measure of independence between model predictions and sensitive variables. Second, it is used as a regularisation term in the problem formulation, which seeks optimal models that balance performance and fairness concerning the sensitive variables. To illustrate the potential of our approach, we consider different scenarios. First, we use the Gaussian model to provide new insights into the problem formulation and numerical results on its convergence. Second, we present the formulation using the conditional cross-covariance operator. We anticipate that a closed-form solution is possible in the general problem formulation, including in the case of a kernel formulation setting. Third, we introduce a normalised criterion of the conditional independence operator. All formulations are posed under the risk minimisation principle, which leads to theoretical results on the performance. Additionally, insights are provided into using these operators under a Gaussian Process setting. Our methods are compared to state-of-the-art methods in terms of performance and fairness metrics on a representative set of real problems. The results obtained with our proposed methodology show promising performance-fairness curves. Furthermore, we discuss the usefulness of linear weights in the fair model to describe the behaviour of the features when enforcing fairness over a particular set of input features.</p>
   
 
-  <pre id="perez-suay2023fair_bibtex" class="pre pre-scrollable collapse">@article{perez-suay2023fair,
+  <pre id="PerGorLouSejCam2023_bibtex" class="pre pre-scrollable collapse">@article{PerGorLouSejCam2023,
   title = {{Fair Kernel Regression through Cross-Covariance Operators}},
   author = {Perez-Suay, Adrian and Gordaliza, Paula and Loubes, Jean-Michel and Sejdinovic, Dino and Camps-Valls, Gustau},
   journal = {Transactions on Machine Learning Research},
@@ -1030,15 +1083,15 @@
 
 </span>
 </li>
-<li><span id="Schuff2023">J. Schuff, D. T. Lennon, S. Geyer, D. L. Craig, F. Fedele, F. Vigneau, L. C. Camenzind, A. V. Kuhlmann, G. A. D. Briggs, D. M. Zumbühl, D. Sejdinovic, and N. Ares, <b>Identifying Pauli Spin Blockade using Deep Learning</b>, <i>Quantum</i>, vol. 7, 1077, 2023.</span>
+<li><span id="Schuff_etal2023">J. Schuff, D. T. Lennon, S. Geyer, D. L. Craig, F. Fedele, F. Vigneau, L. C. Camenzind, A. V. Kuhlmann, G. A. D. Briggs, D. M. Zumbühl, D. Sejdinovic, and N. Ares, <b>Identifying Pauli Spin Blockade using Deep Learning</b>, <i>Quantum</i>, vol. 7, 1077, 2023.</span>
 
-<span id="Schuff2023_materials">
+<span id="Schuff_etal2023_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Schuff2023_abstract" data-toggle="collapse" href="#Schuff2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Schuff_etal2023_abstract" data-toggle="collapse" href="#Schuff_etal2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Schuff2023_bibtex" data-toggle="collapse" href="#Schuff2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Schuff_etal2023_bibtex" data-toggle="collapse" href="#Schuff_etal2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://doi.org/10.22331/q-2023-08-08-1077" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1060,10 +1113,10 @@
   </ul>
 
   
-  <p id="Schuff2023_abstract" class="collapse">Pauli spin blockade (PSB) can be employed as a great resource for spin qubit initialisation and readout even at elevated temperatures but it can be difficult to identify. We present a machine learning algorithm capable of automatically identifying PSB using charge transport measurements. The scarcity of PSB data is circumvented by training the algorithm with simulated data and by using cross-device validation. We demonstrate our approach on a silicon field-effect transistor device and report an accuracy of 96% on different test devices, giving evidence that the approach is robust to device variability. Our algorithm, an essential step for realising fully automatic qubit tuning, is expected to be employable across all types of quantum dot devices.</p>
+  <p id="Schuff_etal2023_abstract" class="collapse">Pauli spin blockade (PSB) can be employed as a great resource for spin qubit initialisation and readout even at elevated temperatures but it can be difficult to identify. We present a machine learning algorithm capable of automatically identifying PSB using charge transport measurements. The scarcity of PSB data is circumvented by training the algorithm with simulated data and by using cross-device validation. We demonstrate our approach on a silicon field-effect transistor device and report an accuracy of 96% on different test devices, giving evidence that the approach is robust to device variability. Our algorithm, an essential step for realising fully automatic qubit tuning, is expected to be employable across all types of quantum dot devices.</p>
   
 
-  <pre id="Schuff2023_bibtex" class="pre pre-scrollable collapse">@article{Schuff2023,
+  <pre id="Schuff_etal2023_bibtex" class="pre pre-scrollable collapse">@article{Schuff_etal2023,
   title = {{Identifying Pauli Spin Blockade using Deep Learning}},
   author = {Schuff, Jonas and Lennon, Dominic T. and Geyer, Simon and Craig, David L. and Fedele, Federico and Vigneau, Florian and Camenzind, Leon C. and Kuhlmann, Andreas V. and Briggs, G. Andrew D. and Zumbühl, Dominik M. and Sejdinovic, Dino and Ares, Natalia},
   year = {2023},
@@ -1079,15 +1132,15 @@
 
 </span>
 </li>
-<li><span id="HuSej2023dif">R. Hu and D. Sejdinovic, <b>Towards Deep Interpretable Features</b>, <i>Journal of Computational Mathematics and Data Science</i>, vol. 6, 100067, 2023.</span>
+<li><span id="HuSej2023">R. Hu and D. Sejdinovic, <b>Towards Deep Interpretable Features</b>, <i>Journal of Computational Mathematics and Data Science</i>, vol. 6, 100067, 2023.</span>
 
-<span id="HuSej2023dif_materials">
+<span id="HuSej2023_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#HuSej2023dif_abstract" data-toggle="collapse" href="#HuSej2023dif" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#HuSej2023_abstract" data-toggle="collapse" href="#HuSej2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#HuSej2023dif_bibtex" data-toggle="collapse" href="#HuSej2023dif" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#HuSej2023_bibtex" data-toggle="collapse" href="#HuSej2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://doi.org/10.1016/j.jcmds.2022.100067" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1107,10 +1160,10 @@
   </ul>
 
   
-  <p id="HuSej2023dif_abstract" class="collapse">The problem of interpretability for binary image classification is considered through the lens of kernel two-sample tests and generative modeling. A feature extraction framework coined Deep Interpretable Features is developed, which is used in combination with IntroVAE, a generative model capable of high-resolution image synthesis. Experimental results on a variety of datasets, including COVID-19 chest x-rays demonstrate the benefits of combining deep generative models with the ideas from kernel-based hypothesis testing in moving towards more robust interpretable deep generative models.</p>
+  <p id="HuSej2023_abstract" class="collapse">The problem of interpretability for binary image classification is considered through the lens of kernel two-sample tests and generative modeling. A feature extraction framework coined Deep Interpretable Features is developed, which is used in combination with IntroVAE, a generative model capable of high-resolution image synthesis. Experimental results on a variety of datasets, including COVID-19 chest x-rays demonstrate the benefits of combining deep generative models with the ideas from kernel-based hypothesis testing in moving towards more robust interpretable deep generative models.</p>
   
 
-  <pre id="HuSej2023dif_bibtex" class="pre pre-scrollable collapse">@article{HuSej2023dif,
+  <pre id="HuSej2023_bibtex" class="pre pre-scrollable collapse">@article{HuSej2023,
   title = {{Towards Deep Interpretable Features}},
   author = {Hu, Robert and Sejdinovic, Dino},
   year = {2023},
@@ -1496,15 +1549,15 @@
 
 </span>
 </li>
-<li><span id="Cortesetal2022">J. Cortés-Andrés, G. Camps-Valls, S. Sippel, E. M. Székely, D. Sejdinovic, E. Díaz, A. Pérez-Suay, Z. Li, M. D. Mahecha, and M. Reichstein, <b>Physics-Aware Nonparametric Regression Models for Earth Data Analysis</b>, <i>Environmental Research Letters</i>, vol. 17, no. 5, 054034, 2022.</span>
+<li><span id="Cortes_etal2022">J. Cortés-Andrés, G. Camps-Valls, S. Sippel, E. M. Székely, D. Sejdinovic, E. Díaz, A. Pérez-Suay, Z. Li, M. D. Mahecha, and M. Reichstein, <b>Physics-Aware Nonparametric Regression Models for Earth Data Analysis</b>, <i>Environmental Research Letters</i>, vol. 17, no. 5, 054034, 2022.</span>
 
-<span id="Cortesetal2022_materials">
+<span id="Cortes_etal2022_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Cortesetal2022_abstract" data-toggle="collapse" href="#Cortesetal2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Cortes_etal2022_abstract" data-toggle="collapse" href="#Cortes_etal2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Cortesetal2022_bibtex" data-toggle="collapse" href="#Cortesetal2022" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Cortes_etal2022_bibtex" data-toggle="collapse" href="#Cortes_etal2022" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="http://iopscience.iop.org/article/10.1088/1748-9326/ac6762" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1524,10 +1577,10 @@
   </ul>
 
   
-  <p id="Cortesetal2022_abstract" class="collapse">Process understanding and modeling is at the core of scientific reasoning. Principled parametric and mechanistic modeling dominated science and engineering until the recent emergence of machine learning. Despite great success in many areas, machine learning algorithms in the Earth and climate sciences, and more broadly in physical sciences, are not explicitly designed to be physically-consistent and may, therefore, violate the most basic laws of physics. In this work, motivated by the field of algorithmic fairness, we reconcile data-driven machine learning with physics modeling by illustrating a nonparametric and nonlinear physics-aware regression method. By incorporating a dependence-based regularizer, the method leads to models that are consistent with domain knowledge, as reflected by either simulations from physical models or ancillary data. The idea can conversely encourage independence of model predictions with other variables that are known to be uncertain either in their representation or magnitude. The method is computationally efficient and comes with a closed-form analytic solution. Through a consistency-vs-accuracy path diagram, one can assess the consistency between data-driven models and physical models. We demonstrate in three examples on simulations and measurement data in Earth and climate studies that the proposed machine learning framework allows us to trade-off physical consistency and accuracy.</p>
+  <p id="Cortes_etal2022_abstract" class="collapse">Process understanding and modeling is at the core of scientific reasoning. Principled parametric and mechanistic modeling dominated science and engineering until the recent emergence of machine learning. Despite great success in many areas, machine learning algorithms in the Earth and climate sciences, and more broadly in physical sciences, are not explicitly designed to be physically-consistent and may, therefore, violate the most basic laws of physics. In this work, motivated by the field of algorithmic fairness, we reconcile data-driven machine learning with physics modeling by illustrating a nonparametric and nonlinear physics-aware regression method. By incorporating a dependence-based regularizer, the method leads to models that are consistent with domain knowledge, as reflected by either simulations from physical models or ancillary data. The idea can conversely encourage independence of model predictions with other variables that are known to be uncertain either in their representation or magnitude. The method is computationally efficient and comes with a closed-form analytic solution. Through a consistency-vs-accuracy path diagram, one can assess the consistency between data-driven models and physical models. We demonstrate in three examples on simulations and measurement data in Earth and climate studies that the proposed machine learning framework allows us to trade-off physical consistency and accuracy.</p>
   
 
-  <pre id="Cortesetal2022_bibtex" class="pre pre-scrollable collapse">@article{Cortesetal2022,
+  <pre id="Cortes_etal2022_bibtex" class="pre pre-scrollable collapse">@article{Cortes_etal2022,
   author = {Cortés-Andrés, Jordi and Camps-Valls, Gustau and Sippel, Sebastian and Székely, Eniko Melinda and Sejdinovic, Dino and Díaz, Emiliano and Pérez-Suay, Adrián and Li, Zhu and Mahecha, Miguel D. and Reichstein, Markus},
   title = {Physics-Aware Nonparametric Regression Models for Earth Data Analysis},
   journal = {Environmental Research Letters},
@@ -1968,15 +2021,15 @@
 
 </span>
 </li>
-<li><span id="Nguyen2021">V. Nguyen, S. B. Orbell, D. T. Lennon, H. Moon, F. Vigneau, L. C. Camenzind, L. Yu, D. M. Zumbühl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Deep Reinforcement Learning for Efficient Measurement of Quantum Devices</b>, <i>npj Quantum Information</i>, vol. 7, no. 100, 2021.</span>
+<li><span id="Nguyen_etal2021">V. Nguyen, S. B. Orbell, D. T. Lennon, H. Moon, F. Vigneau, L. C. Camenzind, L. Yu, D. M. Zumbühl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Deep Reinforcement Learning for Efficient Measurement of Quantum Devices</b>, <i>npj Quantum Information</i>, vol. 7, no. 100, 2021.</span>
 
-<span id="Nguyen2021_materials">
+<span id="Nguyen_etal2021_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Nguyen2021_abstract" data-toggle="collapse" href="#Nguyen2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Nguyen_etal2021_abstract" data-toggle="collapse" href="#Nguyen_etal2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Nguyen2021_bibtex" data-toggle="collapse" href="#Nguyen2021" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Nguyen_etal2021_bibtex" data-toggle="collapse" href="#Nguyen_etal2021" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://doi.org/10.1038/s41534-021-00434-x" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1998,10 +2051,10 @@
   </ul>
 
   
-  <p id="Nguyen2021_abstract" class="collapse">Deep reinforcement learning is an emerging machine-learning approach that can teach a computer to learn from their actions and rewards similar to the way humans learn from experience. It offers many advantages in automating decision processes to navigate large parameter spaces. This paper proposes an approach to the efficient measurement of quantum devices based on deep reinforcement learning. We focus on double quantum dot devices, demonstrating the fully automatic identification of specific transport features called bias triangles. Measurements targeting these features are difficult to automate, since bias triangles are found in otherwise featureless regions of the parameter space. Our algorithm identifies bias triangles in a mean time of <30 min, and sometimes as little as 1 min. This approach, based on dueling deep Q-networks, can be adapted to a broad range of devices and target transport features. This is a crucial demonstration of the utility of deep reinforcement learning for decision making in the measurement and operation of quantum devices.</p>
+  <p id="Nguyen_etal2021_abstract" class="collapse">Deep reinforcement learning is an emerging machine-learning approach that can teach a computer to learn from their actions and rewards similar to the way humans learn from experience. It offers many advantages in automating decision processes to navigate large parameter spaces. This paper proposes an approach to the efficient measurement of quantum devices based on deep reinforcement learning. We focus on double quantum dot devices, demonstrating the fully automatic identification of specific transport features called bias triangles. Measurements targeting these features are difficult to automate, since bias triangles are found in otherwise featureless regions of the parameter space. Our algorithm identifies bias triangles in a mean time of <30 min, and sometimes as little as 1 min. This approach, based on dueling deep Q-networks, can be adapted to a broad range of devices and target transport features. This is a crucial demonstration of the utility of deep reinforcement learning for decision making in the measurement and operation of quantum devices.</p>
   
 
-  <pre id="Nguyen2021_bibtex" class="pre pre-scrollable collapse">@article{Nguyen2021,
+  <pre id="Nguyen_etal2021_bibtex" class="pre pre-scrollable collapse">@article{Nguyen_etal2021,
   title = {Deep Reinforcement Learning for Efficient Measurement of Quantum Devices},
   author = {Nguyen, V. and Orbell, S. B. and Lennon, D. T. and Moon, H. and Vigneau, F. and Camenzind, L. C. and Yu, L. and Zumbühl, D. M. and Briggs, G. A. D. and Osborne, M. A. and Sejdinovic, D. and Ares, N.},
   year = {2021},
@@ -5290,10 +5343,52 @@ ol.bibliography > li {
 		}
 </style>
 
-<h3 class="bibliography" style="counter-reset:bibitem 154">Preprints</h3>
+<h3 class="bibliography" style="counter-reset:bibitem 155">Preprints</h3>
 
 <!--### Preprints-->
-<ol class="bibliography"><li><span id="TsuLiuOngSej2025">R. Tsuchida, J. Liu, C. S. Ong, and D. Sejdinovic, <b>Squared families: Searching beyond regular probability models</b>, <i>ArXiv e-prints:2503.21128</i>, 2025.</span>
+<ol class="bibliography"><li><span id="Ishida_etal2025">S. Ishida, A. Howes, V. Bradley, E. Semenova, T. Rashid, S. Dzumbunu, S. Bajaj, G. Singhal, D. Sejdinovic, H. Zvirere, D. Piovani, S. Passeri, K. Hachhethu, A. Husain, G. D. Kembo, T. Kairiza, and S. Flaxman, <b>Real-time small area estimation of food security in Zimbabwe: integrating mobile-phone and face-to-face surveys using joint multilevel regression and poststratification</b>, <i>ArXiv e-prints:2505.03517</i>, 2025.</span>
+
+<span id="Ishida_etal2025_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#Ishida_etal2025_abstract" data-toggle="collapse" href="#Ishida_etal2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#Ishida_etal2025_bibtex" data-toggle="collapse" href="#Ishida_etal2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2505.03517" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="Ishida_etal2025_abstract" class="collapse">Real-time, fine-grained monitoring of food security is essential for enabling timely and targeted interventions, thereby supporting the global goal of achieving zero hunger - a key objective of the 2030 Agenda for Sustainable Development. Mobile phone surveys provide a scalable and temporally rich data source that can be tailored to different administrative levels. However, due to cost and operational constraints, maintaining high-frequency data collection while ensuring representativeness at lower administrative levels is often infeasible. We propose a joint multilevel regression and poststratification (jMRP) approach that combines high-frequency and up-to-date mobile phone survey data, designed for higher administrative levels, with an annual face-to-face survey representative at lower levels to produce reliable food security estimates at spatially and temporally finer scales than those originally targeted by the surveys. This methodology accounts for systematic differences in survey responses due to modality and socio-economic characteristics, reducing both sampling and modality bias. We implement the approach in a fully Bayesian manner to quantify uncertainty. We demonstrate the effectiveness of our method using data from Zimbabwe, thus offering a cost-effective solution for real-time monitoring and strengthening decision-making in resource-constrained settings.</p>
+  
+
+  <pre id="Ishida_etal2025_bibtex" class="pre pre-scrollable collapse">@unpublished{Ishida_etal2025,
+  title = {{Real-time small area estimation of food security in Zimbabwe: integrating mobile-phone and face-to-face surveys using joint multilevel regression and poststratification}},
+  author = {Ishida, Sahoko and Howes, Adam and Bradley, Valerie and Semenova, Elizaveta and Rashid, Theo and Dzumbunu, Silinganisiwe and Bajaj, Sumali and Singhal, Gaurav and Sejdinovic, Dino and Zvirere, Herbert and Piovani, Duccio and Passeri, Silvia and Hachhethu, Kusum and Husain, Arif and Kembo, George D. and Kairiza, Terrence and Flaxman, Seth},
+  year = {2025},
+  journal = {ArXiv e-prints:2505.03517},
+  arxiv = {https://arxiv.org/abs/2505.03517}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="TsuLiuOngSej2025">R. Tsuchida, J. Liu, C. S. Ong, and D. Sejdinovic, <b>Squared families: Searching beyond regular probability models</b>, <i>ArXiv e-prints:2503.21128</i>, 2025.</span>
 
 <span id="TsuLiuOngSej2025_materials">
   <ul class="nav nav-pills">
@@ -5456,48 +5551,6 @@ ol.bibliography > li {
   year = {2024},
   journal = {ArXiv e-prints:2412.13559},
   arxiv = {https://arxiv.org/abs/2412.13559}
-}
-</pre>
-
-</span>
-</li>
-<li><span id="ZhaTsuSej2024">D. Zhang, R. Tsuchida, and D. Sejdinovic, <b>Label Distribution Learning using the Squared Neural Family on the Probability Simplex</b>, <i>ArXiv e-prints:2412.07324</i>, 2024.</span>
-
-<span id="ZhaTsuSej2024_materials">
-  <ul class="nav nav-pills">
-    
-    <li><a class="bib-materials" data-target="#ZhaTsuSej2024_abstract" data-toggle="collapse" href="#ZhaTsuSej2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    <li><a class="bib-materials" data-target="#ZhaTsuSej2024_bibtex" data-toggle="collapse" href="#ZhaTsuSej2024" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-    
-
-    
-
-    
-    
-    
-    <li><a class="bib-materials" href="https://arxiv.org/abs/2412.07324" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    
-	
-    
-
-    
-  </ul>
-
-  
-  <p id="ZhaTsuSej2024_abstract" class="collapse">Label distribution learning (LDL) provides a framework wherein a distribution over categories rather than a single category is predicted, with the aim of addressing ambiguity in labeled data. Existing research on LDL mainly focuses on the task of point estimation, i.e., pinpointing an optimal distribution in the probability simplex conditioned on the input sample. In this paper, we estimate a probability distribution of all possible label distributions over the simplex, by unleashing the expressive power of the recently introduced Squared Neural Family (SNEFY). With the modeled distribution, label distribution prediction can be achieved by performing the expectation operation to estimate the mean of the distribution of label distributions. Moreover, more information about the label distribution can be inferred, such as the prediction reliability and uncertainties. We conduct extensive experiments on the label distribution prediction task, showing that our distribution modeling based method can achieve very competitive label distribution prediction performance compared with the state-of-the-art baselines. Additional experiments on active learning and ensemble learning demonstrate that our probabilistic approach can effectively boost the performance in these settings, by accurately estimating the prediction reliability and uncertainties.</p>
-  
-
-  <pre id="ZhaTsuSej2024_bibtex" class="pre pre-scrollable collapse">@unpublished{ZhaTsuSej2024,
-  title = {{Label Distribution Learning using the Squared Neural Family on the Probability Simplex}},
-  author = {Zhang, Daokun and Tsuchida, Russell and Sejdinovic, Dino},
-  year = {2024},
-  journal = {ArXiv e-prints:2412.07324},
-  arxiv = {https://arxiv.org/abs/2412.07324}
 }
 </pre>
 
@@ -5842,7 +5895,50 @@ ol.bibliography > li {
 </li></ol>
 
 <h3 id="published--in-press">Published / In Press</h3>
-<ol class="bibliography"><li><span id="ChaSchGreSejMua2025">S. L. Chau, A. Schrab, A. Gretton, D. Sejdinovic, and K. Muandet, <b>Credal Two-Sample Tests of Epistemic Uncertainty</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2025, to appear.</span>
+<ol class="bibliography"><li><span id="ZhaTsuSej2025">D. Zhang, R. Tsuchida, and D. Sejdinovic, <b>Label Distribution Learning using the Squared Neural Family on the Probability Simplex</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2025, to appear.</span>
+
+<span id="ZhaTsuSej2025_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#ZhaTsuSej2025_abstract" data-toggle="collapse" href="#ZhaTsuSej2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#ZhaTsuSej2025_bibtex" data-toggle="collapse" href="#ZhaTsuSej2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2412.07324" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="ZhaTsuSej2025_abstract" class="collapse">Label distribution learning (LDL) provides a framework wherein a distribution over categories rather than a single category is predicted, with the aim of addressing ambiguity in labeled data. Existing research on LDL mainly focuses on the task of point estimation, i.e., pinpointing an optimal distribution in the probability simplex conditioned on the input sample. In this paper, we estimate a probability distribution of all possible label distributions over the simplex, by unleashing the expressive power of the recently introduced Squared Neural Family (SNEFY). With the modeled distribution, label distribution prediction can be achieved by performing the expectation operation to estimate the mean of the distribution of label distributions. Moreover, more information about the label distribution can be inferred, such as the prediction reliability and uncertainties. We conduct extensive experiments on the label distribution prediction task, showing that our distribution modeling based method can achieve very competitive label distribution prediction performance compared with the state-of-the-art baselines. Additional experiments on active learning and ensemble learning demonstrate that our probabilistic approach can effectively boost the performance in these settings, by accurately estimating the prediction reliability and uncertainties.</p>
+  
+
+  <pre id="ZhaTsuSej2025_bibtex" class="pre pre-scrollable collapse">@inproceedings{ZhaTsuSej2025,
+  title = {{Label Distribution Learning using the Squared Neural Family on the Probability Simplex}},
+  author = {Zhang, Daokun and Tsuchida, Russell and Sejdinovic, Dino},
+  year = {2025},
+  booktitle = {Uncertainty in Artificial Intelligence (UAI)},
+  pages = {to appear},
+  arxiv = {https://arxiv.org/abs/2412.07324}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="ChaSchGreSejMua2025">S. L. Chau, A. Schrab, A. Gretton, D. Sejdinovic, and K. Muandet, <b>Credal Two-Sample Tests of Epistemic Uncertainty</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2025, to appear.</span>
 
 <span id="ChaSchGreSejMua2025_materials">
   <ul class="nav nav-pills">
@@ -5931,16 +6027,18 @@ ol.bibliography > li {
 
 </span>
 </li>
-<li><span id="Doanetal2025">B. G. Doan, A. Shamsi, X.-Y. Guo, A. Mohammadi, H. Alinejad-Rokny, D. Sejdinovic, D. C. Ranasinghe, and E. Abbasnejad, <b>Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian Neural Networks</b>, in <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 2025.</span>
+<li><span id="Doan_etal2025">B. G. Doan, A. Shamsi, X.-Y. Guo, A. Mohammadi, H. Alinejad-Rokny, D. Sejdinovic, D. C. Ranasinghe, and E. Abbasnejad, <b>Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian Neural Networks</b>, in <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 2025, vol. 39, no. 15, 16298–16307.</span>
 
-<span id="Doanetal2025_materials">
+<span id="Doan_etal2025_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Doanetal2025_abstract" data-toggle="collapse" href="#Doanetal2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Doan_etal2025_abstract" data-toggle="collapse" href="#Doan_etal2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Doanetal2025_bibtex" data-toggle="collapse" href="#Doanetal2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Doan_etal2025_bibtex" data-toggle="collapse" href="#Doan_etal2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
+    
+    <li><a class="bib-materials" href="https://ojs.aaai.org/index.php/AAAI/article/view/33790" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
     
@@ -5959,14 +6057,19 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="Doanetal2025_abstract" class="collapse">Computational complexity of Bayesian learning is impeding its adoption in practical, large-scale tasks. Despite demonstrations of significant merits such as improved robustness and resilience to unseen or out-of-distribution inputs over their non- Bayesian counterparts, their practical use has faded to near insignificance. In this study, we introduce an innovative framework to mitigate the computational burden of Bayesian neural networks (BNNs). Our approach follows the principle of Bayesian techniques based on deep ensembles, but significantly reduces their cost via multiple low-rank perturbations of parameters arising from a pre-trained neural network. Both vanilla version of ensembles as well as more sophisticated schemes such as Bayesian learning with Stein Variational Gradient Descent (SVGD), previously deemed impractical for large models, can be seamlessly implemented within the proposed framework, called Bayesian Low-Rank LeArning (Bella). In a nutshell, i) Bella achieves a dramatic reduction in the number of trainable parameters required to approximate a Bayesian posterior; and ii) it not only maintains, but in some instances, surpasses the performance of conventional Bayesian learning methods and non-Bayesian baselines. Our results with large-scale tasks such as ImageNet, CAMELYON17, DomainNet, VQA with CLIP, LLaVA demonstrate the effectiveness and versatility of Bella in building highly scalable and practical Bayesian deep models for real-world applications.</p>
+  <p id="Doan_etal2025_abstract" class="collapse">Computational complexity of Bayesian learning is impeding its adoption in practical, large-scale tasks. Despite demonstrations of significant merits such as improved robustness and resilience to unseen or out-of-distribution inputs over their non- Bayesian counterparts, their practical use has faded to near insignificance. In this study, we introduce an innovative framework to mitigate the computational burden of Bayesian neural networks (BNNs). Our approach follows the principle of Bayesian techniques based on deep ensembles, but significantly reduces their cost via multiple low-rank perturbations of parameters arising from a pre-trained neural network. Both vanilla version of ensembles as well as more sophisticated schemes such as Bayesian learning with Stein Variational Gradient Descent (SVGD), previously deemed impractical for large models, can be seamlessly implemented within the proposed framework, called Bayesian Low-Rank LeArning (Bella). In a nutshell, i) Bella achieves a dramatic reduction in the number of trainable parameters required to approximate a Bayesian posterior; and ii) it not only maintains, but in some instances, surpasses the performance of conventional Bayesian learning methods and non-Bayesian baselines. Our results with large-scale tasks such as ImageNet, CAMELYON17, DomainNet, VQA with CLIP, LLaVA demonstrate the effectiveness and versatility of Bella in building highly scalable and practical Bayesian deep models for real-world applications.</p>
   
 
-  <pre id="Doanetal2025_bibtex" class="pre pre-scrollable collapse">@inproceedings{Doanetal2025,
+  <pre id="Doan_etal2025_bibtex" class="pre pre-scrollable collapse">@inproceedings{Doan_etal2025,
   title = {Bayesian {{Low-Rank LeArning}} ({{Bella}}): {{A Practical Approach}} to {{Bayesian Neural Networks}}},
   author = {Doan, Bao Gia and Shamsi, Afshar and Guo, Xiao-Yu and Mohammadi, Arash and {Alinejad-Rokny}, Hamid and Sejdinovic, Dino and Ranasinghe, Damith C. and Abbasnejad, Ehsan},
   year = {2025},
   booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume = {39},
+  number = {15},
+  pages = {16298--16307},
+  url = {https://ojs.aaai.org/index.php/AAAI/article/view/33790},
+  doi = {10.1609/aaai.v39i15.33790},
   arxiv = {https://arxiv.org/abs/2407.20891}
 }
 </pre>
@@ -5983,6 +6086,8 @@ ol.bibliography > li {
 
     <li><a class="bib-materials" data-target="#OliSejHowBon2024_bibtex" data-toggle="collapse" href="#OliSejHowBon2024" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
+    
+    <li><a class="bib-materials" href="https://papers.nips.cc/paper_files/paper/2024/hash/673b9f8cba4ee9f15b88656a69761631-Abstract-Conference.html" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
     
@@ -6009,21 +6114,22 @@ ol.bibliography > li {
   author = {Oliveira, Rafael and Sejdinovic, Dino and Howard, David and Bonilla, Edwin},
   year = {2024},
   booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  url = {https://papers.nips.cc/paper_files/paper/2024/hash/673b9f8cba4ee9f15b88656a69761631-Abstract-Conference.html},
   arxiv = {https://arxiv.org/abs/2405.14440}
 }
 </pre>
 
 </span>
 </li>
-<li><span id="Severinetal2024">B. Severin, D. T. Lennon, L. C. Camenzind, F. Vigneau, F. Fedele, D. Jirovec, A. Ballabio, D. Chrastina, G. Isella, M. de Kruijf, M. J. Carballido, S. Svab, A. V. Kuhlmann, S. Geyer, F. N. M. Froning, H. Moon, M. A. Osborne, D. Sejdinovic, G. Katsaros, D. M. Zumbühl, G. A. D. Briggs, and N. Ares, <b>Cross-Architecture Tuning of Silicon and SiGe-based Quantum Devices Using Machine Learning</b>, <i>Scientific Reports</i>, vol. 14, no. 1, 17281, Jul. 2024.</span>
+<li><span id="Severin_etal2024">B. Severin, D. T. Lennon, L. C. Camenzind, F. Vigneau, F. Fedele, D. Jirovec, A. Ballabio, D. Chrastina, G. Isella, M. de Kruijf, M. J. Carballido, S. Svab, A. V. Kuhlmann, S. Geyer, F. N. M. Froning, H. Moon, M. A. Osborne, D. Sejdinovic, G. Katsaros, D. M. Zumbühl, G. A. D. Briggs, and N. Ares, <b>Cross-Architecture Tuning of Silicon and SiGe-based Quantum Devices Using Machine Learning</b>, <i>Scientific Reports</i>, vol. 14, no. 1, 17281, Jul. 2024.</span>
 
-<span id="Severinetal2024_materials">
+<span id="Severin_etal2024_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Severinetal2024_abstract" data-toggle="collapse" href="#Severinetal2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Severin_etal2024_abstract" data-toggle="collapse" href="#Severin_etal2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Severinetal2024_bibtex" data-toggle="collapse" href="#Severinetal2024" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Severin_etal2024_bibtex" data-toggle="collapse" href="#Severin_etal2024" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://doi.org/10.1038/s41598-024-67787-z" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6043,10 +6149,10 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="Severinetal2024_abstract" class="collapse">The potential of Si and SiGe-based devices for the scaling of quantum circuits is tainted by device variability. Each device needs to be tuned to operation conditions and each device realisation requires a different tuning protocol. We demonstrate that it is possible to automate the tuning of a 4-gate Si FinFET, a 5-gate GeSi nanowire and a 7-gate Ge/SiGe heterostructure double quantum dot device from scratch with the same algorithm. We achieve tuning times of 30, 10, and 92 min, respectively. The algorithm also provides insight into the parameter space landscape for each of these devices, allowing for the characterization of the regions where double quantum dot regimes are found. These results show that overarching solutions for the tuning of quantum devices are enabled by machine learning.</p>
+  <p id="Severin_etal2024_abstract" class="collapse">The potential of Si and SiGe-based devices for the scaling of quantum circuits is tainted by device variability. Each device needs to be tuned to operation conditions and each device realisation requires a different tuning protocol. We demonstrate that it is possible to automate the tuning of a 4-gate Si FinFET, a 5-gate GeSi nanowire and a 7-gate Ge/SiGe heterostructure double quantum dot device from scratch with the same algorithm. We achieve tuning times of 30, 10, and 92 min, respectively. The algorithm also provides insight into the parameter space landscape for each of these devices, allowing for the characterization of the regions where double quantum dot regimes are found. These results show that overarching solutions for the tuning of quantum devices are enabled by machine learning.</p>
   
 
-  <pre id="Severinetal2024_bibtex" class="pre pre-scrollable collapse">@article{Severinetal2024,
+  <pre id="Severin_etal2024_bibtex" class="pre pre-scrollable collapse">@article{Severin_etal2024,
   title = {Cross-Architecture Tuning of Silicon and {{SiGe-based}} Quantum Devices Using Machine Learning},
   author = {Severin, B. and Lennon, D. T. and Camenzind, L. C. and Vigneau, F. and Fedele, F. and Jirovec, D. and Ballabio, A. and Chrastina, D. and Isella, G. and {de Kruijf}, M. and Carballido, M. J. and Svab, S. and Kuhlmann, A. V. and Geyer, S. and Froning, F. N. M. and Moon, H. and Osborne, M. A. and Sejdinovic, D. and Katsaros, G. and Zumb{\"u}hl, D. M. and Briggs, G. A. D. and Ares, N.},
   year = {2024},
@@ -6395,15 +6501,15 @@ ol.bibliography > li {
 
 </span>
 </li>
-<li><span id="Craigetal2023">D. L. Craig, H. Moon, F. Fedele, D. T. Lennon, B. V. Straaten, F. Vigneau, L. C. Camenzind, D. M. Zumbuhl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Bridging the Reality Gap in Quantum Devices with Physics-Aware Machine Learning</b>, <i>Physical Review X</i>, vol. 14, no. 1, 011001, 2024.</span>
+<li><span id="Craig_etal2023">D. L. Craig, H. Moon, F. Fedele, D. T. Lennon, B. V. Straaten, F. Vigneau, L. C. Camenzind, D. M. Zumbuhl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Bridging the Reality Gap in Quantum Devices with Physics-Aware Machine Learning</b>, <i>Physical Review X</i>, vol. 14, no. 1, 011001, 2024.</span>
 
-<span id="Craigetal2023_materials">
+<span id="Craig_etal2023_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Craigetal2023_abstract" data-toggle="collapse" href="#Craigetal2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Craig_etal2023_abstract" data-toggle="collapse" href="#Craig_etal2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Craigetal2023_bibtex" data-toggle="collapse" href="#Craigetal2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Craig_etal2023_bibtex" data-toggle="collapse" href="#Craig_etal2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://link.aps.org/doi/10.1103/PhysRevX.14.011001" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6425,10 +6531,10 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="Craigetal2023_abstract" class="collapse">The discrepancies between reality and simulation impede the optimisation and scalability of solid-state quantum devices. Disorder induced by the unpredictable distribution of material defects is one of the major contributions to the reality gap. We bridge this gap using physics-aware machine learning, in particular, using an approach combining a physical model, deep learning, Gaussian random field, and Bayesian inference. This approach has enabled us to infer the disorder potential of a nanoscale electronic device from electron transport data. This inference is validated by verifying the algorithm’s predictions about the gate voltage values required for a laterally-defined quantum dot device in AlGaAs/GaAs to produce current features corresponding to a double quantum dot regime.</p>
+  <p id="Craig_etal2023_abstract" class="collapse">The discrepancies between reality and simulation impede the optimisation and scalability of solid-state quantum devices. Disorder induced by the unpredictable distribution of material defects is one of the major contributions to the reality gap. We bridge this gap using physics-aware machine learning, in particular, using an approach combining a physical model, deep learning, Gaussian random field, and Bayesian inference. This approach has enabled us to infer the disorder potential of a nanoscale electronic device from electron transport data. This inference is validated by verifying the algorithm’s predictions about the gate voltage values required for a laterally-defined quantum dot device in AlGaAs/GaAs to produce current features corresponding to a double quantum dot regime.</p>
   
 
-  <pre id="Craigetal2023_bibtex" class="pre pre-scrollable collapse">@article{Craigetal2023,
+  <pre id="Craig_etal2023_bibtex" class="pre pre-scrollable collapse">@article{Craig_etal2023,
   title = {{Bridging the Reality Gap in Quantum Devices with Physics-Aware Machine Learning}},
   author = {Craig, D.L. and Moon, H. and Fedele, F. and Lennon, D.T. and Straaten, B. Van and Vigneau, F. and Camenzind, L.C. and Zumbuhl, D.M. and Briggs, G.A.D. and Osborne, M.A. and Sejdinovic, D. and Ares, N.},
   year = {2024},
@@ -6582,15 +6688,15 @@ ol.bibliography > li {
 
 </span>
 </li>
-<li><span id="perez-suay2023fair">A. Perez-Suay, P. Gordaliza, J.-M. Loubes, D. Sejdinovic, and G. Camps-Valls, <b>Fair Kernel Regression through Cross-Covariance Operators</b>, <i>Transactions on Machine Learning Research</i>, 2023.</span>
+<li><span id="PerGorLouSejCam2023">A. Perez-Suay, P. Gordaliza, J.-M. Loubes, D. Sejdinovic, and G. Camps-Valls, <b>Fair Kernel Regression through Cross-Covariance Operators</b>, <i>Transactions on Machine Learning Research</i>, 2023.</span>
 
-<span id="perez-suay2023fair_materials">
+<span id="PerGorLouSejCam2023_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#perez-suay2023fair_abstract" data-toggle="collapse" href="#perez-suay2023fair" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#PerGorLouSejCam2023_abstract" data-toggle="collapse" href="#PerGorLouSejCam2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#perez-suay2023fair_bibtex" data-toggle="collapse" href="#perez-suay2023fair" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#PerGorLouSejCam2023_bibtex" data-toggle="collapse" href="#PerGorLouSejCam2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://openreview.net/forum?id=MyQ1e1VQQ3" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6610,10 +6716,10 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="perez-suay2023fair_abstract" class="collapse">Ensuring fairness in machine learning models is a difficult problem from both a formulation and implementation perspective. One sensible criterion for achieving fairness is Equalised Odds, which requires that subjects in protected and unprotected groups have equal true and false positive rates. However, practical implementation is challenging. This work proposes two ways to address this issue through the conditional independence operator. First, given the output values, it is used as a fairness measure of independence between model predictions and sensitive variables. Second, it is used as a regularisation term in the problem formulation, which seeks optimal models that balance performance and fairness concerning the sensitive variables. To illustrate the potential of our approach, we consider different scenarios. First, we use the Gaussian model to provide new insights into the problem formulation and numerical results on its convergence. Second, we present the formulation using the conditional cross-covariance operator. We anticipate that a closed-form solution is possible in the general problem formulation, including in the case of a kernel formulation setting. Third, we introduce a normalised criterion of the conditional independence operator. All formulations are posed under the risk minimisation principle, which leads to theoretical results on the performance. Additionally, insights are provided into using these operators under a Gaussian Process setting. Our methods are compared to state-of-the-art methods in terms of performance and fairness metrics on a representative set of real problems. The results obtained with our proposed methodology show promising performance-fairness curves. Furthermore, we discuss the usefulness of linear weights in the fair model to describe the behaviour of the features when enforcing fairness over a particular set of input features.</p>
+  <p id="PerGorLouSejCam2023_abstract" class="collapse">Ensuring fairness in machine learning models is a difficult problem from both a formulation and implementation perspective. One sensible criterion for achieving fairness is Equalised Odds, which requires that subjects in protected and unprotected groups have equal true and false positive rates. However, practical implementation is challenging. This work proposes two ways to address this issue through the conditional independence operator. First, given the output values, it is used as a fairness measure of independence between model predictions and sensitive variables. Second, it is used as a regularisation term in the problem formulation, which seeks optimal models that balance performance and fairness concerning the sensitive variables. To illustrate the potential of our approach, we consider different scenarios. First, we use the Gaussian model to provide new insights into the problem formulation and numerical results on its convergence. Second, we present the formulation using the conditional cross-covariance operator. We anticipate that a closed-form solution is possible in the general problem formulation, including in the case of a kernel formulation setting. Third, we introduce a normalised criterion of the conditional independence operator. All formulations are posed under the risk minimisation principle, which leads to theoretical results on the performance. Additionally, insights are provided into using these operators under a Gaussian Process setting. Our methods are compared to state-of-the-art methods in terms of performance and fairness metrics on a representative set of real problems. The results obtained with our proposed methodology show promising performance-fairness curves. Furthermore, we discuss the usefulness of linear weights in the fair model to describe the behaviour of the features when enforcing fairness over a particular set of input features.</p>
   
 
-  <pre id="perez-suay2023fair_bibtex" class="pre pre-scrollable collapse">@article{perez-suay2023fair,
+  <pre id="PerGorLouSejCam2023_bibtex" class="pre pre-scrollable collapse">@article{PerGorLouSejCam2023,
   title = {{Fair Kernel Regression through Cross-Covariance Operators}},
   author = {Perez-Suay, Adrian and Gordaliza, Paula and Loubes, Jean-Michel and Sejdinovic, Dino and Camps-Valls, Gustau},
   journal = {Transactions on Machine Learning Research},
@@ -6671,15 +6777,15 @@ ol.bibliography > li {
 
 </span>
 </li>
-<li><span id="Schuff2023">J. Schuff, D. T. Lennon, S. Geyer, D. L. Craig, F. Fedele, F. Vigneau, L. C. Camenzind, A. V. Kuhlmann, G. A. D. Briggs, D. M. Zumbühl, D. Sejdinovic, and N. Ares, <b>Identifying Pauli Spin Blockade using Deep Learning</b>, <i>Quantum</i>, vol. 7, 1077, 2023.</span>
+<li><span id="Schuff_etal2023">J. Schuff, D. T. Lennon, S. Geyer, D. L. Craig, F. Fedele, F. Vigneau, L. C. Camenzind, A. V. Kuhlmann, G. A. D. Briggs, D. M. Zumbühl, D. Sejdinovic, and N. Ares, <b>Identifying Pauli Spin Blockade using Deep Learning</b>, <i>Quantum</i>, vol. 7, 1077, 2023.</span>
 
-<span id="Schuff2023_materials">
+<span id="Schuff_etal2023_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Schuff2023_abstract" data-toggle="collapse" href="#Schuff2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Schuff_etal2023_abstract" data-toggle="collapse" href="#Schuff_etal2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Schuff2023_bibtex" data-toggle="collapse" href="#Schuff2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Schuff_etal2023_bibtex" data-toggle="collapse" href="#Schuff_etal2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://doi.org/10.22331/q-2023-08-08-1077" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6701,10 +6807,10 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="Schuff2023_abstract" class="collapse">Pauli spin blockade (PSB) can be employed as a great resource for spin qubit initialisation and readout even at elevated temperatures but it can be difficult to identify. We present a machine learning algorithm capable of automatically identifying PSB using charge transport measurements. The scarcity of PSB data is circumvented by training the algorithm with simulated data and by using cross-device validation. We demonstrate our approach on a silicon field-effect transistor device and report an accuracy of 96% on different test devices, giving evidence that the approach is robust to device variability. Our algorithm, an essential step for realising fully automatic qubit tuning, is expected to be employable across all types of quantum dot devices.</p>
+  <p id="Schuff_etal2023_abstract" class="collapse">Pauli spin blockade (PSB) can be employed as a great resource for spin qubit initialisation and readout even at elevated temperatures but it can be difficult to identify. We present a machine learning algorithm capable of automatically identifying PSB using charge transport measurements. The scarcity of PSB data is circumvented by training the algorithm with simulated data and by using cross-device validation. We demonstrate our approach on a silicon field-effect transistor device and report an accuracy of 96% on different test devices, giving evidence that the approach is robust to device variability. Our algorithm, an essential step for realising fully automatic qubit tuning, is expected to be employable across all types of quantum dot devices.</p>
   
 
-  <pre id="Schuff2023_bibtex" class="pre pre-scrollable collapse">@article{Schuff2023,
+  <pre id="Schuff_etal2023_bibtex" class="pre pre-scrollable collapse">@article{Schuff_etal2023,
   title = {{Identifying Pauli Spin Blockade using Deep Learning}},
   author = {Schuff, Jonas and Lennon, Dominic T. and Geyer, Simon and Craig, David L. and Fedele, Federico and Vigneau, Florian and Camenzind, Leon C. and Kuhlmann, Andreas V. and Briggs, G. Andrew D. and Zumbühl, Dominik M. and Sejdinovic, Dino and Ares, Natalia},
   year = {2023},
@@ -6720,15 +6826,15 @@ ol.bibliography > li {
 
 </span>
 </li>
-<li><span id="HuSej2023dif">R. Hu and D. Sejdinovic, <b>Towards Deep Interpretable Features</b>, <i>Journal of Computational Mathematics and Data Science</i>, vol. 6, 100067, 2023.</span>
+<li><span id="HuSej2023">R. Hu and D. Sejdinovic, <b>Towards Deep Interpretable Features</b>, <i>Journal of Computational Mathematics and Data Science</i>, vol. 6, 100067, 2023.</span>
 
-<span id="HuSej2023dif_materials">
+<span id="HuSej2023_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#HuSej2023dif_abstract" data-toggle="collapse" href="#HuSej2023dif" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#HuSej2023_abstract" data-toggle="collapse" href="#HuSej2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#HuSej2023dif_bibtex" data-toggle="collapse" href="#HuSej2023dif" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#HuSej2023_bibtex" data-toggle="collapse" href="#HuSej2023" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://doi.org/10.1016/j.jcmds.2022.100067" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6748,10 +6854,10 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="HuSej2023dif_abstract" class="collapse">The problem of interpretability for binary image classification is considered through the lens of kernel two-sample tests and generative modeling. A feature extraction framework coined Deep Interpretable Features is developed, which is used in combination with IntroVAE, a generative model capable of high-resolution image synthesis. Experimental results on a variety of datasets, including COVID-19 chest x-rays demonstrate the benefits of combining deep generative models with the ideas from kernel-based hypothesis testing in moving towards more robust interpretable deep generative models.</p>
+  <p id="HuSej2023_abstract" class="collapse">The problem of interpretability for binary image classification is considered through the lens of kernel two-sample tests and generative modeling. A feature extraction framework coined Deep Interpretable Features is developed, which is used in combination with IntroVAE, a generative model capable of high-resolution image synthesis. Experimental results on a variety of datasets, including COVID-19 chest x-rays demonstrate the benefits of combining deep generative models with the ideas from kernel-based hypothesis testing in moving towards more robust interpretable deep generative models.</p>
   
 
-  <pre id="HuSej2023dif_bibtex" class="pre pre-scrollable collapse">@article{HuSej2023dif,
+  <pre id="HuSej2023_bibtex" class="pre pre-scrollable collapse">@article{HuSej2023,
   title = {{Towards Deep Interpretable Features}},
   author = {Hu, Robert and Sejdinovic, Dino},
   year = {2023},
@@ -7137,15 +7243,15 @@ ol.bibliography > li {
 
 </span>
 </li>
-<li><span id="Cortesetal2022">J. Cortés-Andrés, G. Camps-Valls, S. Sippel, E. M. Székely, D. Sejdinovic, E. Díaz, A. Pérez-Suay, Z. Li, M. D. Mahecha, and M. Reichstein, <b>Physics-Aware Nonparametric Regression Models for Earth Data Analysis</b>, <i>Environmental Research Letters</i>, vol. 17, no. 5, 054034, 2022.</span>
+<li><span id="Cortes_etal2022">J. Cortés-Andrés, G. Camps-Valls, S. Sippel, E. M. Székely, D. Sejdinovic, E. Díaz, A. Pérez-Suay, Z. Li, M. D. Mahecha, and M. Reichstein, <b>Physics-Aware Nonparametric Regression Models for Earth Data Analysis</b>, <i>Environmental Research Letters</i>, vol. 17, no. 5, 054034, 2022.</span>
 
-<span id="Cortesetal2022_materials">
+<span id="Cortes_etal2022_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Cortesetal2022_abstract" data-toggle="collapse" href="#Cortesetal2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Cortes_etal2022_abstract" data-toggle="collapse" href="#Cortes_etal2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Cortesetal2022_bibtex" data-toggle="collapse" href="#Cortesetal2022" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Cortes_etal2022_bibtex" data-toggle="collapse" href="#Cortes_etal2022" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="http://iopscience.iop.org/article/10.1088/1748-9326/ac6762" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7165,10 +7271,10 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="Cortesetal2022_abstract" class="collapse">Process understanding and modeling is at the core of scientific reasoning. Principled parametric and mechanistic modeling dominated science and engineering until the recent emergence of machine learning. Despite great success in many areas, machine learning algorithms in the Earth and climate sciences, and more broadly in physical sciences, are not explicitly designed to be physically-consistent and may, therefore, violate the most basic laws of physics. In this work, motivated by the field of algorithmic fairness, we reconcile data-driven machine learning with physics modeling by illustrating a nonparametric and nonlinear physics-aware regression method. By incorporating a dependence-based regularizer, the method leads to models that are consistent with domain knowledge, as reflected by either simulations from physical models or ancillary data. The idea can conversely encourage independence of model predictions with other variables that are known to be uncertain either in their representation or magnitude. The method is computationally efficient and comes with a closed-form analytic solution. Through a consistency-vs-accuracy path diagram, one can assess the consistency between data-driven models and physical models. We demonstrate in three examples on simulations and measurement data in Earth and climate studies that the proposed machine learning framework allows us to trade-off physical consistency and accuracy.</p>
+  <p id="Cortes_etal2022_abstract" class="collapse">Process understanding and modeling is at the core of scientific reasoning. Principled parametric and mechanistic modeling dominated science and engineering until the recent emergence of machine learning. Despite great success in many areas, machine learning algorithms in the Earth and climate sciences, and more broadly in physical sciences, are not explicitly designed to be physically-consistent and may, therefore, violate the most basic laws of physics. In this work, motivated by the field of algorithmic fairness, we reconcile data-driven machine learning with physics modeling by illustrating a nonparametric and nonlinear physics-aware regression method. By incorporating a dependence-based regularizer, the method leads to models that are consistent with domain knowledge, as reflected by either simulations from physical models or ancillary data. The idea can conversely encourage independence of model predictions with other variables that are known to be uncertain either in their representation or magnitude. The method is computationally efficient and comes with a closed-form analytic solution. Through a consistency-vs-accuracy path diagram, one can assess the consistency between data-driven models and physical models. We demonstrate in three examples on simulations and measurement data in Earth and climate studies that the proposed machine learning framework allows us to trade-off physical consistency and accuracy.</p>
   
 
-  <pre id="Cortesetal2022_bibtex" class="pre pre-scrollable collapse">@article{Cortesetal2022,
+  <pre id="Cortes_etal2022_bibtex" class="pre pre-scrollable collapse">@article{Cortes_etal2022,
   author = {Cortés-Andrés, Jordi and Camps-Valls, Gustau and Sippel, Sebastian and Székely, Eniko Melinda and Sejdinovic, Dino and Díaz, Emiliano and Pérez-Suay, Adrián and Li, Zhu and Mahecha, Miguel D. and Reichstein, Markus},
   title = {Physics-Aware Nonparametric Regression Models for Earth Data Analysis},
   journal = {Environmental Research Letters},
@@ -7609,15 +7715,15 @@ ol.bibliography > li {
 
 </span>
 </li>
-<li><span id="Nguyen2021">V. Nguyen, S. B. Orbell, D. T. Lennon, H. Moon, F. Vigneau, L. C. Camenzind, L. Yu, D. M. Zumbühl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Deep Reinforcement Learning for Efficient Measurement of Quantum Devices</b>, <i>npj Quantum Information</i>, vol. 7, no. 100, 2021.</span>
+<li><span id="Nguyen_etal2021">V. Nguyen, S. B. Orbell, D. T. Lennon, H. Moon, F. Vigneau, L. C. Camenzind, L. Yu, D. M. Zumbühl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Deep Reinforcement Learning for Efficient Measurement of Quantum Devices</b>, <i>npj Quantum Information</i>, vol. 7, no. 100, 2021.</span>
 
-<span id="Nguyen2021_materials">
+<span id="Nguyen_etal2021_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#Nguyen2021_abstract" data-toggle="collapse" href="#Nguyen2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Nguyen_etal2021_abstract" data-toggle="collapse" href="#Nguyen_etal2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#Nguyen2021_bibtex" data-toggle="collapse" href="#Nguyen2021" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#Nguyen_etal2021_bibtex" data-toggle="collapse" href="#Nguyen_etal2021" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
     <li><a class="bib-materials" href="https://doi.org/10.1038/s41534-021-00434-x" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7639,10 +7745,10 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="Nguyen2021_abstract" class="collapse">Deep reinforcement learning is an emerging machine-learning approach that can teach a computer to learn from their actions and rewards similar to the way humans learn from experience. It offers many advantages in automating decision processes to navigate large parameter spaces. This paper proposes an approach to the efficient measurement of quantum devices based on deep reinforcement learning. We focus on double quantum dot devices, demonstrating the fully automatic identification of specific transport features called bias triangles. Measurements targeting these features are difficult to automate, since bias triangles are found in otherwise featureless regions of the parameter space. Our algorithm identifies bias triangles in a mean time of &lt;30 min, and sometimes as little as 1 min. This approach, based on dueling deep Q-networks, can be adapted to a broad range of devices and target transport features. This is a crucial demonstration of the utility of deep reinforcement learning for decision making in the measurement and operation of quantum devices.</p>
+  <p id="Nguyen_etal2021_abstract" class="collapse">Deep reinforcement learning is an emerging machine-learning approach that can teach a computer to learn from their actions and rewards similar to the way humans learn from experience. It offers many advantages in automating decision processes to navigate large parameter spaces. This paper proposes an approach to the efficient measurement of quantum devices based on deep reinforcement learning. We focus on double quantum dot devices, demonstrating the fully automatic identification of specific transport features called bias triangles. Measurements targeting these features are difficult to automate, since bias triangles are found in otherwise featureless regions of the parameter space. Our algorithm identifies bias triangles in a mean time of &lt;30 min, and sometimes as little as 1 min. This approach, based on dueling deep Q-networks, can be adapted to a broad range of devices and target transport features. This is a crucial demonstration of the utility of deep reinforcement learning for decision making in the measurement and operation of quantum devices.</p>
   
 
-  <pre id="Nguyen2021_bibtex" class="pre pre-scrollable collapse">@article{Nguyen2021,
+  <pre id="Nguyen_etal2021_bibtex" class="pre pre-scrollable collapse">@article{Nguyen_etal2021,
   title = {Deep Reinforcement Learning for Efficient Measurement of Quantum Devices},
   author = {Nguyen, V. and Orbell, S. B. and Lennon, D. T. and Moon, H. and Vigneau, F. and Camenzind, L. C. and Yu, L. and Zumbühl, D. M. and Briggs, G. A. D. and Osborne, M. A. and Sejdinovic, D. and Ares, N.},
   year = {2021},
