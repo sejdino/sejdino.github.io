@@ -201,15 +201,58 @@
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
       
 
-      <!--<ol class="bibliography"><li><span id="BerSejDid2026">L. Bergen, D. Sejdinovic, and V. Didelez, <b>The Generalised Kernel Covariance Measure</b>, in <i>Conference on Causal Learning and Reasoning (CLeaR)</i>, 2026, to appear.</span>
+      <!--<ol class="bibliography"><li><span id="GaoFawSej2026">E. Gao, J. Fawkes, and D. Sejdinovic, <b>Causal-EPIG: A Prediction-Oriented Active Learning Framework for CATE Estimation</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2026, to appear.</span>
 
-<span id="BerSejDid2026_materials">
+<span id="GaoFawSej2026_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#BerSejDid2026_abstract" data-toggle="collapse" href="#BerSejDid2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#GaoFawSej2026_abstract" data-toggle="collapse" href="#GaoFawSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#BerSejDid2026_bibtex" data-toggle="collapse" href="#BerSejDid2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#GaoFawSej2026_bibtex" data-toggle="collapse" href="#GaoFawSej2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2509.21866" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="GaoFawSej2026_abstract" class="collapse">Estimating the Conditional Average Treatment Effect (CATE) is constrained by the high cost of obtaining outcome measurements, making active learning essential. However, conventional strategies suffer from a fundamental objective mismatch: they reduce uncertainty in model parameters or observable outcomes rather than the unobservable causal quantities of interest. We address this via the principle of causal objective alignment, positing that acquisition functions must target unobservables like potential outcomes or CATE directly. We operationalize this through Causal-EPIG, a framework adapting Expected Predictive Information Gain to quantify uncertainty reduction in causal quantities. We derive two distinct strategies: a comprehensive approach that robustly models the full causal mechanisms via the joint potential outcomes, and a focused approach that directly targets the CATE estimand for maximum sample efficiency. We provide theoretical justification for our framework, establishing a formal link between our information-theoretic objective and the minimization of CATE estimation error. Extensive experiments demonstrate that our strategies consistently outperform standard baselines, and crucially, reveal that the optimal strategy is context-dependent, contingent on the base estimator and data complexity. Our framework thus provides a principled guide for sample-efficient CATE estimation in practice.</p>
+  
+
+  <pre id="GaoFawSej2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{GaoFawSej2026,
+  author = {Gao, E. and Fawkes, J. and Sejdinovic, D.},
+  title = {{{Causal-EPIG: A Prediction-Oriented Active Learning Framework for CATE Estimation}}},
+  arxiv = {https://arxiv.org/abs/2509.21866},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year = {2026},
+  pages = {to appear}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="LiuQuaZuoGaoNguSejBonGon2026">W. Liu, W. Quan, A. Zuo, E. Gao, V. Nguyen, D. Sejdinovic, H. Bondell, and M. Gong, <b>TimeLAVA: Learning-Agnostic Valuation for Time Series Data</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2026, to appear.</span>
+
+<span id="LiuQuaZuoGaoNguSejBonGon2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#LiuQuaZuoGaoNguSejBonGon2026_abstract" data-toggle="collapse" href="#LiuQuaZuoGaoNguSejBonGon2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#LiuQuaZuoGaoNguSejBonGon2026_bibtex" data-toggle="collapse" href="#LiuQuaZuoGaoNguSejBonGon2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
 
@@ -227,13 +270,56 @@
   </ul>
 
   
-  <p id="BerSejDid2026_abstract" class="collapse">We consider the problem of conditional independence (CI) testing and adopt a kernel-based approach, leveraging the ability of kernel methods to detect conditional dependencies under a broad range of alternatives. In kernel-based CI testing, the variables of interest are embedded in reproducing kernel Hilbert spaces, and their embeddings are regressed on the conditioning variables. The residual vectors are then tested for marginal independence. However, existing methods rely heavily on kernel ridge regression, which can be computationally prohibitive when properly tuned and unreliable when left untuned. We introduce the Generalised Kernel Covariance Measure (GKCM), a regression-model-agnostic kernel-based CI test that accommodates a wide class of regression estimators. By replacing kernel ridge regression with alternative regression methods, we obtain substantial finite-sample improvements in type-I error control. Moreover, because GKCM is a Generalised Hilbertian Covariance Measure (Lundborg et al., 2022), we derive conditions under which it achieves uniform asymptotic level guarantees. In a simulation study, we show that GKCM paired with tree-based regression models frequently outperforms state-of-the-art CI tests, achieving superior type-I and type-II error performance across a diverse range of data-generating processes.</p>
+  <p id="LiuQuaZuoGaoNguSejBonGon2026_abstract" class="collapse">Data valuation quantifies the intrinsic quality of individual samples to enable principled data curation, quality control, and robust learning. For time series in critical domains such as healthcare, finance, and industrial monitoring, effective valuation methods are essential yet fundamentally lacking. Existing approaches are either model-dependent, limiting their generalizability, or designed for i.i.d. data and thus fail to capture temporal dependencies, multi-scale patterns, and non-stationary dynamics inherent to sequential data. We introduce TimeLAVA, a learning-agnostic framework that values temporal segments by their marginal contribution to minimizing distributional discrepancy between evaluated and reference data. At its core is a novel Selective Wavelet-based Wasserstein () discrepancy combining multi-scale wavelet transforms for temporal localization with unbalanced optimal transport for robustness to distributional shifts. Segment values are efficiently computed via sensitivity analysis without requiring model training and aggregated into point-wise scores. We provide theoretical guarantees linking valuation to model-agnostic generalization and prove bounded sensitivity to outlier contamination. Extensive experiments across anomaly detection, data pruning, and label noise detection demonstrate that TimeLAVA produces significantly more informative value scores than existing methods on diverse real-world datasets.</p>
+  
+
+  <pre id="LiuQuaZuoGaoNguSejBonGon2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{LiuQuaZuoGaoNguSejBonGon2026,
+  author = {Liu, Wenqin and Quan, Weizhi and Zuo, Aoqi and Gao, Erdun and Nguyen, Vu and Sejdinovic, Dino and Bondell, Howard and Gong, Mingming},
+  title = {{{TimeLAVA: Learning-Agnostic Valuation for Time Series Data}}},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year = {2026},
+  pages = {to appear}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="BerSejDid2026">L. Bergen, D. Sejdinovic, and V. Didelez, <b>The Generalised Kernel Covariance Measure</b>, in <i>Conference on Causal Learning and Reasoning (CLeaR)</i>, 2026, to appear.</span>
+
+<span id="BerSejDid2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#BerSejDid2026_abstract" data-toggle="collapse" href="#BerSejDid2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#BerSejDid2026_bibtex" data-toggle="collapse" href="#BerSejDid2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2604.03721" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="BerSejDid2026_abstract" class="collapse">We consider the problem of conditional independence (CI) testing and adopt a kernel-based approach. Kernel-based CI tests embed variables in reproducing kernel Hilbert spaces, regress their embeddings on the conditioning variables, and test the resulting residuals for marginal independence. This approach yields tests that are sensitive to a broad range of conditional dependencies. Existing methods, however, rely heavily on kernel ridge regression, which is computationally expensive when properly tuned and yields poorly calibrated tests when left untuned, which limits their practical usefulness. We propose the Generalised Kernel Covariance Measure (GKCM), a regression-model-agnostic kernel-based CI test that accommodates a broad class of regression estimators. Building on the Generalised Hilbertian Covariance Measure framework (Lundborg et al., 2022), we characterise conditions under which GKCM satisfies uniform asymptotic level guarantees. In simulations, GKCM paired with tree-based regression models frequently outperforms state-of-the-art CI tests across a diverse range of data-generating processes, achieving better type I error control and competitive or superior power.</p>
   
 
   <pre id="BerSejDid2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{BerSejDid2026,
   author = {Bergen, Luca and Sejdinovic, Dino and Didelez, Vanessa},
   title = {{{The Generalised Kernel Covariance Measure}}},
   booktitle = {Conference on Causal Learning and Reasoning (CLeaR)},
+  arxiv = {https://arxiv.org/abs/2604.03721},
   year = {2026},
   pages = {to appear}
 }
@@ -284,18 +370,16 @@
 
 </span>
 </li>
-<li><span id="LenQuaSejKlo2026">J. Lenhardt, J. Quaas, D. Sejdinovic, and D. Klocke, <b>CloudViT: classifying cloud types in global satellite data and in kilometre-resolution simulations using vision transformers</b>, <i>Atmospheric Chemistry and Physics</i>, to appear, 2026.</span>
+<li><span id="NguSejChi2026">A. V. Nguyen, D. Sejdinovic, and T.-J. Chin, <b>Uncertainty-Guided Edge Learning for Deep Image Regression in Remote Sensing</b>, in <i>IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPR Workshops): AI4Space</i>, 2026, to appear.</span>
 
-<span id="LenQuaSejKlo2026_materials">
+<span id="NguSejChi2026_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#LenQuaSejKlo2026_abstract" data-toggle="collapse" href="#LenQuaSejKlo2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#NguSejChi2026_abstract" data-toggle="collapse" href="#NguSejChi2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#LenQuaSejKlo2026_bibtex" data-toggle="collapse" href="#LenQuaSejKlo2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#NguSejChi2026_bibtex" data-toggle="collapse" href="#NguSejChi2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
-    
-    <li><a class="bib-materials" href="https://egusphere.copernicus.org/preprints/2024/egusphere-2024-2724/" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
     
@@ -312,16 +396,105 @@
   </ul>
 
   
-  <p id="LenQuaSejKlo2026_abstract" class="collapse">Clouds constitute, through their interactions with incoming solar radiation and outgoing terrestrial radiation, a fundamental element of the Earth’s climate system. Different cloud types show a wide variety in cloud microphysical or optical properties, phase, vertical extent or temperature among others, and thus disparate radiative effects. Both in observational and model datasets, classifying cloud types is also of large importance since different cloud types respond differently to current and future anthropogenic climate change. Cloud types have traditionally been defined using a simplified partition of the space determined by spatially aggregated values e.g. of the cloud top pressure and the cloud optical thickness. In this study, we present a method called CloudViT (Cloud Vision Transformer) building upon spatial extracts of cloud properties from the MODIS instrument to derive cloud types, leveraging spatial features and patterns with a vision transformer model. The classification model is based on global surface observations of cloud types. The method is then evaluated through the distributions of cloud type properties and the corresponding spatial patterns of cloud type occurrences for a global cloud type dataset produced over a year-long period. Subsequently, a first application of the cloud type classification method to climate model data is presented. This application additionally provides insights into how global storm-resolving models are representing clouds as these models are increasingly being used to perform simulations. The global cloud type dataset and the method code constituting CloudViT are available from Zenodo (Lenhardt et al., 2024b).</p>
+  <p id="NguSejChi2026_abstract" class="collapse">Edge learning refers to training machine learning models deployed on edge platforms, typically using new data accumulated onboard. The computational limitations on edge devices affect not only model optimisation, but also calculation of the predictive uncertainty of the current model on the unlabelled data, which is vital for informing model updating. In this paper, we investigate edge learning in the context of performing deep image regression on a remote sensing satellite, where a deep network is executed by an onboard computer to regress a scalar from an input image, e.g., is the percentage of pixels indicating cloud coverage or land use. We propose an uncertainty-guided edge learning (UGEL) algorithm that can accurately prioritise the data to speed up training convergence of the onboard regression model. Underpinning UGEL is the calculation of predictive uncertainty based on deep beta regression, where a deep network is used to estimate the parameters of a beta distribution for which the target for an input image has a high likelihood. Compared to established methods for uncertainty estimation that are either too costly on edge devices (e.g., require many forward passes per sample) or make strict assumptions on the predictive distribution (e.g., Gaussian), deep beta regression is computable in a single forward pass and allows more general predictive distributions. Results show that UGEL delivers faster-converging edge learning than active or semi-supervised learning.</p>
+  
+
+  <pre id="NguSejChi2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{NguSejChi2026,
+  author = {Nguyen, Anh Vu and Sejdinovic, Dino and Chin, Tat-Jun},
+  title = {{{Uncertainty-Guided Edge Learning for Deep Image Regression in Remote Sensing}}},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPR Workshops): AI4Space},
+  year = {2026},
+  pages = {to appear}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="LenQuaSejKlo2026">J. Lenhardt, J. Quaas, D. Sejdinovic, and D. Klocke, <b>CloudViT: exploring cloud type classification with vision transformers in global satellite data</b>, <i>Atmospheric Chemistry and Physics</i>, vol. 26, 5447–5475, 2026.</span>
+
+<span id="LenQuaSejKlo2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#LenQuaSejKlo2026_abstract" data-toggle="collapse" href="#LenQuaSejKlo2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#LenQuaSejKlo2026_bibtex" data-toggle="collapse" href="#LenQuaSejKlo2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+    <li><a class="bib-materials" href="https://doi.org/10.5194/acp-26-5447-2026" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="LenQuaSejKlo2026_abstract" class="collapse">Clouds constitute, through their interactions with incoming solar radiation and outgoing terrestrial radiation, a fundamental element of the Earth’s climate system. Different cloud types show a variety in cloud microphysical or optical properties, phase, or vertical extent, and thus disparate radiative effects. Both in observational and model datasets, classifying clouds is important since different cloud types respond differently to current and future anthropogenic climate change. Cloud types have traditionally been defined using a simplified partition of cloud top pressure and optical thickness, but recently using deep learning. In this study, we present a method called CloudViT (Cloud Vision Transformer) building on surface observations and spatial extracts of cloud properties from the MODIS instrument to derive cloud types, leveraging spatial patterns with a vision transformer model. The performance of the model is fair and hampered by the limited number of samples and the challenging matching between data sources arising during the colocation process. The method is then evaluated through the distributions of cloud type properties and global spatial patterns of cloud type occurrences. Potential improvements emerge in the reduction in mismatches between data sources, the extension of the colocated dataset, and the refinement of the classification model. While the application of the method in its current state comes with apparent uncertainties due to limited performance, it raises relevant challenges and limitations, from which the community can benefit from discussing for the development of similar methods. To foster future advancements, the dataset and model are available from Zenodo (Lenhardt et al., 2024b).</p>
   
 
   <pre id="LenQuaSejKlo2026_bibtex" class="pre pre-scrollable collapse">@article{LenQuaSejKlo2026,
   author = {Lenhardt, J. and Quaas, J. and Sejdinovic, D. and Klocke, D.},
-  title = {CloudViT: classifying cloud types in global satellite data and in kilometre-resolution simulations using vision transformers},
+  title = {CloudViT: exploring cloud type classification with vision transformers in global satellite data},
   journal = {Atmospheric Chemistry and Physics},
+  volume = {26},
   year = {2026},
-  pages = {to appear},
-  url = {https://egusphere.copernicus.org/preprints/2024/egusphere-2024-2724/}
+  pages = {5447--5475},
+  url = {https://doi.org/10.5194/acp-26-5447-2026}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="Sej2026">D. Sejdinovic, <b>Instrumental Identification of Interventional Distribution via Moment Recovery in a Parametric Outcome Model</b>, <i>Asian Journal of Economics and Banking</i>, vol. 10, no. 1, 29–38, 2026.</span>
+
+<span id="Sej2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#Sej2026_abstract" data-toggle="collapse" href="#Sej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#Sej2026_bibtex" data-toggle="collapse" href="#Sej2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+    <li><a class="bib-materials" href="https://doi.org/10.1108/AJEB-08-2025-0099" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="Sej2026_abstract" class="collapse">Purpose: Many economic and policy decisions require the full interventional outcome distribution (e.g. tails, dispersion and asymmetry), not just average treatment effects. We study cases where that distribution is identifiable in instrumental variables (IV) settings with endogenous treatment and latent confounding. We focus on coupling additive mean structure with parametric outcome model assumptions to enable estimation of distributional treatment effects. Design/methodology/approach: We posit outcome families that admit summary features that can recover confounder moments. A parsimonious distribution (e.g. discrete or common parametric families) can then be fit to match those moments and combined with the posited outcome model to construct the interventional distribution. Examples include Gaussian outcomes with multiplicative noise, Poisson counts and Gamma outcomes. Findings: The moment-recovery scheme accurately reconstructs the low-order moments of the confounder and the interventional distribution in simulations, including a skewed confounding with multiplicative noise. Originality/value: The paper provides a transparent pathway from the classical IV assumptions to the full identification of the interventional distribution, clarifying the feasibility conditions and offering a simple, practical workflow.</p>
+  
+
+  <pre id="Sej2026_bibtex" class="pre pre-scrollable collapse">@article{Sej2026,
+  title = {{Instrumental Identification of Interventional Distribution via Moment Recovery in a Parametric Outcome Model}},
+  author = {Sejdinovic, Dino},
+  year = {2026},
+  journal = {Asian Journal of Economics and Banking},
+  doi = {10.1108/AJEB-08-2025-0099},
+  volume = {10},
+  number = {1},
+  pages = {29--38},
+  url = {https://doi.org/10.1108/AJEB-08-2025-0099}
 }
 </pre>
 
@@ -556,49 +729,6 @@
   url = {https://ojs.aaai.org/index.php/AAAI/article/view/33790},
   doi = {10.1609/aaai.v39i15.33790},
   arxiv = {https://arxiv.org/abs/2407.20891}
-}
-</pre>
-
-</span>
-</li>
-<li><span id="Sej2025b">D. Sejdinovic, <b>Instrumental Identification of Interventional Distribution via Moment Recovery in a Parametric Outcome Model</b>, <i>Asian Journal of Economics and Banking</i>, 2025.</span>
-
-<span id="Sej2025b_materials">
-  <ul class="nav nav-pills">
-    
-    <li><a class="bib-materials" data-target="#Sej2025b_abstract" data-toggle="collapse" href="#Sej2025b" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    <li><a class="bib-materials" data-target="#Sej2025b_bibtex" data-toggle="collapse" href="#Sej2025b" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-    
-    <li><a class="bib-materials" href="https://doi.org/10.1108/AJEB-08-2025-0099" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    
-
-    
-    
-    
-
-    
-	
-    
-
-    
-  </ul>
-
-  
-  <p id="Sej2025b_abstract" class="collapse">Many decisions require knowing not just average causal effects but the whole outcome distribution under intervention. This paper studies how to recover that distribution in an instrumental variables setting with endogenous treatment and latent confounding. Under standard IV assumptions, an additive outcome mean structure following certain parametric models, and a confounder distribution identifiable from a finite number of moments, we construct orthogonal polynomial features of the outcome which can recover moments of the unobserved confounder. Fitting a parsimonious family to those moments and combining it with the posited outcome model yields the interventional outcome distribution for any treatment level.</p>
-  
-
-  <pre id="Sej2025b_bibtex" class="pre pre-scrollable collapse">@article{Sej2025b,
-  title = {{Instrumental Identification of Interventional Distribution via Moment Recovery in a Parametric Outcome Model}},
-  author = {Sejdinovic, Dino},
-  year = {2025},
-  journal = {Asian Journal of Economics and Banking},
-  doi = {10.1108/AJEB-08-2025-0099},
-  url = {https://doi.org/10.1108/AJEB-08-2025-0099}
 }
 </pre>
 
@@ -5729,7 +5859,7 @@ ol.bibliography > li {
 		}
 </style>
 
-<h3 class="bibliography" style="counter-reset:bibitem 166">Preprints</h3>
+<h3 class="bibliography" style="counter-reset:bibitem 168">Preprints</h3>
 
 <!--### Preprints-->
 <ol class="bibliography"><li><span id="GaoZhaFawZuoLiuLiGonSej2026">E. Gao, L. Zhang, J. Fawkes, A. Zuo, W. Liu, H. Li, M. Gong, and D. Sejdinovic, <b>Observationally Informed Adaptive Causal Experimental Design</b>, <i>ArXiv e-prints:2603.03785</i>, 2026.</span>
@@ -5811,48 +5941,6 @@ ol.bibliography > li {
   journal = {ArXiv e-prints:2603.02159},
   arxiv = {https://arxiv.org/abs/2603.02159},
   year = {2026}
-}
-</pre>
-
-</span>
-</li>
-<li><span id="GaoFawSej2025">E. Gao, J. Fawkes, and D. Sejdinovic, <b>Causal-EPIG: A Prediction-Oriented Active Learning Framework for CATE Estimation</b>, <i>ArXiv e-prints:2509.21866</i>, 2025.</span>
-
-<span id="GaoFawSej2025_materials">
-  <ul class="nav nav-pills">
-    
-    <li><a class="bib-materials" data-target="#GaoFawSej2025_abstract" data-toggle="collapse" href="#GaoFawSej2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    <li><a class="bib-materials" data-target="#GaoFawSej2025_bibtex" data-toggle="collapse" href="#GaoFawSej2025" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-    
-
-    
-
-    
-    
-    
-    <li><a class="bib-materials" href="https://arxiv.org/abs/2509.21866" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    
-	
-    
-
-    
-  </ul>
-
-  
-  <p id="GaoFawSej2025_abstract" class="collapse">Estimating the Conditional Average Treatment Effect (CATE) is often constrained by the high cost of obtaining outcome measurements, making active learning essential. However, conventional active learning strategies suffer from a fundamental objective mismatch. They are designed to reduce uncertainty in model parameters or in observable factual outcomes, failing to directly target the unobservable causal quantities that are the true objects of interest. To address this misalignment, we introduce the principle of causal objective alignment, which posits that acquisition functions should target unobservable causal quantities, such as the potential outcomes and the CATE, rather than indirect proxies. We operationalize this principle through the Causal-EPIG framework, which adapts the information-theoretic criterion of Expected Predictive Information Gain (EPIG) to explicitly quantify the value of a query in terms of reducing uncertainty about unobservable causal quantities. From this unified framework, we derive two distinct strategies that embody a fundamental trade-off: a comprehensive approach that robustly models the full causal mechanisms via the joint potential outcomes, and a focused approach that directly targets the CATE estimand for maximum sample efficiency. Extensive experiments demonstrate that our strategies consistently outperform standard baselines, and crucially, reveal that the optimal strategy is context-dependent, contingent on the base estimator and data complexity. Our framework thus provides a principled guide for sample-efficient CATE estimation in practice.</p>
-  
-
-  <pre id="GaoFawSej2025_bibtex" class="pre pre-scrollable collapse">@unpublished{GaoFawSej2025,
-  author = {Gao, E. and Fawkes, J. and Sejdinovic, D.},
-  title = {{{Causal-EPIG: A Prediction-Oriented Active Learning Framework for CATE Estimation}}},
-  journal = {ArXiv e-prints:2509.21866},
-  arxiv = {https://arxiv.org/abs/2509.21866},
-  year = {2025}
 }
 </pre>
 
@@ -6364,15 +6452,58 @@ ol.bibliography > li {
 </li></ol>
 
 <h3 id="published--in-press">Published / In Press</h3>
-<ol class="bibliography"><li><span id="BerSejDid2026">L. Bergen, D. Sejdinovic, and V. Didelez, <b>The Generalised Kernel Covariance Measure</b>, in <i>Conference on Causal Learning and Reasoning (CLeaR)</i>, 2026, to appear.</span>
+<ol class="bibliography"><li><span id="GaoFawSej2026">E. Gao, J. Fawkes, and D. Sejdinovic, <b>Causal-EPIG: A Prediction-Oriented Active Learning Framework for CATE Estimation</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2026, to appear.</span>
 
-<span id="BerSejDid2026_materials">
+<span id="GaoFawSej2026_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#BerSejDid2026_abstract" data-toggle="collapse" href="#BerSejDid2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#GaoFawSej2026_abstract" data-toggle="collapse" href="#GaoFawSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#BerSejDid2026_bibtex" data-toggle="collapse" href="#BerSejDid2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#GaoFawSej2026_bibtex" data-toggle="collapse" href="#GaoFawSej2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2509.21866" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="GaoFawSej2026_abstract" class="collapse">Estimating the Conditional Average Treatment Effect (CATE) is constrained by the high cost of obtaining outcome measurements, making active learning essential. However, conventional strategies suffer from a fundamental objective mismatch: they reduce uncertainty in model parameters or observable outcomes rather than the unobservable causal quantities of interest. We address this via the principle of causal objective alignment, positing that acquisition functions must target unobservables like potential outcomes or CATE directly. We operationalize this through Causal-EPIG, a framework adapting Expected Predictive Information Gain to quantify uncertainty reduction in causal quantities. We derive two distinct strategies: a comprehensive approach that robustly models the full causal mechanisms via the joint potential outcomes, and a focused approach that directly targets the CATE estimand for maximum sample efficiency. We provide theoretical justification for our framework, establishing a formal link between our information-theoretic objective and the minimization of CATE estimation error. Extensive experiments demonstrate that our strategies consistently outperform standard baselines, and crucially, reveal that the optimal strategy is context-dependent, contingent on the base estimator and data complexity. Our framework thus provides a principled guide for sample-efficient CATE estimation in practice.</p>
+  
+
+  <pre id="GaoFawSej2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{GaoFawSej2026,
+  author = {Gao, E. and Fawkes, J. and Sejdinovic, D.},
+  title = {{{Causal-EPIG: A Prediction-Oriented Active Learning Framework for CATE Estimation}}},
+  arxiv = {https://arxiv.org/abs/2509.21866},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year = {2026},
+  pages = {to appear}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="LiuQuaZuoGaoNguSejBonGon2026">W. Liu, W. Quan, A. Zuo, E. Gao, V. Nguyen, D. Sejdinovic, H. Bondell, and M. Gong, <b>TimeLAVA: Learning-Agnostic Valuation for Time Series Data</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2026, to appear.</span>
+
+<span id="LiuQuaZuoGaoNguSejBonGon2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#LiuQuaZuoGaoNguSejBonGon2026_abstract" data-toggle="collapse" href="#LiuQuaZuoGaoNguSejBonGon2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#LiuQuaZuoGaoNguSejBonGon2026_bibtex" data-toggle="collapse" href="#LiuQuaZuoGaoNguSejBonGon2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
 
@@ -6390,13 +6521,56 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="BerSejDid2026_abstract" class="collapse">We consider the problem of conditional independence (CI) testing and adopt a kernel-based approach, leveraging the ability of kernel methods to detect conditional dependencies under a broad range of alternatives. In kernel-based CI testing, the variables of interest are embedded in reproducing kernel Hilbert spaces, and their embeddings are regressed on the conditioning variables. The residual vectors are then tested for marginal independence. However, existing methods rely heavily on kernel ridge regression, which can be computationally prohibitive when properly tuned and unreliable when left untuned. We introduce the Generalised Kernel Covariance Measure (GKCM), a regression-model-agnostic kernel-based CI test that accommodates a wide class of regression estimators. By replacing kernel ridge regression with alternative regression methods, we obtain substantial finite-sample improvements in type-I error control. Moreover, because GKCM is a Generalised Hilbertian Covariance Measure (Lundborg et al., 2022), we derive conditions under which it achieves uniform asymptotic level guarantees. In a simulation study, we show that GKCM paired with tree-based regression models frequently outperforms state-of-the-art CI tests, achieving superior type-I and type-II error performance across a diverse range of data-generating processes.</p>
+  <p id="LiuQuaZuoGaoNguSejBonGon2026_abstract" class="collapse">Data valuation quantifies the intrinsic quality of individual samples to enable principled data curation, quality control, and robust learning. For time series in critical domains such as healthcare, finance, and industrial monitoring, effective valuation methods are essential yet fundamentally lacking. Existing approaches are either model-dependent, limiting their generalizability, or designed for i.i.d. data and thus fail to capture temporal dependencies, multi-scale patterns, and non-stationary dynamics inherent to sequential data. We introduce TimeLAVA, a learning-agnostic framework that values temporal segments by their marginal contribution to minimizing distributional discrepancy between evaluated and reference data. At its core is a novel Selective Wavelet-based Wasserstein () discrepancy combining multi-scale wavelet transforms for temporal localization with unbalanced optimal transport for robustness to distributional shifts. Segment values are efficiently computed via sensitivity analysis without requiring model training and aggregated into point-wise scores. We provide theoretical guarantees linking valuation to model-agnostic generalization and prove bounded sensitivity to outlier contamination. Extensive experiments across anomaly detection, data pruning, and label noise detection demonstrate that TimeLAVA produces significantly more informative value scores than existing methods on diverse real-world datasets.</p>
+  
+
+  <pre id="LiuQuaZuoGaoNguSejBonGon2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{LiuQuaZuoGaoNguSejBonGon2026,
+  author = {Liu, Wenqin and Quan, Weizhi and Zuo, Aoqi and Gao, Erdun and Nguyen, Vu and Sejdinovic, Dino and Bondell, Howard and Gong, Mingming},
+  title = {{{TimeLAVA: Learning-Agnostic Valuation for Time Series Data}}},
+  booktitle = {International Conference on Machine Learning (ICML)},
+  year = {2026},
+  pages = {to appear}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="BerSejDid2026">L. Bergen, D. Sejdinovic, and V. Didelez, <b>The Generalised Kernel Covariance Measure</b>, in <i>Conference on Causal Learning and Reasoning (CLeaR)</i>, 2026, to appear.</span>
+
+<span id="BerSejDid2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#BerSejDid2026_abstract" data-toggle="collapse" href="#BerSejDid2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#BerSejDid2026_bibtex" data-toggle="collapse" href="#BerSejDid2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2604.03721" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="BerSejDid2026_abstract" class="collapse">We consider the problem of conditional independence (CI) testing and adopt a kernel-based approach. Kernel-based CI tests embed variables in reproducing kernel Hilbert spaces, regress their embeddings on the conditioning variables, and test the resulting residuals for marginal independence. This approach yields tests that are sensitive to a broad range of conditional dependencies. Existing methods, however, rely heavily on kernel ridge regression, which is computationally expensive when properly tuned and yields poorly calibrated tests when left untuned, which limits their practical usefulness. We propose the Generalised Kernel Covariance Measure (GKCM), a regression-model-agnostic kernel-based CI test that accommodates a broad class of regression estimators. Building on the Generalised Hilbertian Covariance Measure framework (Lundborg et al., 2022), we characterise conditions under which GKCM satisfies uniform asymptotic level guarantees. In simulations, GKCM paired with tree-based regression models frequently outperforms state-of-the-art CI tests across a diverse range of data-generating processes, achieving better type I error control and competitive or superior power.</p>
   
 
   <pre id="BerSejDid2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{BerSejDid2026,
   author = {Bergen, Luca and Sejdinovic, Dino and Didelez, Vanessa},
   title = {{{The Generalised Kernel Covariance Measure}}},
   booktitle = {Conference on Causal Learning and Reasoning (CLeaR)},
+  arxiv = {https://arxiv.org/abs/2604.03721},
   year = {2026},
   pages = {to appear}
 }
@@ -6447,18 +6621,16 @@ ol.bibliography > li {
 
 </span>
 </li>
-<li><span id="LenQuaSejKlo2026">J. Lenhardt, J. Quaas, D. Sejdinovic, and D. Klocke, <b>CloudViT: classifying cloud types in global satellite data and in kilometre-resolution simulations using vision transformers</b>, <i>Atmospheric Chemistry and Physics</i>, to appear, 2026.</span>
+<li><span id="NguSejChi2026">A. V. Nguyen, D. Sejdinovic, and T.-J. Chin, <b>Uncertainty-Guided Edge Learning for Deep Image Regression in Remote Sensing</b>, in <i>IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPR Workshops): AI4Space</i>, 2026, to appear.</span>
 
-<span id="LenQuaSejKlo2026_materials">
+<span id="NguSejChi2026_materials">
   <ul class="nav nav-pills">
     
-    <li><a class="bib-materials" data-target="#LenQuaSejKlo2026_abstract" data-toggle="collapse" href="#LenQuaSejKlo2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#NguSejChi2026_abstract" data-toggle="collapse" href="#NguSejChi2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
-    <li><a class="bib-materials" data-target="#LenQuaSejKlo2026_bibtex" data-toggle="collapse" href="#LenQuaSejKlo2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" data-target="#NguSejChi2026_bibtex" data-toggle="collapse" href="#NguSejChi2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
-    
-    <li><a class="bib-materials" href="https://egusphere.copernicus.org/preprints/2024/egusphere-2024-2724/" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
     
@@ -6475,16 +6647,105 @@ ol.bibliography > li {
   </ul>
 
   
-  <p id="LenQuaSejKlo2026_abstract" class="collapse">Clouds constitute, through their interactions with incoming solar radiation and outgoing terrestrial radiation, a fundamental element of the Earth’s climate system. Different cloud types show a wide variety in cloud microphysical or optical properties, phase, vertical extent or temperature among others, and thus disparate radiative effects. Both in observational and model datasets, classifying cloud types is also of large importance since different cloud types respond differently to current and future anthropogenic climate change. Cloud types have traditionally been defined using a simplified partition of the space determined by spatially aggregated values e.g. of the cloud top pressure and the cloud optical thickness. In this study, we present a method called CloudViT (Cloud Vision Transformer) building upon spatial extracts of cloud properties from the MODIS instrument to derive cloud types, leveraging spatial features and patterns with a vision transformer model. The classification model is based on global surface observations of cloud types. The method is then evaluated through the distributions of cloud type properties and the corresponding spatial patterns of cloud type occurrences for a global cloud type dataset produced over a year-long period. Subsequently, a first application of the cloud type classification method to climate model data is presented. This application additionally provides insights into how global storm-resolving models are representing clouds as these models are increasingly being used to perform simulations. The global cloud type dataset and the method code constituting CloudViT are available from Zenodo (Lenhardt et al., 2024b).</p>
+  <p id="NguSejChi2026_abstract" class="collapse">Edge learning refers to training machine learning models deployed on edge platforms, typically using new data accumulated onboard. The computational limitations on edge devices affect not only model optimisation, but also calculation of the predictive uncertainty of the current model on the unlabelled data, which is vital for informing model updating. In this paper, we investigate edge learning in the context of performing deep image regression on a remote sensing satellite, where a deep network is executed by an onboard computer to regress a scalar from an input image, e.g., is the percentage of pixels indicating cloud coverage or land use. We propose an uncertainty-guided edge learning (UGEL) algorithm that can accurately prioritise the data to speed up training convergence of the onboard regression model. Underpinning UGEL is the calculation of predictive uncertainty based on deep beta regression, where a deep network is used to estimate the parameters of a beta distribution for which the target for an input image has a high likelihood. Compared to established methods for uncertainty estimation that are either too costly on edge devices (e.g., require many forward passes per sample) or make strict assumptions on the predictive distribution (e.g., Gaussian), deep beta regression is computable in a single forward pass and allows more general predictive distributions. Results show that UGEL delivers faster-converging edge learning than active or semi-supervised learning.</p>
+  
+
+  <pre id="NguSejChi2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{NguSejChi2026,
+  author = {Nguyen, Anh Vu and Sejdinovic, Dino and Chin, Tat-Jun},
+  title = {{{Uncertainty-Guided Edge Learning for Deep Image Regression in Remote Sensing}}},
+  booktitle = {IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPR Workshops): AI4Space},
+  year = {2026},
+  pages = {to appear}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="LenQuaSejKlo2026">J. Lenhardt, J. Quaas, D. Sejdinovic, and D. Klocke, <b>CloudViT: exploring cloud type classification with vision transformers in global satellite data</b>, <i>Atmospheric Chemistry and Physics</i>, vol. 26, 5447–5475, 2026.</span>
+
+<span id="LenQuaSejKlo2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#LenQuaSejKlo2026_abstract" data-toggle="collapse" href="#LenQuaSejKlo2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#LenQuaSejKlo2026_bibtex" data-toggle="collapse" href="#LenQuaSejKlo2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+    <li><a class="bib-materials" href="https://doi.org/10.5194/acp-26-5447-2026" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="LenQuaSejKlo2026_abstract" class="collapse">Clouds constitute, through their interactions with incoming solar radiation and outgoing terrestrial radiation, a fundamental element of the Earth’s climate system. Different cloud types show a variety in cloud microphysical or optical properties, phase, or vertical extent, and thus disparate radiative effects. Both in observational and model datasets, classifying clouds is important since different cloud types respond differently to current and future anthropogenic climate change. Cloud types have traditionally been defined using a simplified partition of cloud top pressure and optical thickness, but recently using deep learning. In this study, we present a method called CloudViT (Cloud Vision Transformer) building on surface observations and spatial extracts of cloud properties from the MODIS instrument to derive cloud types, leveraging spatial patterns with a vision transformer model. The performance of the model is fair and hampered by the limited number of samples and the challenging matching between data sources arising during the colocation process. The method is then evaluated through the distributions of cloud type properties and global spatial patterns of cloud type occurrences. Potential improvements emerge in the reduction in mismatches between data sources, the extension of the colocated dataset, and the refinement of the classification model. While the application of the method in its current state comes with apparent uncertainties due to limited performance, it raises relevant challenges and limitations, from which the community can benefit from discussing for the development of similar methods. To foster future advancements, the dataset and model are available from Zenodo (Lenhardt et al., 2024b).</p>
   
 
   <pre id="LenQuaSejKlo2026_bibtex" class="pre pre-scrollable collapse">@article{LenQuaSejKlo2026,
   author = {Lenhardt, J. and Quaas, J. and Sejdinovic, D. and Klocke, D.},
-  title = {CloudViT: classifying cloud types in global satellite data and in kilometre-resolution simulations using vision transformers},
+  title = {CloudViT: exploring cloud type classification with vision transformers in global satellite data},
   journal = {Atmospheric Chemistry and Physics},
+  volume = {26},
   year = {2026},
-  pages = {to appear},
-  url = {https://egusphere.copernicus.org/preprints/2024/egusphere-2024-2724/}
+  pages = {5447--5475},
+  url = {https://doi.org/10.5194/acp-26-5447-2026}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="Sej2026">D. Sejdinovic, <b>Instrumental Identification of Interventional Distribution via Moment Recovery in a Parametric Outcome Model</b>, <i>Asian Journal of Economics and Banking</i>, vol. 10, no. 1, 29–38, 2026.</span>
+
+<span id="Sej2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#Sej2026_abstract" data-toggle="collapse" href="#Sej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#Sej2026_bibtex" data-toggle="collapse" href="#Sej2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+    <li><a class="bib-materials" href="https://doi.org/10.1108/AJEB-08-2025-0099" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    
+
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="Sej2026_abstract" class="collapse">Purpose: Many economic and policy decisions require the full interventional outcome distribution (e.g. tails, dispersion and asymmetry), not just average treatment effects. We study cases where that distribution is identifiable in instrumental variables (IV) settings with endogenous treatment and latent confounding. We focus on coupling additive mean structure with parametric outcome model assumptions to enable estimation of distributional treatment effects. Design/methodology/approach: We posit outcome families that admit summary features that can recover confounder moments. A parsimonious distribution (e.g. discrete or common parametric families) can then be fit to match those moments and combined with the posited outcome model to construct the interventional distribution. Examples include Gaussian outcomes with multiplicative noise, Poisson counts and Gamma outcomes. Findings: The moment-recovery scheme accurately reconstructs the low-order moments of the confounder and the interventional distribution in simulations, including a skewed confounding with multiplicative noise. Originality/value: The paper provides a transparent pathway from the classical IV assumptions to the full identification of the interventional distribution, clarifying the feasibility conditions and offering a simple, practical workflow.</p>
+  
+
+  <pre id="Sej2026_bibtex" class="pre pre-scrollable collapse">@article{Sej2026,
+  title = {{Instrumental Identification of Interventional Distribution via Moment Recovery in a Parametric Outcome Model}},
+  author = {Sejdinovic, Dino},
+  year = {2026},
+  journal = {Asian Journal of Economics and Banking},
+  doi = {10.1108/AJEB-08-2025-0099},
+  volume = {10},
+  number = {1},
+  pages = {29--38},
+  url = {https://doi.org/10.1108/AJEB-08-2025-0099}
 }
 </pre>
 
@@ -6719,49 +6980,6 @@ ol.bibliography > li {
   url = {https://ojs.aaai.org/index.php/AAAI/article/view/33790},
   doi = {10.1609/aaai.v39i15.33790},
   arxiv = {https://arxiv.org/abs/2407.20891}
-}
-</pre>
-
-</span>
-</li>
-<li><span id="Sej2025b">D. Sejdinovic, <b>Instrumental Identification of Interventional Distribution via Moment Recovery in a Parametric Outcome Model</b>, <i>Asian Journal of Economics and Banking</i>, 2025.</span>
-
-<span id="Sej2025b_materials">
-  <ul class="nav nav-pills">
-    
-    <li><a class="bib-materials" data-target="#Sej2025b_abstract" data-toggle="collapse" href="#Sej2025b" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    <li><a class="bib-materials" data-target="#Sej2025b_bibtex" data-toggle="collapse" href="#Sej2025b" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-    
-    <li><a class="bib-materials" href="https://doi.org/10.1108/AJEB-08-2025-0099" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    
-
-    
-    
-    
-
-    
-	
-    
-
-    
-  </ul>
-
-  
-  <p id="Sej2025b_abstract" class="collapse">Many decisions require knowing not just average causal effects but the whole outcome distribution under intervention. This paper studies how to recover that distribution in an instrumental variables setting with endogenous treatment and latent confounding. Under standard IV assumptions, an additive outcome mean structure following certain parametric models, and a confounder distribution identifiable from a finite number of moments, we construct orthogonal polynomial features of the outcome which can recover moments of the unobserved confounder. Fitting a parsimonious family to those moments and combining it with the posited outcome model yields the interventional outcome distribution for any treatment level.</p>
-  
-
-  <pre id="Sej2025b_bibtex" class="pre pre-scrollable collapse">@article{Sej2025b,
-  title = {{Instrumental Identification of Interventional Distribution via Moment Recovery in a Parametric Outcome Model}},
-  author = {Sejdinovic, Dino},
-  year = {2025},
-  journal = {Asian Journal of Economics and Banking},
-  doi = {10.1108/AJEB-08-2025-0099},
-  url = {https://doi.org/10.1108/AJEB-08-2025-0099}
 }
 </pre>
 
