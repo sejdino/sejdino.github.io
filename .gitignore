@@ -1,2 +1,8 @@
 make_website.sh
 rsync_exclude.txt
+/teaching/atsml18/notebooks/ParliamentData.html
+/teaching/atsml18/notebooks/ParliamentData.ipynb
+/teaching/atsml19/ParliamentData.html
+/teaching/atsml19/ParliamentData.ipynb
+/teaching/dmml17/ParliamentData.html
+/teaching/dmml17/ParliamentData.ipynb
