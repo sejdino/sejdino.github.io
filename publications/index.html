@@ -213,7 +213,7 @@ ol.bibliography > li {
 		}
 </style>
 
-<h3 class="bibliography" style="counter-reset:bibitem 174">Preprints</h3>
+<h3 class="bibliography" style="counter-reset:bibitem 176">Preprints</h3>
 
 <ol class="bibliography"><li><span id="XiaZhuXinLuSejXu2026">B. Xia, L. Zhu, Z. Xing, Q. Lu, D. Sejdinovic, and X. Xu, <b>Harnessing Agent Skills: Architectural Patterns and a Reference Architecture for Skill-Mediated LLM Agents</b>, <i>ArXiv e-prints:2606.20631</i>, 2026.</span>
 
@@ -3089,7 +3089,91 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li></ol>
 
 <h3 id="conference-proceedings">Conference Proceedings</h3>
-<ol class="bibliography"><li><span id="ZhaMuaSejFonCha2026">Y. Zhang, K. Muandet, D. Sejdinovic, E. Fong, and S. L. Chau, <b>Instrumental and Proximal Causal Inference with Gaussian Processes</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2026, vol. PMLR 337, 8130–8165.</span>
+<ol class="bibliography"><li><span id="TiaZhoPenColSejYanLiu2026">X. Tian, Z. Zhou, L. Peng, J. Collette, D. Sejdinovic, Y. Yang, and F. Liu, <b>TriBet: Relative E-values for Online Machine-generated Text Detection</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2026, to appear.</span>
+
+<span id="TiaZhoPenColSejYanLiu2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#TiaZhoPenColSejYanLiu2026_abstract" data-toggle="collapse" href="#TiaZhoPenColSejYanLiu2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#TiaZhoPenColSejYanLiu2026_bibtex" data-toggle="collapse" href="#TiaZhoPenColSejYanLiu2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="TiaZhoPenColSejYanLiu2026_abstract" class="collapse">To ensure a formal guarantee that fully human-written text streams are not falsely accused as machine-generated text (MGT), the online betting framework (e-values) has been successfully applied on various existing detectors. However, current two-sample e-value methods fail in two real-world application scenarios: the false positive rate (FPR) is often out of control and the test power drops drastically when (1) the reference domain is similar but not exactly same as test domain (cross-domain), or (2) proxy model of detector is outdated compared to the modern source model. We identify the root cause as an online calibration dilemma: two-sample optimization and betting relies on a null-calibrating offset that is unidentifiable from unlabeled test streams under shift. We resolve this with a triple-sample betting framework (TriBet) that conduct online MGT detection as relative testing against both human and machine references using a witness score, and introduces a conformal test-inclusive domain-shift betting strategy to achieve FPR control without fragile online calibration. We show that TriBet is a level- sequential test with asymptotic power one, and characterize its expected stopping time. Empirically, we evaluate on 15 source LLMs, 8 proxy models and mixed-document streams, TriBet consistently delivers faster and more powerful detection than both oracle and online betting baselines while keeping FPR strictly controlled.</p>
+  
+
+  <pre id="TiaZhoPenColSejYanLiu2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{TiaZhoPenColSejYanLiu2026,
+  author = {Tian, Xunye and Zhou, Zhijian and Peng, Liuhua and Collette, Jared and Sejdinovic, Dino and Yang, Yue and Liu, Feng},
+  title = {{{TriBet: Relative E-values for Online Machine-generated Text Detection}}},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year = {2026},
+  pages = {to appear}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="GaoWanZhaLiuLiGonSej2026">E. Gao, Y. Wang, L. Zhang, Y. Liu, H. Li, M. Gong, and D. Sejdinovic, <b>Bayesian Causal Experimental Design for CATE Estimation under Noncompliance</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2026, to appear.</span>
+
+<span id="GaoWanZhaLiuLiGonSej2026_materials">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#GaoWanZhaLiuLiGonSej2026_abstract" data-toggle="collapse" href="#GaoWanZhaLiuLiGonSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#GaoWanZhaLiuLiGonSej2026_bibtex" data-toggle="collapse" href="#GaoWanZhaLiuLiGonSej2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="GaoWanZhaLiuLiGonSej2026_abstract" class="collapse">Causal experimental design often assumes direct control over treatment assignment, but many experiments can only assign encouragements that affect treatment receipt indirectly. We formulate this as adaptive instrumental variable (IV) design under noncompliance: the experimenter chooses unit–instrument queries, observes stochastic treatment realizations and outcomes, and seeks the treatment-level conditional average treatment effect (CATE). This creates an acquisition mismatch: uncertainty in prospective feedback does not necessarily correspond to uncertainty in the target causal estimand, so outcome-predictive or marginal variance-based criteria may select queries weakly informative for CATE. We introduce instrumental variable information gain (IVIG), a Bayesian acquisition principle that scores queries by the expected information their joint treatment-realization and outcome feedback provides about CATE values over a target population. Under the working Bayesian posterior, IVIG is Bayes-risk aligned under logarithmic loss; we also characterize the residual information discarded by outcome-only acquisition and connect greedy IVIG-style acquisition to target posterior-variance reduction under a fixed-covariance analysis. To approximate IVIG, we use an empirical-Bayes Gaussian Process IV posterior approximation with first-stage treatment-realization modeling and treatment-realization-specific fantasy updates. Experiments on synthetic and two semi-synthetic IV benchmarks show improved CATE sample efficiency over adaptive-design baselines; a real-label diagnostic shows improved recovery of full-data CATE estimates from observed IV data.</p>
+  
+
+  <pre id="GaoWanZhaLiuLiGonSej2026_bibtex" class="pre pre-scrollable collapse">@inproceedings{GaoWanZhaLiuLiGonSej2026,
+  author = {Gao, Erdun and Wang, Yuanyuan and Zhang, Liang and Liu, Yuhang and Li, Haoxuan and Gong, Mingming and Sejdinovic, Dino},
+  title = {{{Bayesian Causal Experimental Design for CATE Estimation under Noncompliance}}},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year = {2026},
+  pages = {to appear}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="ZhaMuaSejFonCha2026">Y. Zhang, K. Muandet, D. Sejdinovic, E. Fong, and S. L. Chau, <b>Instrumental and Proximal Causal Inference with Gaussian Processes</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2026, vol. PMLR 337, 8130–8165.</span>
 
 <span id="ZhaMuaSejFonCha2026_materials">
   <ul class="nav nav-pills">
