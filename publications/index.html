@@ -15,7 +15,7 @@
   <meta name="author" content="Dino Sejdinovic">
   
 
-  <meta name="description" content="Preprints {% bibliography -f mybib_preprints %} ### Books/Monographs {% bibliography -f mybib --query @book %} ### Journal Articles {% bibliography -f mybib --query @article[keywords!=discussion] %} ### Conference Proceedings {% bibliography -f mybib --query @inproceedings,@incollection %} ### Discussions {% bibliography -f mybib --query @article[keywords=discussion] %} ### Patents {% bibliography -f patents...">
+  <meta name="description" content="{% include publication-navigation.html %} Preprints {% bibliography -f mybib_preprints %} ### Books/Monographs {: .publication-section} {% bibliography -f mybib --query @book %} ### Journal Articles {: .publication-section} {% bibliography -f mybib --query @article[keywords!=discussion] %} ### Conference Proceedings {: .publication-section} {% bibliography -f mybib --query @inproceedings,@incollection %} ### Discussions {: .publication-section} {%...">
 
   
 
@@ -73,7 +73,7 @@
   
   <meta property="og:site_name" content="Home">
   <meta property="og:title" content="Publications">
-  <meta property="og:description" content="Preprints {% bibliography -f mybib_preprints %} ### Books/Monographs {% bibliography -f mybib --query @book %} ### Journal Articles {% bibliography -f mybib --query @article[keywords!=discussion] %} ### Conference Proceedings {% bibliography -f mybib --query @inproceedings,@incollection %} ### Discussions {% bibliography -f mybib --query @article[keywords=discussion] %} ### Patents {% bibliography -f patents...">
+  <meta property="og:description" content="{% include publication-navigation.html %} Preprints {% bibliography -f mybib_preprints %} ### Books/Monographs {: .publication-section} {% bibliography -f mybib --query @book %} ### Journal Articles {: .publication-section} {% bibliography -f mybib --query @article[keywords!=discussion] %} ### Conference Proceedings {: .publication-section} {% bibliography -f mybib --query @inproceedings,@incollection %} ### Discussions {: .publication-section} {%...">
 
   
   <meta property="og:image" content="https://sejdino.github.io/img/dino.jpg">
@@ -92,7 +92,7 @@
   <meta name="twitter:creator" content="@">
 
   <meta property="twitter:title" content="Publications">
-  <meta property="twitter:description" content="Preprints {% bibliography -f mybib_preprints %} ### Books/Monographs {% bibliography -f mybib --query @book %} ### Journal Articles {% bibliography -f mybib --query @article[keywords!=discussion] %} ### Conference Proceedings {% bibliography -f mybib --query @inproceedings,@incollection %} ### Discussions {% bibliography -f mybib --query @article[keywords=discussion] %} ### Patents {% bibliography -f patents...">
+  <meta property="twitter:description" content="{% include publication-navigation.html %} Preprints {% bibliography -f mybib_preprints %} ### Books/Monographs {: .publication-section} {% bibliography -f mybib --query @book %} ### Journal Articles {: .publication-section} {% bibliography -f mybib --query @article[keywords!=discussion] %} ### Conference Proceedings {: .publication-section} {% bibliography -f mybib --query @inproceedings,@incollection %} ### Discussions {: .publication-section} {%...">
 
   
   <meta name="twitter:image" content="https://sejdino.github.io/img/dino.jpg">
@@ -200,11 +200,100 @@
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
       
 
-      <style>
+      
+<style>
+  .publication-nav {
+    margin: 0 0 1.5rem;
+    padding: 0 0 .65rem;
+    border-bottom: 1px solid #ddd;
+    font-size: .875em;
+  }
+  .publication-nav [hidden], h3.publication-section[hidden],
+  h3.publication-section + ol.bibliography[hidden],
+  h3.publication-section + ol.bibliography > li[hidden] { display: none !important; }
+  .publication-nav-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: .6em;
+    line-height: 1.8;
+    margin: 0 0 .25rem;
+  }
+  .publication-facet-options {
+    display: flex;
+    flex: 1 1 0;
+    flex-wrap: wrap;
+    column-gap: .6em;
+  }
+  .publication-nav .publication-facet-toggle { display: none; }
+  @media (max-width: 575px) {
+    .publication-nav-row { line-height: 1.65; }
+    .publication-nav-row[data-publication-facet] > strong { display: none; }
+    .publication-nav .publication-facet-toggle { display: inline; font-weight: bold; }
+    .publication-facet-toggle::after { content: " ▾"; }
+    .publication-facet-toggle[aria-expanded="true"]::after { content: " ▴"; }
+    [data-publication-facet] > .publication-facet-options { flex-basis: 100%; padding-left: .8rem; }
+    .publication-facet-toggle[aria-expanded="false"] + .publication-facet-options { display: none; }
+  }
+  .publication-nav-row a,
+  .publication-nav button {
+    color: #006fbb;
+    white-space: normal;
+    text-align: left;
+  }
+  .publication-nav button {
+    font: inherit;
+    border: 0;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  .publication-nav button:hover,
+  .publication-nav button[aria-pressed="true"] { text-decoration: underline; }
+  .publication-nav button[aria-pressed="true"] { font-weight: bold; }
+  .publication-nav-status { margin: 0; }
+  .publication-nav-status button { margin-left: .6em; }
+  h3.publication-section { scroll-margin-top: 6rem; }
+</style>
+
+<nav class="publication-nav" id="publication-nav" style="counter-reset:bibitem 180" aria-label="Browse publications">
+  <div class="publication-nav-row" data-publication-types="">
+    <strong>By type:</strong>
+    <div class="publication-facet-options">
+      <a href="#preprints">Preprints (<span>15</span>)</a>
+      <a href="#booksmonographs">Books/Monographs (<span>2</span>)</a>
+      <a href="#journal-articles">Journal Articles (<span>45</span>)</a>
+      <a href="#conference-proceedings">Conference Proceedings (<span>78</span>)</a>
+      <a href="#discussions">Discussions (<span>2</span>)</a>
+      <a href="#patents">Patents (<span>1</span>)</a>
+      <a href="#theses">Theses (<span>2</span>)</a>
+      <a href="#selected-non-archival-papers-and-abstracts">Non-Archival Papers &amp; Abstracts (<span>26</span>)</a>
+      <a href="#miscellanea">Miscellanea (<span>8</span>)</a>
+    </div>
+  </div>
+  <div class="publication-nav-row" data-publication-facet="venues" role="group" aria-label="Filter by venue" hidden="">
+    <strong>By venue:</strong>
+    <button type="button" class="publication-facet-toggle" aria-expanded="false" aria-controls="publication-venues">By venue:<span class="publication-facet-selection"></span></button>
+    <div id="publication-venues" class="publication-facet-options"></div>
+  </div>
+  <div class="publication-nav-row" data-publication-facet="topics" role="group" aria-label="Filter by topic" hidden="">
+    <strong>By topic:</strong>
+    <button type="button" class="publication-facet-toggle" aria-expanded="false" aria-controls="publication-topics">By topic:<span class="publication-facet-selection"></span></button>
+    <div id="publication-topics" class="publication-facet-options"></div>
+  </div>
+  <p class="publication-nav-status"><span role="status"></span><button type="button" data-publication-clear="" hidden="">Show all</button></p>
+</nav>
+
+<script id="publication-filter-data" type="application/json">{"venues":[{"label":"NeurIPS","aliases":["neurips","Advances in Neural Information Processing Systems (NeurIPS)"]},{"label":"ICML","aliases":["icml","International Conference on Machine Learning (ICML)"]},{"label":"AISTATS","aliases":["aistats","International Conference on Artificial Intelligence and Statistics (AISTATS)"]},{"label":"UAI","aliases":["uai","Uncertainty in Artificial Intelligence (UAI)"]},{"label":"ECML-PKDD","aliases":["ecmlpkdd","European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)"]},{"label":"AAAI","aliases":["aaai","Proceedings of the AAAI Conference on Artificial Intelligence"]},{"label":"Allerton","aliases":["Allerton Conference on Communication, Control, and Computing"]},{"label":"CLeaR","aliases":["clear","Conference on Causal Learning and Reasoning (CLeaR)"]},{"label":"J. Mach. Learn. Res.","title":"Journal of Machine Learning Research","aliases":["jmlr"]},{"label":"J. Comput. Graph. Stat.","title":"Journal of Computational and Graphical Statistics"},{"label":"Trans. Mach. Learn. Res.","title":"Transactions on Machine Learning Research","aliases":["tmlr"]},{"label":"Nature","title":"Nature"},{"label":"Sci. Adv.","title":"Science Advances"},{"label":"Nat. Commun.","title":"Nature Communications"},{"label":"Sci. Rep.","title":"Scientific Reports"},{"label":"Ann. Stat.","title":"Annals of Statistics","aliases":["aos","The Annals of Statistics"]},{"label":"Stat. Comput.","title":"Statistics and Computing","aliases":["Stat. Comput."]},{"label":"Mach. Learn.","title":"Machine Learning","aliases":["Mach. Learn."]}],"topics":[{"label":"Causal inference","keys":"FlaCarJakMasSej2026 FlaCarJakMasSej2026sim2sci GaoWanZhaLiuLiGonSej2026 ZhaMuaSejFonCha2026 GaoFawSej2026 GaoZhaFawZuoLiuLiGonSej2026 GaoSej2026 Sej2026 Sej2025a FawHuEvaSej2024 HuSejEva2024 BouFawSej2023 FawEvaSej2022 ChaTonGonTehSej2021 TonSejFuk2021 RunNowKreFlaSej2019 MitSejTeh2018 MitSejTeh2017w RunSejFla2017egu MarSej2022a MarSej2022b"},{"label":"Kernel methods","keys":"KanHenSejSri2025 KanHenSejSri2018 MosChaSej2026 ZhaMuaSejFonCha2026 BerSejDid2026 MosSej2025 Sej2025a MatVidPadSej2026 FawHuEvaSej2024 HuSejEva2024 ShiFukSej2024 PerGorLouSejCam2023 HuSejGla2022 ChaHuGonSej2022 LiPerCamSej2022 ZhaFilFlaSej2020 HuNicSej2021 FerGreRinSej2021 LiTonOglSej2021 PuChaDonSej2021 RinSejSte2021-stat TonChaTehSej2021 RinSejSte2021-ijb LiTonOglSej2019 RajLawSejPar2019 MitSejTeh2018 TonFlaSejBha2018 LawSutSejFla2018 FlaTehSej2017ejs SchStrPaiSej2017 ZhaFilFlaSej2017 MitSejTeh2017 FlaTehSej2017 ZhaFilGreSej2018 MitSejTeh2016 FraAngSej2016 FlaSejCunFil2016 ParJitSej2016 StrSejLivSzaGre2015 ChwRamSejGre2015 SejGreBer2013 SejSriGreFuk2013 GreSriSejStrBalPonFuk2012 ChwSejGre2014 SejStrGarAndGre14 SejGreSriFuk12 JitGreHeeEslLakSejSza2015 MarSej2022a MarSej2022b WilKanSej2021 Tonetal2019w LawSutSejFla2017w MitSejTeh2017w Sej2015dagstuhl Sej2017dagstuhla Sej2017dagstuhlb Jitetal2015w Chwetal2015w LawZhaChaHuaSej2019 LawZhaHuaSej2018w ChaTonGonTehSej2021 BouFawSej2023 TonSejFuk2021"},{"label":"Gaussian processes","keys":"KanHenSejSri2025 KanHenSejSri2018 ZhaMuaSejFonCha2026 BouSejWat2024 BouWatSteNenSej2024 ChaMuaSej2023 WilHuSej2022 LiPerCamSej2022 ChaGonSej2022 ChaBouSej2021 RudSejGal2020 CamSejRunRei2019 BriOatGirOsbSej2019 LawSejCamLucFlaBatFuk2018 TonFlaSejBha2018 WilKanSej2021 WilWuSejKno2025 ZhuHowEerRisSejFla2021 BouSejWat2023egu RudSej2017w Sej2017dagstuhla Sej2017dagstuhlb LawZhaChaHuaSej2019 LawZhaHuaSej2018w MarSej2022a ChaTonGonTehSej2021 ZhaBouOngFlaSej2024 ZhaBouOngFlaSej2026eiml Moonetal2020 Severin_etal2024"},{"label":"Bayesian inference","keys":"BayesAI2026 GaoWanZhaLiuLiGonSej2026 ZhaMuaSejFonCha2026 GaoFawSej2026 GaoZhaFawZuoLiuLiGonSej2026 TsuLiuOngSej2025 Doan_etal2025 OliSejHowBon2024 BouWatSteNenSej2024 BouSejWat2024 WilGhaSejKno2023 WilHuSej2022 ZhaFilFlaSej2020 ChaTonGonTehSej2021 HuNicSej2021 CatCorSejDou2021 BriOatGirOsbSej2019 CatDouSej2018 LawSejCamLucFlaBatFuk2018 LawSutSejFla2018 SchStrPaiSej2017 MitSejTeh2016 FlaSejCunFil2016 ParJitSej2016 StrSejLivSzaGre2015 SejStrGarAndGre14 SejAndPie2010 WilWuSejKno2025 MarSej2022a MarSej2022b StrSejGir2015 Ishida_etal2025 ZhaBouOngFlaSej2024 ZhaBouOngFlaSej2026eiml BouWatSej2022w CatCorSejDou2020w LawSutSejFla2017w Sej2017dagstuhla"},{"label":"Uncertainty & calibration","keys":"BayesAI2026 XiaZhuGaoLuXueSej2026 NguSejChi2026 MosSej2025 ChaSchGreSejMua2025 ChaSchGreSejMua2025isipta Doan_etal2025 OliSejHowBon2024 ChaMuaSej2023 WilGhaSejKno2023 WilHuSej2022 ChaTonGonTehSej2021 BriOatGirOsbSej2019 BouSejWat2024 BouSejWat2023egu MarSej2022b"},{"label":"Hypothesis testing","keys":"MosChaSej2026 TiaZhoPenColSejYanLiu2026 BerSejDid2026 ChaSchGreSejMua2025 ChaSchGreSejMua2025isipta FawHuEvaSej2024 HuSejEva2024 ZhaFilFlaSej2020 SchJitSzaSejGre2022 FerGreRinSej2021 RinSejSte2021-stat RinSejSte2021-ijb RajLawSejPar2019 LawYauSej2017 ZhaFilFlaSej2017 ZhaFilGreSej2018 ChwRamSejGre2015 SejGreBer2013 SejSriGreFuk2013 GreSriSejStrBalPonFuk2012 ChwSejGre2014 SejGreSriFuk12 Sej2015dagstuhl Chwetal2015w"},{"label":"Climate & Earth observation","keys":"NguSejChi2026 LenQuaSejKlo2026 LenQuaSej2024 BouWatSteNenSej2024 BouSejWat2024 Cortes_etal2022 ChaBouSej2021 Blairetal2021 RunNowKreFlaSej2019 CamSejRunRei2019 FraAngSej2016 ZhuHowEerRisSejFla2021 BouSejWat2023egu LenQuaSej2023egu BouWatSej2022w LenQuaSej2022egu SteBouStiNenSej2021w Watetal2019b Watetal2019a RunSejFla2017egu"},{"label":"AI agents & LLMs","keys":"XiaLuSejZhu2026 XiaLuLiSejZhu2026 XiaZhuXinLuSejXu2026 XiaZhuGaoLuXueSej2026 XiaLiuLuZhuSejXu2026 TiaZhoPenColSejYanLiu2026"},{"label":"Quantum devices","keys":"Severin_etal2024 Craig_etal2023 Schuff_etal2023 Nguyen_etal2021 Esbroecketal2020 Moonetal2020 Nguyenetal2019w"},{"label":"Experimental design & Bayesian optimisation","keys":"GaoWanZhaLiuLiGonSej2026 GaoFawSej2026 GaoZhaFawZuoLiuLiGonSej2026 GaoSej2026 OliSejHowBon2024 ZhaBouOngFlaSej2024 ZhaBouOngFlaSej2026eiml LawZhaChaHuaSej2019 LawZhaHuaSej2018w ChaTonGonTehSej2021 MarSej2022a Severin_etal2024 Moonetal2020 Esbroecketal2020 Nguyen_etal2021 Nguyenetal2019w ZhaTsuSej2025"},{"label":"Coding theory","keys":"VukSejPiz2015 SejVukDouSenPie2009 VukStaSejStaXio2009 VukStaSejStaXio2008 VukStaSejStaXio2007 SejVukDouSenPie2007 SejPieDouIsm2009 SejPieDou2009ITW SejPieDouIsm2008ICC SejPieDouIsm2010 SejPonPieDou2008 SejPieDouIsm2008 VukStaStaSej2009 SejPieDou2009 PieSej2012 SejPieDou2007ws Sej2009"},{"label":"Explainability","keys":"FlaCarJakMasSej2026 FlaCarJakMasSej2026sim2sci ChaMuaSej2023 HuChaHueSej2022 ChaHuGonSej2022 HuSej2023 HuSej2021 BouSejWat2024 BouSejWat2023egu"},{"label":"Neural probabilistic models","keys":"BayesAI2026 FlaCarJakMasSej2026 FlaCarJakMasSej2026sim2sci NguSejChi2026 TsuLiuOngSej2025 ZhaTsuSej2025 Doan_etal2025 TsuOngSej2024 TsuOngSej2023 WilGhaSejKno2023 WilHuSej2022 HuSej2023 RinHuSteSej2022 CatCorSejDou2021 TonChaTehSej2021 TonSejFuk2021 HuSej2021 Esbroecketal2020 CatDouSej2018 LenQuaSej2023egu CatCorSejDou2020w CohSej2019w Tonetal2019w LawZhaChaHuaSej2019"},{"label":"Deep learning","keys":"BayesAI2026 FlaCarJakMasSej2026 FlaCarJakMasSej2026sim2sci TiaZhoPenColSejYanLiu2026 NguSejChi2026 LenQuaSejKlo2026 LenQuaSej2024 TsuLiuOngSej2025 ZhaTsuSej2025 Doan_etal2025 ShiFukSej2024 TsuOngSej2023 WilGhaSejKno2023 Craig_etal2023 Schuff_etal2023 WilHuSej2022 HuSej2023 RinHuSteSej2022 Nguyen_etal2021 CatCorSejDou2021 TonChaTehSej2021 TonSejFuk2021 HuSej2021 Esbroecketal2020 RudSejGal2020 LawZhaChaHuaSej2019 CatDouSej2018 TonFlaSejBha2018 MitSejTeh2017 LenQuaSej2023egu LenQuaSej2022egu CatCorSejDou2020w Watetal2019b Watetal2019a CohSej2019w Nguyenetal2019w Tonetal2019w Mitetal2018w RudSej2017w"}]}</script>
+
+<style>
 
 ol.bibliography > li::marker {
 		content: counters(bibitem,'.') '.';
 		font-weight:bold;
+		}
+ol.bibliography > li[data-publication-number]::marker {
+		content: attr(data-publication-number) ".";
 		}
 ol.bibliography > li {
 		counter-increment: bibitem -1;
@@ -212,11 +301,131 @@ ol.bibliography > li {
 		}
 </style>
 
-<h3 class="bibliography" style="counter-reset:bibitem 176">Preprints</h3>
+<h3 id="preprints" class="bibliography publication-section">Preprints</h3>
 
-<ol class="bibliography"><li><span id="XiaZhuXinLuSejXu2026">B. Xia, L. Zhu, Z. Xing, Q. Lu, D. Sejdinovic, and X. Xu, <b>Harnessing Agent Skills: Architectural Patterns and a Reference Architecture for Skill-Mediated LLM Agents</b>, <i>ArXiv e-prints:2606.20631</i>, 2026.</span>
+<ol class="bibliography"><li><span id="FlaCarJakMasSej2026">S. Flaxman, J. Carr, A. Jakob, M. Masiak, and D. Sejdinovic, <b>FADO: Learning Causal Explanations with Prior-Fitted Networks</b>, <i>ArXiv e-prints:2611.15607</i>, 2026.</span>
 
-<span id="XiaZhuXinLuSejXu2026_materials">
+<span id="FlaCarJakMasSej2026_materials" data-publication-venue="ArXiv e-prints:2611.15607">
+  <ul class="nav nav-pills">
+    
+
+    <li><a class="bib-materials" data-target="#FlaCarJakMasSej2026_bibtex" data-toggle="collapse" href="#FlaCarJakMasSej2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2611.15607" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+
+  <pre id="FlaCarJakMasSej2026_bibtex" class="pre pre-scrollable collapse">@unpublished{FlaCarJakMasSej2026,
+  author = {Flaxman, Seth and Carr, Jess and Jakob, Annabel and Masiak, Marek and Sejdinovic, Dino},
+  title = {{{FADO: Learning Causal Explanations with Prior-Fitted Networks}}},
+  journal = {ArXiv e-prints:2611.15607},
+  arxiv = {https://arxiv.org/abs/2611.15607},
+  year = {2026}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="XiaLuSejZhu2026">B. Xia, Q. Lu, D. Sejdinovic, and L. Zhu, <b>When Routine Operations Break Architectural Pattern Relationships in LLM Agent Harnesses</b>, <i>ArXiv e-prints:2611.09088</i>, 2026.</span>
+
+<span id="XiaLuSejZhu2026_materials" data-publication-venue="ArXiv e-prints:2611.09088">
+  <ul class="nav nav-pills">
+    
+
+    <li><a class="bib-materials" data-target="#XiaLuSejZhu2026_bibtex" data-toggle="collapse" href="#XiaLuSejZhu2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2611.09088" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+
+  <pre id="XiaLuSejZhu2026_bibtex" class="pre pre-scrollable collapse">@unpublished{XiaLuSejZhu2026,
+  author = {Xia, Boming and Lu, Qinghua and Sejdinovic, Dino and Zhu, Liming},
+  title = {{{When Routine Operations Break Architectural Pattern Relationships in LLM Agent Harnesses}}},
+  journal = {ArXiv e-prints:2611.09088},
+  arxiv = {https://arxiv.org/abs/2611.09088},
+  year = {2026}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="XiaLuLiSejZhu2026">B. Xia, Q. Lu, R. Li, D. Sejdinovic, and L. Zhu, <b>Does the Judge See What the Evaluation Requires? Input Assurance for LLM Agent Evaluation</b>, <i>ArXiv e-prints:2611.02676</i>, 2026.</span>
+
+<span id="XiaLuLiSejZhu2026_materials" data-publication-venue="ArXiv e-prints:2611.02676">
+  <ul class="nav nav-pills">
+    
+
+    <li><a class="bib-materials" data-target="#XiaLuLiSejZhu2026_bibtex" data-toggle="collapse" href="#XiaLuLiSejZhu2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2611.02676" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+
+  <pre id="XiaLuLiSejZhu2026_bibtex" class="pre pre-scrollable collapse">@unpublished{XiaLuLiSejZhu2026,
+  author = {Xia, Boming and Lu, Qinghua and Li, Runze and Sejdinovic, Dino and Zhu, Liming},
+  title = {{{Does the Judge See What the Evaluation Requires? Input Assurance for LLM Agent Evaluation}}},
+  journal = {ArXiv e-prints:2611.02676},
+  arxiv = {https://arxiv.org/abs/2611.02676},
+  year = {2026}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="XiaZhuXinLuSejXu2026">B. Xia, L. Zhu, Z. Xing, Q. Lu, D. Sejdinovic, and X. Xu, <b>Harnessing Agent Skills: Architectural Patterns and a Reference Architecture for Skill-Mediated LLM Agents</b>, <i>ArXiv e-prints:2606.20631</i>, 2026.</span>
+
+<span id="XiaZhuXinLuSejXu2026_materials" data-publication-venue="ArXiv e-prints:2606.20631">
   <ul class="nav nav-pills">
     
 
@@ -254,53 +463,9 @@ ol.bibliography > li {
 
 </span>
 </li>
-<li><span id="MosChaSej2026">P. Moskvichev, S. L. Chau, and D. Sejdinovic, <b>Measuring Differences between Conditional Distributions using Kernel Embeddings</b>, <i>ArXiv e-prints:2605.02260</i>, 2026.</span>
-
-<span id="MosChaSej2026_materials">
-  <ul class="nav nav-pills">
-    
-    <li><a class="bib-materials" data-target="#MosChaSej2026_abstract" data-toggle="collapse" href="#MosChaSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-
-    <li><a class="bib-materials" data-target="#MosChaSej2026_bibtex" data-toggle="collapse" href="#MosChaSej2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-
-    
-
-    
-
-    
-    
-    
-    <li><a class="bib-materials" href="https://arxiv.org/abs/2605.02260" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
-    
-    
-    
-
-    
-	
-    
-
-    
-  </ul>
-
-  
-  <p id="MosChaSej2026_abstract" class="collapse">Comparing conditional distributions is a fundamental challenge in statistics and machine learning, with applications across a wide range of domains. While proposed methods for measuring discrepancies using kernel embeddings of distributions in a reproducing kernel Hilbert space (RKHS) provide powerful non-parametric techniques, the existing literature remains fragmented and lacks a unified theoretical treatment. This paper addresses this gap by establishing a coherent framework for studying kernel-based methods to measure divergence between conditional distributions through what we refer to as conditional maximum mean discrepancy (CMMD). The CMMD consists of a family of metrics which we call levels, with three special cases each using a different type of RKHS embedding: CMMD0 (conditional mean operators), CMMD1 (conditional mean embeddings), and CMMD2 (joint mean embeddings). We additionally introduce a general level s CMMD, clarifying the required assumptions, and establishing mathematical connections between the levels through the lens of operator-based smoothing. In addition to reviewing previously proposed estimators, we introduce a novel doubly robust estimator for the CMMD that maintains consistency provided at least one of the underlying models is correctly specified. We provide numerical experiments demonstrating that the CMMD effectively captures complex conditional dependencies for statistical testing.</p>
-  
-
-  <pre id="MosChaSej2026_bibtex" class="pre pre-scrollable collapse">@unpublished{MosChaSej2026,
-  author = {Moskvichev, Peter and Chau, Siu Lun and Sejdinovic, Dino},
-  title = {{{Measuring Differences between Conditional Distributions using Kernel Embeddings}}},
-  journal = {ArXiv e-prints:2605.02260},
-  arxiv = {https://arxiv.org/abs/2605.02260},
-  year = {2026}
-}
-</pre>
-
-</span>
-</li>
 <li><span id="XiaZhuGaoLuXueSej2026">B. Xia, L. Zhu, E. Gao, Q. Lu, M. Xue, and D. Sejdinovic, <b>Uncertainty Propagation in LLM-Based Systems</b>, <i>ArXiv e-prints:2604.23505</i>, 2026.</span>
 
-<span id="XiaZhuGaoLuXueSej2026_materials">
+<span id="XiaZhuGaoLuXueSej2026_materials" data-publication-venue="ArXiv e-prints:2604.23505">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#XiaZhuGaoLuXueSej2026_abstract" data-toggle="collapse" href="#XiaZhuGaoLuXueSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -344,7 +509,7 @@ ol.bibliography > li {
 </li>
 <li><span id="Ishida_etal2025">S. Ishida, A. Howes, V. Bradley, E. Semenova, T. Rashid, S. Dzumbunu, S. Bajaj, G. Singhal, D. Sejdinovic, H. Zvirere, D. Piovani, S. Passeri, K. Hachhethu, A. Husain, G. D. Kembo, T. Kairiza, and S. Flaxman, <b>Real-time small area estimation of food security in Zimbabwe: integrating mobile-phone and face-to-face surveys using joint multilevel regression and poststratification</b>, <i>ArXiv e-prints:2505.03517</i>, 2025.</span>
 
-<span id="Ishida_etal2025_materials">
+<span id="Ishida_etal2025_materials" data-publication-venue="ArXiv e-prints:2505.03517">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Ishida_etal2025_abstract" data-toggle="collapse" href="#Ishida_etal2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -388,7 +553,7 @@ ol.bibliography > li {
 </li>
 <li><span id="TsuLiuOngSej2025b">R. Tsuchida, J. Liu, C. S. Ong, and D. Sejdinovic, <b>Squared families: Searching beyond regular probability models</b>, <i>ArXiv e-prints:2503.21128</i>, 2025.</span>
 
-<span id="TsuLiuOngSej2025b_materials">
+<span id="TsuLiuOngSej2025b_materials" data-publication-venue="ArXiv e-prints:2503.21128">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#TsuLiuOngSej2025b_abstract" data-toggle="collapse" href="#TsuLiuOngSej2025b" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -432,7 +597,7 @@ ol.bibliography > li {
 </li>
 <li><span id="WilWuSejKno2025">V. Wild, J. Wu, D. Sejdinovic, and J. Knoblauch, <b>Near-Optimal Approximations for Bayesian Inference in Function Space</b>, <i>ArXiv e-prints:2502.18279</i>, 2025.</span>
 
-<span id="WilWuSejKno2025_materials">
+<span id="WilWuSejKno2025_materials" data-publication-venue="ArXiv e-prints:2502.18279">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#WilWuSejKno2025_abstract" data-toggle="collapse" href="#WilWuSejKno2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -476,7 +641,7 @@ ol.bibliography > li {
 </li>
 <li><span id="ZhaBouOngFlaSej2024">M. Zhang, S. Bouabid, C. S. Ong, S. Flaxman, and D. Sejdinovic, <b>Indirect Query Bayesian Optimization with Integrated Feedback</b>, <i>ArXiv e-prints:2412.13559</i>, 2024.</span>
 
-<span id="ZhaBouOngFlaSej2024_materials">
+<span id="ZhaBouOngFlaSej2024_materials" data-publication-venue="ArXiv e-prints:2412.13559">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ZhaBouOngFlaSej2024_abstract" data-toggle="collapse" href="#ZhaBouOngFlaSej2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -520,7 +685,7 @@ ol.bibliography > li {
 </li>
 <li><span id="MarSej2022b">D. Martinez-Taboada and D. Sejdinovic, <b>Bayesian Counterfactual Mean Embeddings and Off-Policy Evaluation</b>, <i>ArXiv e-prints:2211.01518</i>, 2022.</span>
 
-<span id="MarSej2022b_materials">
+<span id="MarSej2022b_materials" data-publication-venue="ArXiv e-prints:2211.01518">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#MarSej2022b_abstract" data-toggle="collapse" href="#MarSej2022b" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -564,7 +729,7 @@ ol.bibliography > li {
 </li>
 <li><span id="MarSej2022a">D. Martinez-Taboada and D. Sejdinovic, <b>Sequential Decision Making on Unmatched Data using Bayesian Kernel Embeddings</b>, <i>ArXiv e-prints:2210.13692</i>, 2022.</span>
 
-<span id="MarSej2022a_materials">
+<span id="MarSej2022a_materials" data-publication-venue="ArXiv e-prints:2210.13692">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#MarSej2022a_abstract" data-toggle="collapse" href="#MarSej2022a" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -608,7 +773,7 @@ ol.bibliography > li {
 </li>
 <li><span id="WilKanSej2021">V. D. Wild, M. Kanagawa, and D. Sejdinovic, <b>Connections and Equivalences between the Nyström Method and Sparse Variational Gaussian Processes</b>, <i>ArXiv e-prints:2106.01121</i>, 2021.</span>
 
-<span id="WilKanSej2021_materials">
+<span id="WilKanSej2021_materials" data-publication-venue="ArXiv e-prints:2106.01121">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#WilKanSej2021_abstract" data-toggle="collapse" href="#WilKanSej2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -652,7 +817,7 @@ ol.bibliography > li {
 </li>
 <li><span id="ZhuHowEerRisSejFla2021">H. Zhu, A. Howes, O. van Eer, M. Rischard, Y. Li, D. Sejdinovic, and S. Flaxman, <b>Aggregated Gaussian Processes with Multiresolution Earth Observation Covariates</b>, <i>ArXiv e-prints:2105.01460</i>, 2021.</span>
 
-<span id="ZhuHowEerRisSejFla2021_materials">
+<span id="ZhuHowEerRisSejFla2021_materials" data-publication-venue="ArXiv e-prints:2105.01460">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ZhuHowEerRisSejFla2021_abstract" data-toggle="collapse" href="#ZhuHowEerRisSejFla2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -696,7 +861,7 @@ ol.bibliography > li {
 </li>
 <li><span id="KanHenSejSri2018">M. Kanagawa, P. Hennig, D. Sejdinovic, and B. K. Sriperumbudur, <b> Gaussian Processes and Kernel Methods: A Review on Connections and Equivalences</b>, <i>ArXiv e-prints:1807.02582</i>, 2018.</span>
 
-<span id="KanHenSejSri2018_materials">
+<span id="KanHenSejSri2018_materials" data-publication-venue="ArXiv e-prints:1807.02582">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#KanHenSejSri2018_abstract" data-toggle="collapse" href="#KanHenSejSri2018" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -740,7 +905,7 @@ ol.bibliography > li {
 </li>
 <li><span id="StrSejGir2015">H. Strathmann, D. Sejdinovic, and M. Girolami, <b>Unbiased Bayes for Big Data: Paths of Partial Posteriors</b>, <i>ArXiv e-prints:1501.03326</i>, 2015.</span>
 
-<span id="StrSejGir2015_materials">
+<span id="StrSejGir2015_materials" data-publication-venue="ArXiv e-prints:1501.03326">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#StrSejGir2015_abstract" data-toggle="collapse" href="#StrSejGir2015" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -783,10 +948,11 @@ ol.bibliography > li {
 </span>
 </li></ol>
 
-<h3 id="booksmonographs">Books/Monographs</h3>
+<h3 class="publication-section" id="booksmonographs">Books/Monographs</h3>
+
 <ol class="bibliography"><li><span id="KanHenSejSri2025">M. Kanagawa, P. Hennig, D. Sejdinovic, and B. K. Sriperumbudur, <i>Gaussian Processes and Reproducing Kernel Hilbert Spaces: Connections and Equivalences</i>, ser. Institute of Mathematical Statistics Monographs. Cambridge University Press, 2026, Forthcoming.</span>
 
-<span id="KanHenSejSri2025_materials">
+<span id="KanHenSejSri2025_materials" data-publication-venue="">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#KanHenSejSri2025_abstract" data-toggle="collapse" href="#KanHenSejSri2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -832,14 +998,14 @@ ol.bibliography > li {
 </li>
 <li><span id="BayesAI2026">BayesAI Consortium, <i>Handbook of Bayesian Deep Learning</i>. CRC Press, 2026, Forthcoming.</span>
 
-<span id="BayesAI2026_materials">
+<span id="BayesAI2026_materials" data-publication-venue="">
   <ul class="nav nav-pills">
     
 
     <li><a class="bib-materials" data-target="#BayesAI2026_bibtex" data-toggle="collapse" href="#BayesAI2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
 
     
-    <li><a class="bib-materials" href="https://zenodo.org/records/22234754" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    <li><a class="bib-materials" href="https://www.taylorfrancis.com/books/edit/10.1201/9781003638421/handbook-bayesian-deep-learning-bayesai-consortium" target="_blank">url</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
     
 
     
@@ -864,8 +1030,9 @@ ol.bibliography > li {
   title = {{{Handbook of Bayesian Deep Learning}}},
   publisher = {CRC Press},
   note = {Forthcoming},
-  url = {https://zenodo.org/records/22234754},
-  doi = {10.5281/zenodo.22234754},
+  url = {https://www.taylorfrancis.com/books/edit/10.1201/9781003638421/handbook-bayesian-deep-learning-bayesai-consortium},
+  isbn = {9781003638421},
+  doi = {10.1201/9781003638421},
   year = {2026}
 }
 </pre>
@@ -873,10 +1040,56 @@ ol.bibliography > li {
 </span>
 </li></ol>
 
-<h3 id="journal-articles">Journal Articles</h3>
-<ol class="bibliography"><li><span id="XiaLiuLuZhuSejXu2026">B. Xia, Y. Liu, Q. Lu, L. Zhu, D. Sejdinovic, and X. Xu, <b>AgentOps Pattern Catalogue: Architectural Patterns for Safe and Observable Operations of Foundation Model-Based Agents</b>, <i>Information and Software Technology</i>, 2026.</span>
+<h3 class="publication-section" id="journal-articles">Journal Articles</h3>
 
-<span id="XiaLiuLuZhuSejXu2026_materials">
+<ol class="bibliography"><li><span id="MosChaSej2026">P. Moskvichev, S. L. Chau, and D. Sejdinovic, <b>Measuring Differences between Conditional Distributions using Kernel Embeddings</b>, <i>Journal of Computational and Graphical Statistics</i>, to appear, 2026.</span>
+
+<span id="MosChaSej2026_materials" data-publication-venue="Journal of Computational and Graphical Statistics">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#MosChaSej2026_abstract" data-toggle="collapse" href="#MosChaSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#MosChaSej2026_bibtex" data-toggle="collapse" href="#MosChaSej2026" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    <li><a class="bib-materials" href="https://arxiv.org/abs/2605.02260" target="_blank">arxiv</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+    
+    
+
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="MosChaSej2026_abstract" class="collapse">Comparing conditional distributions is a fundamental challenge in statistics and machine learning, with applications across a wide range of domains. While proposed methods for measuring discrepancies using kernel embeddings of distributions in a reproducing kernel Hilbert space (RKHS) provide powerful non-parametric techniques, the existing literature remains fragmented and lacks a unified theoretical treatment. This paper addresses this gap by establishing a coherent framework for studying kernel-based methods to measure divergence between conditional distributions through what we refer to as conditional maximum mean discrepancy (CMMD). The CMMD consists of a family of metrics which we call levels, with three special cases each using a different type of RKHS embedding: CMMD0 (conditional mean operators), CMMD1 (conditional mean embeddings), and CMMD2 (joint mean embeddings). We additionally introduce a general level s CMMD, clarifying the required assumptions, and establishing mathematical connections between the levels through the lens of operator-based smoothing. In addition to reviewing previously proposed estimators, we introduce a novel doubly robust estimator for the CMMD that maintains consistency provided at least one of the underlying models is correctly specified. We provide numerical experiments demonstrating that the CMMD effectively captures complex conditional dependencies for statistical testing.</p>
+  
+
+  <pre id="MosChaSej2026_bibtex" class="pre pre-scrollable collapse">@article{MosChaSej2026,
+  author = {Moskvichev, Peter and Chau, Siu Lun and Sejdinovic, Dino},
+  title = {{{Measuring Differences between Conditional Distributions using Kernel Embeddings}}},
+  journal = {Journal of Computational and Graphical Statistics},
+  arxiv = {https://arxiv.org/abs/2605.02260},
+  year = {2026},
+  pages = {to appear}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="XiaLiuLuZhuSejXu2026">B. Xia, Y. Liu, Q. Lu, L. Zhu, D. Sejdinovic, and X. Xu, <b>AgentOps Pattern Catalogue: Architectural Patterns for Safe and Observable Operations of Foundation Model-Based Agents</b>, <i>Information and Software Technology</i>, 2026.</span>
+
+<span id="XiaLiuLuZhuSejXu2026_materials" data-publication-venue="Information and Software Technology">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#XiaLiuLuZhuSejXu2026_abstract" data-toggle="collapse" href="#XiaLiuLuZhuSejXu2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -921,7 +1134,7 @@ ol.bibliography > li {
 </li>
 <li><span id="LenQuaSejKlo2026">J. Lenhardt, J. Quaas, D. Sejdinovic, and D. Klocke, <b>CloudViT: exploring cloud type classification with vision transformers in global satellite data</b>, <i>Atmospheric Chemistry and Physics</i>, vol. 26, 5447–5475, 2026.</span>
 
-<span id="LenQuaSejKlo2026_materials">
+<span id="LenQuaSejKlo2026_materials" data-publication-venue="Atmospheric Chemistry and Physics">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LenQuaSejKlo2026_abstract" data-toggle="collapse" href="#LenQuaSejKlo2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -968,7 +1181,7 @@ ol.bibliography > li {
 </li>
 <li><span id="Sej2026">D. Sejdinovic, <b>Instrumental Identification of Interventional Distribution via Moment Recovery in a Parametric Outcome Model</b>, <i>Asian Journal of Economics and Banking</i>, vol. 10, no. 1, 29–38, 2026.</span>
 
-<span id="Sej2026_materials">
+<span id="Sej2026_materials" data-publication-venue="Asian Journal of Economics and Banking">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Sej2026_abstract" data-toggle="collapse" href="#Sej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1016,7 +1229,7 @@ ol.bibliography > li {
 </li>
 <li><span id="MatVidPadSej2026">M. Matabuena, J. C. Vidal, O. H. M. Padilla, and D. Sejdinovic, <b>Kernel Biclustering Algorithm in Hilbert Spaces</b>, <i>Advances in Data Analysis and Classification</i>, vol. 20, 479–520, 2026.</span>
 
-<span id="MatVidPadSej2026_materials">
+<span id="MatVidPadSej2026_materials" data-publication-venue="Advances in Data Analysis and Classification">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#MatVidPadSej2026_abstract" data-toggle="collapse" href="#MatVidPadSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1066,7 +1279,7 @@ ol.bibliography > li {
 </li>
 <li><span id="danAddressingSurveyFatigue2025">S. Dan, Z. Ling, Y. Chen, J. Tegegne, V. K. Jaeger, A. Karch, S. Mishra, O. Ratmann, and The Machine Learning &amp; Global Health Network, <b>Addressing Survey Fatigue Bias in Longitudinal Social Contact Studies to Improve Pandemic Preparedness</b>, <i>Scientific Reports</i>, vol. 15, no. 1, 17935, 2025.</span>
 
-<span id="danAddressingSurveyFatigue2025_materials">
+<span id="danAddressingSurveyFatigue2025_materials" data-publication-venue="Scientific Reports">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#danAddressingSurveyFatigue2025_abstract" data-toggle="collapse" href="#danAddressingSurveyFatigue2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1116,7 +1329,7 @@ ol.bibliography > li {
 </li>
 <li><span id="Severin_etal2024">B. Severin, D. T. Lennon, L. C. Camenzind, F. Vigneau, F. Fedele, D. Jirovec, A. Ballabio, D. Chrastina, G. Isella, M. de Kruijf, M. J. Carballido, S. Svab, A. V. Kuhlmann, S. Geyer, F. N. M. Froning, H. Moon, M. A. Osborne, D. Sejdinovic, G. Katsaros, D. M. Zumbühl, G. A. D. Briggs, and N. Ares, <b>Cross-Architecture Tuning of Silicon and SiGe-based Quantum Devices Using Machine Learning</b>, <i>Scientific Reports</i>, vol. 14, no. 1, 17281, 2024.</span>
 
-<span id="Severin_etal2024_materials">
+<span id="Severin_etal2024_materials" data-publication-venue="Scientific Reports">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Severin_etal2024_abstract" data-toggle="collapse" href="#Severin_etal2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1166,7 +1379,7 @@ ol.bibliography > li {
 </li>
 <li><span id="LenQuaSej2024">J. Lenhardt, J. Quaas, and D. Sejdinovic, <b>Marine cloud base height retrieval from MODIS cloud properties using machine learning</b>, <i>Atmospheric Measurement Techniques</i>, vol. 17, no. 18, 5655–5677, 2024.</span>
 
-<span id="LenQuaSej2024_materials">
+<span id="LenQuaSej2024_materials" data-publication-venue="Atmospheric Measurement Techniques">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LenQuaSej2024_abstract" data-toggle="collapse" href="#LenQuaSej2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1214,7 +1427,7 @@ ol.bibliography > li {
 </li>
 <li><span id="FawHuEvaSej2024">J. Fawkes, R. Hu, R. J. Evans, and D. Sejdinovic, <b>Doubly Robust Kernel Statistics for Testing Distributional Treatment Effects</b>, <i>Transactions on Machine Learning Research</i>, 2024.</span>
 
-<span id="FawHuEvaSej2024_materials">
+<span id="FawHuEvaSej2024_materials" data-publication-venue="Transactions on Machine Learning Research">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#FawHuEvaSej2024_abstract" data-toggle="collapse" href="#FawHuEvaSej2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1262,7 +1475,7 @@ ol.bibliography > li {
 </li>
 <li><span id="HuSejEva2024">R. Hu, D. Sejdinovic, and R. J. Evans, <b>A Kernel Test for Causal Association via Noise Contrastive Backdoor Adjustment</b>, <i>Journal of Machine Learning Research</i>, vol. 25, no. 160, 1–56, 2024.</span>
 
-<span id="HuSejEva2024_materials">
+<span id="HuSejEva2024_materials" data-publication-venue="Journal of Machine Learning Research">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#HuSejEva2024_abstract" data-toggle="collapse" href="#HuSejEva2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1312,7 +1525,7 @@ ol.bibliography > li {
 </li>
 <li><span id="BouWatSteNenSej2024">S. Bouabid, D. Watson-Parris, S. Stefanovic, A. Nenes, and D. Sejdinovic, <b>Aerosol optical depth disaggregation: toward global aerosol vertical profiles</b>, <i>Environmental Data Science</i>, vol. 3, e16, 2024.</span>
 
-<span id="BouWatSteNenSej2024_materials">
+<span id="BouWatSteNenSej2024_materials" data-publication-venue="Environmental Data Science">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#BouWatSteNenSej2024_abstract" data-toggle="collapse" href="#BouWatSteNenSej2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1362,7 +1575,7 @@ ol.bibliography > li {
 </li>
 <li><span id="BouSejWat2024">S. Bouabid, D. Sejdinovic, and D. Watson-Parris, <b>FaIRGP: A Bayesian Energy Balance Model for Surface Temperatures Emulation</b>, <i>Journal of Advances in Modeling Earth Systems</i>, vol. 16, no. 6, 2024.</span>
 
-<span id="BouSejWat2024_materials">
+<span id="BouSejWat2024_materials" data-publication-venue="Journal of Advances in Modeling Earth Systems">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#BouSejWat2024_abstract" data-toggle="collapse" href="#BouSejWat2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1412,7 +1625,7 @@ ol.bibliography > li {
 </li>
 <li><span id="Craig_etal2023">D. L. Craig, H. Moon, F. Fedele, D. T. Lennon, B. V. Straaten, F. Vigneau, L. C. Camenzind, D. M. Zumbuhl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Bridging the Reality Gap in Quantum Devices with Physics-Aware Machine Learning</b>, <i>Physical Review X</i>, vol. 14, no. 1, 011001, 2024.</span>
 
-<span id="Craig_etal2023_materials">
+<span id="Craig_etal2023_materials" data-publication-venue="Physical Review X">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Craig_etal2023_abstract" data-toggle="collapse" href="#Craig_etal2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1463,7 +1676,7 @@ ol.bibliography > li {
 </li>
 <li><span id="PerGorLouSejCam2023">A. Perez-Suay, P. Gordaliza, J.-M. Loubes, D. Sejdinovic, and G. Camps-Valls, <b>Fair Kernel Regression through Cross-Covariance Operators</b>, <i>Transactions on Machine Learning Research</i>, 2023.</span>
 
-<span id="PerGorLouSejCam2023_materials">
+<span id="PerGorLouSejCam2023_materials" data-publication-venue="Transactions on Machine Learning Research">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#PerGorLouSejCam2023_abstract" data-toggle="collapse" href="#PerGorLouSejCam2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1508,7 +1721,7 @@ ol.bibliography > li {
 </li>
 <li><span id="Schuff_etal2023">J. Schuff, D. T. Lennon, S. Geyer, D. L. Craig, F. Fedele, F. Vigneau, L. C. Camenzind, A. V. Kuhlmann, G. A. D. Briggs, D. M. Zumbühl, D. Sejdinovic, and N. Ares, <b>Identifying Pauli Spin Blockade using Deep Learning</b>, <i>Quantum</i>, vol. 7, 1077, 2023.</span>
 
-<span id="Schuff_etal2023_materials">
+<span id="Schuff_etal2023_materials" data-publication-venue="Quantum">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Schuff_etal2023_abstract" data-toggle="collapse" href="#Schuff_etal2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1559,7 +1772,7 @@ ol.bibliography > li {
 </li>
 <li><span id="HuSej2023">R. Hu and D. Sejdinovic, <b>Towards Deep Interpretable Features</b>, <i>Journal of Computational Mathematics and Data Science</i>, vol. 6, 100067, 2023.</span>
 
-<span id="HuSej2023_materials">
+<span id="HuSej2023_materials" data-publication-venue="Journal of Computational Mathematics and Data Science">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#HuSej2023_abstract" data-toggle="collapse" href="#HuSej2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1606,7 +1819,7 @@ ol.bibliography > li {
 </li>
 <li><span id="LiSuSej2023">Z. Li, W. Su, and D. Sejdinovic, <b>Benign Overfitting and Noisy Features</b>, <i>Journal of the American Statistical Association</i>, vol. 118, no. 544, 2876–2888, 2023.</span>
 
-<span id="LiSuSej2023_materials">
+<span id="LiSuSej2023_materials" data-publication-venue="Journal of the American Statistical Association">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LiSuSej2023_abstract" data-toggle="collapse" href="#LiSuSej2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1657,7 +1870,7 @@ ol.bibliography > li {
 </li>
 <li><span id="FerGreRinSej2021">T. Fernandez, A. Gretton, D. Rindt, and D. Sejdinovic, <b>A Kernel Log-Rank Test of Independence for Right-Censored Data</b>, <i>Journal of the American Statistical Association</i>, vol. 118, no. 542, 925–936, 2023.</span>
 
-<span id="FerGreRinSej2021_materials">
+<span id="FerGreRinSej2021_materials" data-publication-venue="Journal of the American Statistical Association">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#FerGreRinSej2021_abstract" data-toggle="collapse" href="#FerGreRinSej2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1708,7 +1921,7 @@ ol.bibliography > li {
 </li>
 <li><span id="LiPerCamSej2022">Z. Li, A. Perez-Suay, G. Camps-Valls, and D. Sejdinovic, <b>Kernel Dependence Regularizers and Gaussian Processes with Applications to Algorithmic Fairness</b>, <i>Pattern Recognition</i>, vol. 132, 108922, 2022.</span>
 
-<span id="LiPerCamSej2022_materials">
+<span id="LiPerCamSej2022_materials" data-publication-venue="Pattern Recognition">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LiPerCamSej2022_abstract" data-toggle="collapse" href="#LiPerCamSej2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1758,7 +1971,7 @@ ol.bibliography > li {
 </li>
 <li><span id="Cortes_etal2022">J. Cortés-Andrés, G. Camps-Valls, S. Sippel, E. M. Székely, D. Sejdinovic, E. Díaz, A. Pérez-Suay, Z. Li, M. D. Mahecha, and M. Reichstein, <b>Physics-Aware Nonparametric Regression Models for Earth Data Analysis</b>, <i>Environmental Research Letters</i>, vol. 17, no. 5, 054034, 2022.</span>
 
-<span id="Cortes_etal2022_materials">
+<span id="Cortes_etal2022_materials" data-publication-venue="Environmental Research Letters">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Cortes_etal2022_abstract" data-toggle="collapse" href="#Cortes_etal2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1806,7 +2019,7 @@ ol.bibliography > li {
 </li>
 <li><span id="ZhaFilFlaSej2020">Q. Zhang, V. Wild, S. Filippi, S. Flaxman, and D. Sejdinovic, <b>Bayesian Kernel Two-Sample Testing</b>, <i>Journal of Computational and Graphical Statistics</i>, vol. 31, no. 4, 1164–1176, 2022.</span>
 
-<span id="ZhaFilFlaSej2020_materials">
+<span id="ZhaFilFlaSej2020_materials" data-publication-venue="Journal of Computational and Graphical Statistics">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ZhaFilFlaSej2020_abstract" data-toggle="collapse" href="#ZhaFilFlaSej2020" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1857,7 +2070,7 @@ ol.bibliography > li {
 </li>
 <li><span id="BraKurIsaSejMenFla2021">V. C. Bradley, S. Kuriwaki, M. Isakov, D. Sejdinovic, X.-L. Meng, and S. Flaxman, <b>Unrepresentative Big Surveys Significantly Overestimated US Vaccine Uptake</b>, <i>Nature</i>, no. 600, 695–700, 2021.</span>
 
-<span id="BraKurIsaSejMenFla2021_materials">
+<span id="BraKurIsaSejMenFla2021_materials" data-publication-venue="Nature">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#BraKurIsaSejMenFla2021_abstract" data-toggle="collapse" href="#BraKurIsaSejMenFla2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1907,7 +2120,7 @@ ol.bibliography > li {
 </li>
 <li><span id="HuNicSej2021">R. Hu, G. K. Nicholls, and D. Sejdinovic, <b>Large Scale Tensor Regression using Kernels and Variational Inference</b>, <i>Machine Learning</i>, vol. 111, 2663–2713, 2021.</span>
 
-<span id="HuNicSej2021_materials">
+<span id="HuNicSej2021_materials" data-publication-venue="Machine Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#HuNicSej2021_abstract" data-toggle="collapse" href="#HuNicSej2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -1957,7 +2170,7 @@ ol.bibliography > li {
 </li>
 <li><span id="Nguyen_etal2021">V. Nguyen, S. B. Orbell, D. T. Lennon, H. Moon, F. Vigneau, L. C. Camenzind, L. Yu, D. M. Zumbühl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, and N. Ares, <b>Deep Reinforcement Learning for Efficient Measurement of Quantum Devices</b>, <i>npj Quantum Information</i>, vol. 7, no. 100, 2021.</span>
 
-<span id="Nguyen_etal2021_materials">
+<span id="Nguyen_etal2021_materials" data-publication-venue="npj Quantum Information">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Nguyen_etal2021_abstract" data-toggle="collapse" href="#Nguyen_etal2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2007,7 +2220,7 @@ ol.bibliography > li {
 </li>
 <li><span id="LiTonOglSej2021">Z. Li, J.-F. Ton, D. Oglic, and D. Sejdinovic, <b>Towards A Unified Analysis of Random Fourier Features</b>, <i>Journal of Machine Learning Research</i>, vol. 22, no. 108, 1–51, 2021.</span>
 
-<span id="LiTonOglSej2021_materials">
+<span id="LiTonOglSej2021_materials" data-publication-venue="Journal of Machine Learning Research">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LiTonOglSej2021_abstract" data-toggle="collapse" href="#LiTonOglSej2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2057,7 +2270,7 @@ ol.bibliography > li {
 </li>
 <li><span id="PuChaDonSej2021">X. Pu, S. L. Chau, X. Dong, and D. Sejdinovic, <b>Kernel-based Graph Learning from Smooth Signals: A Functional Viewpoint</b>, <i>IEEE Transactions on Signal and Information Processing over Networks</i>, vol. 7, 192–207, 2021.</span>
 
-<span id="PuChaDonSej2021_materials">
+<span id="PuChaDonSej2021_materials" data-publication-venue="IEEE Transactions on Signal and Information Processing over Networks">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#PuChaDonSej2021_abstract" data-toggle="collapse" href="#PuChaDonSej2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2107,7 +2320,7 @@ ol.bibliography > li {
 </li>
 <li><span id="RinSejSte2021-stat">D. Rindt, D. Sejdinovic, and D. Steinsaltz, <b>Consistency of Permutation Tests of Independence using Distance Covariance, HSIC and dHSIC</b>, <i>Stat</i>, vol. 10, no. 1, e364, 2021.</span>
 
-<span id="RinSejSte2021-stat_materials">
+<span id="RinSejSte2021-stat_materials" data-publication-venue="Stat">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#RinSejSte2021-stat_abstract" data-toggle="collapse" href="#RinSejSte2021-stat" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2158,7 +2371,7 @@ ol.bibliography > li {
 </li>
 <li><span id="Blairetal2021">G. S. Blair, R. Bassett, L. Bastin, L. Beevers, M. I. Borrajo, M. Brown, S. L. Dance, A. Dionescu, L. Edwards, M. A. Ferrario, R. Fraser, H. Fraser, S. Gardner, P. Henrys, T. Hey, S. Homann, C. Huijbers, J. Hutchison, P. Jonathan, R. Lamb, S. Laurie, A. Leeson, D. Leslie, M. McMillan, V. Nundloll, O. Oyebamiji, J. Phillipson, V. Pope, R. Prudden, S. Reis, M. Salama, F. Samreen, D. Sejdinovic, W. Simm, R. Street, L. Thornton, R. Towe, J. V. Hey, M. Vieno, J. Waller, and J. Watkins, <b>The Role of Digital Technologies in Responding to the Grand Challenges of the Natural Environment: The Windermere Accord</b>, <i>Patterns</i>, vol. 2, no. 1, 100156, 2021.</span>
 
-<span id="Blairetal2021_materials">
+<span id="Blairetal2021_materials" data-publication-venue="Patterns">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Blairetal2021_abstract" data-toggle="collapse" href="#Blairetal2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2209,7 +2422,7 @@ Digital technology is having a major impact on many areas of society, and there 
 </li>
 <li><span id="RinSejSte2021-ijb">D. Rindt, D. Sejdinovic, and D. Steinsaltz, <b>A kernel and optimal transport based test of independence between covariates and right-censored lifetimes</b>, <i>International Journal of Biostatistics</i>, vol. 17, no. 2, 331–348, 2021.</span>
 
-<span id="RinSejSte2021-ijb_materials">
+<span id="RinSejSte2021-ijb_materials" data-publication-venue="International Journal of Biostatistics">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#RinSejSte2021-ijb_abstract" data-toggle="collapse" href="#RinSejSte2021-ijb" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2260,7 +2473,7 @@ Digital technology is having a major impact on many areas of society, and there 
 </li>
 <li><span id="Esbroecketal2020">N. M. van Esbroeck, D. T. Lennon, H. Moon, V. Nguyen, F. Vigneau, L. C. Camenzind, L. Yu, D. Zumbuehl, G. A. D. Briggs, D. Sejdinovic, and N. Ares, <b>Quantum device fine-tuning using unsupervised embedding learning</b>, <i>New Journal of Physics</i>, vol. 22, no. 9, 095003, 2020.</span>
 
-<span id="Esbroecketal2020_materials">
+<span id="Esbroecketal2020_materials" data-publication-venue="New Journal of Physics">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Esbroecketal2020_abstract" data-toggle="collapse" href="#Esbroecketal2020" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2311,7 +2524,7 @@ Digital technology is having a major impact on many areas of society, and there 
 </li>
 <li><span id="Moonetal2020">H. Moon, D. T. Lennon, J. Kirkpatrick, N. M. van Esbroeck, L. C. Camenzind, L. Yu, F. Vigneau, D. M. Zumbühl, G. A. D. Briggs, M. A. Osborne, D. Sejdinovic, E. A. Laird, and N. Ares, <b>Machine learning enables completely automatic tuning of a quantum device faster than human experts</b>, <i>Nature Communications</i>, vol. 11, no. 4161, 2020.</span>
 
-<span id="Moonetal2020_materials">
+<span id="Moonetal2020_materials" data-publication-venue="Nature Communications">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Moonetal2020_abstract" data-toggle="collapse" href="#Moonetal2020" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2364,7 +2577,7 @@ Digital technology is having a major impact on many areas of society, and there 
 </li>
 <li><span id="RunNowKreFlaSej2019">J. Runge, P. Nowack, M. Kretschmer, S. Flaxman, and D. Sejdinovic, <b>Detecting and Quantifying Causal Associations in Large Nonlinear Time Series Datasets</b>, <i>Science Advances</i>, vol. 5, no. 11, 2019.</span>
 
-<span id="RunNowKreFlaSej2019_materials">
+<span id="RunNowKreFlaSej2019_materials" data-publication-venue="Science Advances">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#RunNowKreFlaSej2019_abstract" data-toggle="collapse" href="#RunNowKreFlaSej2019" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2417,7 +2630,7 @@ Digital technology is having a major impact on many areas of society, and there 
 </li>
 <li><span id="CamSejRunRei2019">G. Camps-Valls, D. Sejdinovic, J. Runge, and M. Reichstein, <b>A Perspective on Gaussian Processes for Earth Observation</b>, <i>National Science Review</i>, vol. 6, no. 4, 616–618, 2019.</span>
 
-<span id="CamSejRunRei2019_materials">
+<span id="CamSejRunRei2019_materials" data-publication-venue="National Science Review">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#CamSejRunRei2019_abstract" data-toggle="collapse" href="#CamSejRunRei2019" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2468,7 +2681,7 @@ Digital technology is having a major impact on many areas of society, and there 
 </li>
 <li><span id="BriOatGirOsbSej2019">F.-X. Briol, C. J. Oates, M. Girolami, M. A. Osborne, and D. Sejdinovic, <b>Probabilistic Integration: A Role in Statistical Computation? (with Discussion and Rejoinder)</b>, <i>Statistical Science</i>, vol. 34, no. 1, 1–22; rejoinder: 38–42, 2019.</span>
 
-<span id="BriOatGirOsbSej2019_materials">
+<span id="BriOatGirOsbSej2019_materials" data-publication-venue="Statistical Science">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#BriOatGirOsbSej2019_abstract" data-toggle="collapse" href="#BriOatGirOsbSej2019" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2519,7 +2732,7 @@ Digital technology is having a major impact on many areas of society, and there 
 </li>
 <li><span id="TonFlaSejBha2018">J.-F. Ton, S. Flaxman, D. Sejdinovic, and S. Bhatt, <b>Spatial Mapping with Gaussian Processes and Nonstationary Fourier Features</b>, <i>Spatial Statistics</i>, vol. 28, 59–78, 2018.</span>
 
-<span id="TonFlaSejBha2018_materials">
+<span id="TonFlaSejBha2018_materials" data-publication-venue="Spatial Statistics">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#TonFlaSejBha2018_abstract" data-toggle="collapse" href="#TonFlaSejBha2018" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2569,7 +2782,7 @@ Digital technology is having a major impact on many areas of society, and there 
 </li>
 <li><span id="ZhaFilGreSej2018">Q. Zhang, S. Filippi, A. Gretton, and D. Sejdinovic, <b>Large-Scale Kernel Methods for Independence Testing</b>, <i>Statistics and Computing</i>, vol. 28, no. 1, 113–130, Jan. 2018.</span>
 
-<span id="ZhaFilGreSej2018_materials">
+<span id="ZhaFilGreSej2018_materials" data-publication-venue="Statistics and Computing">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ZhaFilGreSej2018_abstract" data-toggle="collapse" href="#ZhaFilGreSej2018" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2624,7 +2837,7 @@ Digital technology is having a major impact on many areas of society, and there 
 </li>
 <li><span id="FlaTehSej2017ejs">S. Flaxman, Y. W. Teh, and D. Sejdinovic, <b>Poisson Intensity Estimation with Reproducing Kernels</b>, <i>Electronic Journal of Statistics</i>, vol. 11, no. 2, 5081–5104, 2017.</span>
 
-<span id="FlaTehSej2017ejs_materials">
+<span id="FlaTehSej2017ejs_materials" data-publication-venue="Electronic Journal of Statistics">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#FlaTehSej2017ejs_abstract" data-toggle="collapse" href="#FlaTehSej2017ejs" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2686,7 +2899,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="VukJaketal2016a">D. Vukobratovic, D. Jakovetic, V. Skachek, D. Bajovic, D. Sejdinovic, G. Karabulut Kurt, C. Hollanti, and I. Fischer, <b>CONDENSE: A Reconfigurable Knowledge Acquisition Architecture for Future 5G IoT</b>, <i>IEEE Access</i>, vol. 4, 3360–3378, 2016.</span>
 
-<span id="VukJaketal2016a_materials">
+<span id="VukJaketal2016a_materials" data-publication-venue="IEEE Access">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#VukJaketal2016a_abstract" data-toggle="collapse" href="#VukJaketal2016a" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2733,7 +2946,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="KNeBarSejDolDay2015">Z. Kurth-Nelson, G. Barnes, D. Sejdinovic, R. Dolan, and P. Dayan, <b>Temporal Structure in Associative Retrieval</b>, <i>eLife</i>, vol. 4, no. e04919, 2015.</span>
 
-<span id="KNeBarSejDolDay2015_materials">
+<span id="KNeBarSejDolDay2015_materials" data-publication-venue="eLife">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#KNeBarSejDolDay2015_abstract" data-toggle="collapse" href="#KNeBarSejDolDay2015" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2781,7 +2994,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="JohSejCruPieGan2014">O. Johnson, D. Sejdinovic, J. Cruise, R. Piechocki, and A. Ganesh, <b>Non-Parametric Change-Point Estimation using String Matching Algorithms</b>, <i>Methodology and Computing in Applied Probability</i>, vol. 16, no. 4, 987–1008, 2014.</span>
 
-<span id="JohSejCruPieGan2014_materials">
+<span id="JohSejCruPieGan2014_materials" data-publication-venue="Methodology and Computing in Applied Probability">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#JohSejCruPieGan2014_abstract" data-toggle="collapse" href="#JohSejCruPieGan2014" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2831,7 +3044,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="SejSriGreFuk2013">D. Sejdinovic, B. Sriperumbudur, A. Gretton, and K. Fukumizu, <b>Equivalence of distance-based and RKHS-based statistics in hypothesis testing</b>, <i>Annals of Statistics</i>, vol. 41, no. 5, 2263–2291, Oct. 2013.</span>
 
-<span id="SejSriGreFuk2013_materials">
+<span id="SejSriGreFuk2013_materials" data-publication-venue="Annals of Statistics">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejSriGreFuk2013_abstract" data-toggle="collapse" href="#SejSriGreFuk2013" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2883,7 +3096,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="SejPieDouIsm2010">D. Sejdinovic, R. Piechocki, A. Doufexi, and M. Ismail, <b>Decentralised Distributed Fountain Coding: Asymptotic Analysis and Design</b>, <i>IEEE Communications Letters</i>, vol. 14, no. 1, 42–44, 2010.</span>
 
-<span id="SejPieDouIsm2010_materials">
+<span id="SejPieDouIsm2010_materials" data-publication-venue="IEEE Communications Letters">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejPieDouIsm2010_abstract" data-toggle="collapse" href="#SejPieDouIsm2010" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2934,7 +3147,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="SejVukDouSenPie2009">D. Sejdinovic, D. Vukobratovic, A. Doufexi, V. Senk, and R. Piechocki, <b>Expanding Window Fountain Codes for Unequal Error Protection</b>, <i>IEEE Transactions on Communications</i>, vol. 57, no. 9, 2510–2516, 2009.</span>
 
-<span id="SejVukDouSenPie2009_materials">
+<span id="SejVukDouSenPie2009_materials" data-publication-venue="IEEE Transactions on Communications">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejVukDouSenPie2009_abstract" data-toggle="collapse" href="#SejVukDouSenPie2009" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -2985,7 +3198,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="VukStaSejStaXio2009">D. Vukobratovic, V. Stankovic, D. Sejdinovic, L. Stankovic, and Z. Xiong, <b>Scalable Video Multicast Using Expanding Window Fountain Codes</b>, <i>IEEE Transactions on Multimedia</i>, vol. 11, no. 6, 1094–1104, 2009.</span>
 
-<span id="VukStaSejStaXio2009_materials">
+<span id="VukStaSejStaXio2009_materials" data-publication-venue="IEEE Transactions on Multimedia">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#VukStaSejStaXio2009_abstract" data-toggle="collapse" href="#VukStaSejStaXio2009" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3036,7 +3249,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="SejPieDouIsm2009">D. Sejdinovic, R. Piechocki, A. Doufexi, and M. Ismail, <b>Fountain Code Design for Data Multicast with Side Information</b>, <i>IEEE Transactions on Wireless Communications</i>, vol. 8, no. 10, 5155–5165, 2009.</span>
 
-<span id="SejPieDouIsm2009_materials">
+<span id="SejPieDouIsm2009_materials" data-publication-venue="IEEE Transactions on Wireless Communications">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejPieDouIsm2009_abstract" data-toggle="collapse" href="#SejPieDouIsm2009" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3087,10 +3300,11 @@ readily scales to high dimensions and large-scale datasets.</p>
 </span>
 </li></ol>
 
-<h3 id="conference-proceedings">Conference Proceedings</h3>
+<h3 class="publication-section" id="conference-proceedings">Conference Proceedings</h3>
+
 <ol class="bibliography"><li><span id="TiaZhoPenColSejYanLiu2026">X. Tian, Z. Zhou, L. Peng, J. Collette, D. Sejdinovic, Y. Yang, and F. Liu, <b>TriBet: Relative E-values for Online Machine-generated Text Detection</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2026, to appear.</span>
 
-<span id="TiaZhoPenColSejYanLiu2026_materials">
+<span id="TiaZhoPenColSejYanLiu2026_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#TiaZhoPenColSejYanLiu2026_abstract" data-toggle="collapse" href="#TiaZhoPenColSejYanLiu2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3132,7 +3346,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="GaoWanZhaLiuLiGonSej2026">E. Gao, Y. Wang, L. Zhang, Y. Liu, H. Li, M. Gong, and D. Sejdinovic, <b>Bayesian Causal Experimental Design for CATE Estimation under Noncompliance</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2026, to appear.</span>
 
-<span id="GaoWanZhaLiuLiGonSej2026_materials">
+<span id="GaoWanZhaLiuLiGonSej2026_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#GaoWanZhaLiuLiGonSej2026_abstract" data-toggle="collapse" href="#GaoWanZhaLiuLiGonSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3174,7 +3388,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ZhaMuaSejFonCha2026">Y. Zhang, K. Muandet, D. Sejdinovic, E. Fong, and S. L. Chau, <b>Instrumental and Proximal Causal Inference with Gaussian Processes</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2026, vol. PMLR 337, 8130–8165.</span>
 
-<span id="ZhaMuaSejFonCha2026_materials">
+<span id="ZhaMuaSejFonCha2026_materials" data-publication-venue="Uncertainty in Artificial Intelligence (UAI)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ZhaMuaSejFonCha2026_abstract" data-toggle="collapse" href="#ZhaMuaSejFonCha2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3223,7 +3437,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="GaoFawSej2026">E. Gao, J. Fawkes, and D. Sejdinovic, <b>Causal-EPIG: Causally Aligned Active CATE Estimation</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2026, vol. PMLR 306, 33151–33183.</span>
 
-<span id="GaoFawSej2026_materials">
+<span id="GaoFawSej2026_materials" data-publication-venue="International Conference on Machine Learning (ICML)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#GaoFawSej2026_abstract" data-toggle="collapse" href="#GaoFawSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3272,7 +3486,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="LiuQuaZuoGaoNguSejBonGon2026">W. Liu, W. Quan, A. Zuo, E. Gao, V. Nguyen, D. Sejdinovic, H. Bondell, and M. Gong, <b>TimeLAVA: Learning-Agnostic Valuation for Time Series Data</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2026, vol. PMLR 306, 78066–78099.</span>
 
-<span id="LiuQuaZuoGaoNguSejBonGon2026_materials">
+<span id="LiuQuaZuoGaoNguSejBonGon2026_materials" data-publication-venue="International Conference on Machine Learning (ICML)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LiuQuaZuoGaoNguSejBonGon2026_abstract" data-toggle="collapse" href="#LiuQuaZuoGaoNguSejBonGon2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3321,7 +3535,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="GaoZhaFawZuoLiuLiGonSej2026">E. Gao, L. Zhang, J. Fawkes, A. Zuo, W. Liu, H. Li, M. Gong, and D. Sejdinovic, <b>Observationally Informed Adaptive Causal Experimental Design</b>, in <i>SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)</i>, 2026, 1216–1227.</span>
 
-<span id="GaoZhaFawZuoLiuLiGonSej2026_materials">
+<span id="GaoZhaFawZuoLiuLiGonSej2026_materials" data-publication-venue="SIGKDD Conference on Knowledge Discovery and Data Mining (KDD)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#GaoZhaFawZuoLiuLiGonSej2026_abstract" data-toggle="collapse" href="#GaoZhaFawZuoLiuLiGonSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3370,7 +3584,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="BerSejDid2026">L. Bergen, D. Sejdinovic, and V. Didelez, <b>The Generalised Kernel Covariance Measure</b>, in <i>Conference on Causal Learning and Reasoning (CLeaR)</i>, 2026, vol. PMLR 323, 1198–1220.</span>
 
-<span id="BerSejDid2026_materials">
+<span id="BerSejDid2026_materials" data-publication-venue="Conference on Causal Learning and Reasoning (CLeaR)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#BerSejDid2026_abstract" data-toggle="collapse" href="#BerSejDid2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3419,7 +3633,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="GaoSej2026">E. Gao and D. Sejdinovic, <b>ActiveCQ: Active Estimation of Causal Quantities</b>, in <i>International Conference on Learning Representations (ICLR)</i>, 2026, 82957–83004.</span>
 
-<span id="GaoSej2026_materials">
+<span id="GaoSej2026_materials" data-publication-venue="International Conference on Learning Representations (ICLR)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#GaoSej2026_abstract" data-toggle="collapse" href="#GaoSej2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3467,7 +3681,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="NguSejChi2026">A. V. Nguyen, D. Sejdinovic, and T.-J. Chin, <b>Uncertainty-Guided Edge Learning for Deep Image Regression in Remote Sensing</b>, in <i>IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPR Workshops): AI4Space</i>, 2026, to appear.</span>
 
-<span id="NguSejChi2026_materials">
+<span id="NguSejChi2026_materials" data-publication-venue="IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops (CVPR Workshops): AI4Space">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#NguSejChi2026_abstract" data-toggle="collapse" href="#NguSejChi2026" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3512,7 +3726,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="TsuLiuOngSej2025">R. Tsuchida, J. Liu, C. S. Ong, and D. Sejdinovic, <b>Squared families are useful conjugate priors</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2025, vol. 38, 24072–24106.</span>
 
-<span id="TsuLiuOngSej2025_materials">
+<span id="TsuLiuOngSej2025_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#TsuLiuOngSej2025_abstract" data-toggle="collapse" href="#TsuLiuOngSej2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3559,7 +3773,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="MosSej2025">P. Moskvichev and D. Sejdinovic, <b>All Models Are Miscalibrated, But Some Less So: Comparing Calibration with Conditional Mean Operators</b>, in <i>Australasian Joint Conference on Artificial Intelligence (AJCAI)</i>, 2025, vol. 16370, 274–287.</span>
 
-<span id="MosSej2025_materials">
+<span id="MosSej2025_materials" data-publication-venue="Australasian Joint Conference on Artificial Intelligence (AJCAI)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#MosSej2025_abstract" data-toggle="collapse" href="#MosSej2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3610,7 +3824,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ZhaTsuSej2025">D. Zhang, R. Tsuchida, and D. Sejdinovic, <b>Label Distribution Learning using the Squared Neural Family on the Probability Simplex</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2025, vol. PMLR 286, 4872–4888.</span>
 
-<span id="ZhaTsuSej2025_materials">
+<span id="ZhaTsuSej2025_materials" data-publication-venue="Uncertainty in Artificial Intelligence (UAI)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ZhaTsuSej2025_abstract" data-toggle="collapse" href="#ZhaTsuSej2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3659,7 +3873,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ChaSchGreSejMua2025">S. L. Chau, A. Schrab, A. Gretton, D. Sejdinovic, and K. Muandet, <b>Credal Two-Sample Tests of Epistemic Uncertainty</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2025, vol. PMLR 258, 127–135.</span>
 
-<span id="ChaSchGreSejMua2025_materials">
+<span id="ChaSchGreSejMua2025_materials" data-publication-venue="International Conference on Artificial Intelligence and Statistics (AISTATS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChaSchGreSejMua2025_abstract" data-toggle="collapse" href="#ChaSchGreSejMua2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3708,7 +3922,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="Doan_etal2025">B. G. Doan, A. Shamsi, X.-Y. Guo, A. Mohammadi, H. Alinejad-Rokny, D. Sejdinovic, D. Teney, D. C. Ranasinghe, and E. Abbasnejad, <b>Bayesian Low-Rank LeArning (Bella): A Practical Approach to Bayesian Neural Networks</b>, in <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 2025, vol. 39, no. 15, 16298–16307.</span>
 
-<span id="Doan_etal2025_materials">
+<span id="Doan_etal2025_materials" data-publication-venue="Proceedings of the AAAI Conference on Artificial Intelligence">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Doan_etal2025_abstract" data-toggle="collapse" href="#Doan_etal2025" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3759,7 +3973,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="Sej2025a">D. Sejdinovic, <b>An Overview of Causal Inference using Kernel Embeddings</b>, in <i>Data Science for Econometrics and Related Topics</i>, Springer, 2025, to appear.</span>
 
-<span id="Sej2025a_materials">
+<span id="Sej2025a_materials" data-publication-venue="Data Science for Econometrics and Related Topics">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Sej2025a_abstract" data-toggle="collapse" href="#Sej2025a" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3806,7 +4020,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="OliSejHowBon2024">R. Oliveira, D. Sejdinovic, D. Howard, and E. Bonilla, <b>Bayesian Adaptive Calibration and Optimal Design</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2024, vol. 37, 56526–56551.</span>
 
-<span id="OliSejHowBon2024_materials">
+<span id="OliSejHowBon2024_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#OliSejHowBon2024_abstract" data-toggle="collapse" href="#OliSejHowBon2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3859,7 +4073,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ShiFukSej2024">E. Shimizu, K. Fukumizu, and D. Sejdinovic, <b>Neural-Kernel Conditional Mean Embeddings</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2024, vol. PMLR 235, 45040–45059.</span>
 
-<span id="ShiFukSej2024_materials">
+<span id="ShiFukSej2024_materials" data-publication-venue="International Conference on Machine Learning (ICML)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ShiFukSej2024_abstract" data-toggle="collapse" href="#ShiFukSej2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3908,7 +4122,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="TsuOngSej2024">R. Tsuchida, C. S. Ong, and D. Sejdinovic, <b>Exact, Fast and Expressive Poisson Point Processes via Squared Neural Families</b>, in <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 2024, vol. 38, no. 18, 20559–20566.</span>
 
-<span id="TsuOngSej2024_materials">
+<span id="TsuOngSej2024_materials" data-publication-venue="Proceedings of the AAAI Conference on Artificial Intelligence">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#TsuOngSej2024_abstract" data-toggle="collapse" href="#TsuOngSej2024" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -3959,7 +4173,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ChaMuaSej2023">S. L. Chau, K. Muandet, and D. Sejdinovic, <b>Explaining the Uncertain: Stochastic Shapley Values for Gaussian Process Models</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2023, vol. 36, 50769–50795.</span>
 
-<span id="ChaMuaSej2023_materials">
+<span id="ChaMuaSej2023_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChaMuaSej2023_abstract" data-toggle="collapse" href="#ChaMuaSej2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4012,7 +4226,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="WilGhaSejKno2023">V. D. Wild, S. Ghalebikesabi, D. Sejdinovic, and J. Knoblauch, <b>A Rigorous Link between Deep Ensembles and (Variational) Bayesian Methods</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2023, vol. 36, 39782–39811.</span>
 
-<span id="WilGhaSejKno2023_materials">
+<span id="WilGhaSejKno2023_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#WilGhaSejKno2023_abstract" data-toggle="collapse" href="#WilGhaSejKno2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4065,7 +4279,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="TsuOngSej2023">R. Tsuchida, C. S. Ong, and D. Sejdinovic, <b>Squared Neural Families: A New Class of Tractable Density Models</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2023, vol. 36, 73943–73968.</span>
 
-<span id="TsuOngSej2023_materials">
+<span id="TsuOngSej2023_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#TsuOngSej2023_abstract" data-toggle="collapse" href="#TsuOngSej2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4121,7 +4335,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="BouFawSej2023">S. Bouabid, J. Fawkes, and D. Sejdinovic, <b>Returning The Favour: When Regression Benefits From Probabilistic Causal Knowledge</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2023, vol. PMLR 202, 2885–2913.</span>
 
-<span id="BouFawSej2023_materials">
+<span id="BouFawSej2023_materials" data-publication-venue="International Conference on Machine Learning (ICML)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#BouFawSej2023_abstract" data-toggle="collapse" href="#BouFawSej2023" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4170,7 +4384,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="HuChaHueSej2022">R. Hu, S. L. Chau, J. F. Huertas, and D. Sejdinovic, <b>Explaining Preferences with Shapley Values</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2022, vol. 35.</span>
 
-<span id="HuChaHueSej2022_materials">
+<span id="HuChaHueSej2022_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#HuChaHueSej2022_abstract" data-toggle="collapse" href="#HuChaHueSej2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4219,7 +4433,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="WilHuSej2022">V. D. Wild, R. Hu, and D. Sejdinovic, <b>Generalized Variational Inference in Function Spaces: Gaussian Measures meet Bayesian Deep Learning</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2022, vol. 35.</span>
 
-<span id="WilHuSej2022_materials">
+<span id="WilHuSej2022_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#WilHuSej2022_abstract" data-toggle="collapse" href="#WilHuSej2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4268,7 +4482,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="HuSejGla2022">R. Hu, S. L. Chau, D. Sejdinovic, and J. A. Glaunes, <b>Giga-scale Kernel Matrix Vector Multiplication on GPU</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2022, vol. 35.</span>
 
-<span id="HuSejGla2022_materials">
+<span id="HuSejGla2022_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#HuSejGla2022_abstract" data-toggle="collapse" href="#HuSejGla2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4317,7 +4531,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ChaHuGonSej2022">S. L. Chau, R. Hu, J. Gonzalez, and D. Sejdinovic, <b>RKHS-SHAP: Shapley Values for Kernel Methods</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2022, vol. 35.</span>
 
-<span id="ChaHuGonSej2022_materials">
+<span id="ChaHuGonSej2022_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChaHuGonSej2022_abstract" data-toggle="collapse" href="#ChaHuGonSej2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4366,7 +4580,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ChaCucSej2022">S. L. Chau, M. Cucuringu, and D. Sejdinovic, <b>Spectral Ranking with Covariates</b>, in <i>European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)</i>, 2022.</span>
 
-<span id="ChaCucSej2022_materials">
+<span id="ChaCucSej2022_materials" data-publication-venue="European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChaCucSej2022_abstract" data-toggle="collapse" href="#ChaCucSej2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4414,7 +4628,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="RinHuSteSej2022">D. Rindt, R. Hu, D. Steinsaltz, and D. Sejdinovic, <b>Survival Regression with Proper Scoring Rules and Monotonic Neural Networks</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2022, vol. PMLR 151, 1190–1205.</span>
 
-<span id="RinHuSteSej2022_materials">
+<span id="RinHuSteSej2022_materials" data-publication-venue="International Conference on Artificial Intelligence and Statistics (AISTATS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#RinHuSteSej2022_abstract" data-toggle="collapse" href="#RinHuSteSej2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4463,7 +4677,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ChaGonSej2022">S. L. Chau, J. Gonzalez, and D. Sejdinovic, <b>Learning Inconsistent Preferences with Gaussian Processes</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2022, vol. PMLR 151, 2266–2281.</span>
 
-<span id="ChaGonSej2022_materials">
+<span id="ChaGonSej2022_materials" data-publication-venue="International Conference on Artificial Intelligence and Statistics (AISTATS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChaGonSej2022_abstract" data-toggle="collapse" href="#ChaGonSej2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4512,7 +4726,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="FawEvaSej2022">J. Fawkes, R. Evans, and D. Sejdinovic, <b>Selection, Ignorability and Challenges with Causal Fairness</b>, in <i>Conference on Causal Learning and Reasoning (CLeaR)</i>, 2022, vol. PMLR 177, 275–289.</span>
 
-<span id="FawEvaSej2022_materials">
+<span id="FawEvaSej2022_materials" data-publication-venue="Conference on Causal Learning and Reasoning (CLeaR)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#FawEvaSej2022_abstract" data-toggle="collapse" href="#FawEvaSej2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4561,7 +4775,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ChaBouSej2021">S. L. Chau, S. Bouabid, and D. Sejdinovic, <b>Deconditional Downscaling with Gaussian Processes</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2021, vol. 34, 17813–17825.</span>
 
-<span id="ChaBouSej2021_materials">
+<span id="ChaBouSej2021_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChaBouSej2021_abstract" data-toggle="collapse" href="#ChaBouSej2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4610,7 +4824,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ChaTonGonTehSej2021">S. L. Chau, J.-F. Ton, J. Gonzalez, Y. W. Teh, and D. Sejdinovic, <b>BayesIMP: Uncertainty Quantification for Causal Data Fusion</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2021, vol. 34, 3466–3477.</span>
 
-<span id="ChaTonGonTehSej2021_materials">
+<span id="ChaTonGonTehSej2021_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChaTonGonTehSej2021_abstract" data-toggle="collapse" href="#ChaTonGonTehSej2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4659,7 +4873,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="CatCorSejDou2021">A. Caterini, R. Cornish, D. Sejdinovic, and A. Doucet, <b>Variational Inference with Continuously-Indexed Normalizing Flows</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2021, vol. PMLR 161, 44–53.</span>
 
-<span id="CatCorSejDou2021_materials">
+<span id="CatCorSejDou2021_materials" data-publication-venue="Uncertainty in Artificial Intelligence (UAI)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#CatCorSejDou2021_abstract" data-toggle="collapse" href="#CatCorSejDou2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4708,7 +4922,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="TonChaTehSej2021">J.-F. Ton, L. Chan, Y. W. Teh, and D. Sejdinovic, <b>Noise Contrastive Meta Learning for Conditional Density Estimation using Kernel Mean Embeddings</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2021, vol. PMLR 130, 1099–1107.</span>
 
-<span id="TonChaTehSej2021_materials">
+<span id="TonChaTehSej2021_materials" data-publication-venue="International Conference on Artificial Intelligence and Statistics (AISTATS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#TonChaTehSej2021_abstract" data-toggle="collapse" href="#TonChaTehSej2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4760,7 +4974,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="TonSejFuk2021">J.-F. Ton, D. Sejdinovic, and K. Fukumizu, <b>Meta Learning for Causal Direction</b>, in <i>Proceedings of the AAAI Conference on Artificial Intelligence</i>, 2021, vol. 35, no. 11, 9897–9905.</span>
 
-<span id="TonSejFuk2021_materials">
+<span id="TonSejFuk2021_materials" data-publication-venue="Proceedings of the AAAI Conference on Artificial Intelligence">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#TonSejFuk2021_abstract" data-toggle="collapse" href="#TonSejFuk2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4811,7 +5025,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="HuSej2021">R. Hu and D. Sejdinovic, <b>Robust Deep Interpretable Features for Binary Image Classification</b>, in <i>Proceedings of the Northern Lights Deep Learning Workshop</i>, 2021, vol. 2.</span>
 
-<span id="HuSej2021_materials">
+<span id="HuSej2021_materials" data-publication-venue="Proceedings of the Northern Lights Deep Learning Workshop">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#HuSej2021_abstract" data-toggle="collapse" href="#HuSej2021" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4857,7 +5071,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="RudSejGal2020">T. G. J. Rudner, D. Sejdinovic, and Y. Gal, <b>Inter-domain Deep Gaussian Processes</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2020, vol. PMLR 119, 8286–8294.</span>
 
-<span id="RudSejGal2020_materials">
+<span id="RudSejGal2020_materials" data-publication-venue="International Conference on Machine Learning (ICML)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#RudSejGal2020_abstract" data-toggle="collapse" href="#RudSejGal2020" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4909,7 +5123,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="LawZhaChaHuaSej2019">H. C. L. Law, P. Zhao, L. Chan, J. Huang, and D. Sejdinovic, <b>Hyperparameter Learning via Distributional Transfer</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2019, vol. 32, 6804–6815.</span>
 
-<span id="LawZhaChaHuaSej2019_materials">
+<span id="LawZhaChaHuaSej2019_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LawZhaChaHuaSej2019_abstract" data-toggle="collapse" href="#LawZhaChaHuaSej2019" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -4958,7 +5172,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="RajLawSejPar2019">A. Raj, H. C. L. Law, D. Sejdinovic, and M. Park, <b>A Differentially Private Kernel Two-Sample Test</b>, in <i>European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)</i>, 2019, vol. 11906, 697–724.</span>
 
-<span id="RajLawSejPar2019_materials">
+<span id="RajLawSejPar2019_materials" data-publication-venue="European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#RajLawSejPar2019_abstract" data-toggle="collapse" href="#RajLawSejPar2019" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5009,7 +5223,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="LiTonOglSej2019">Z. Li, J.-F. Ton, D. Oglic, and D. Sejdinovic, <b>Towards A Unified Analysis of Random Fourier Features</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2019, vol. PMLR 97, 3905–3914.</span>
 
-<span id="LiTonOglSej2019_materials">
+<span id="LiTonOglSej2019_materials" data-publication-venue="International Conference on Machine Learning (ICML)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LiTonOglSej2019_abstract" data-toggle="collapse" href="#LiTonOglSej2019" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5058,7 +5272,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="CatDouSej2018">A. L. Caterini, A. Doucet, and D. Sejdinovic, <b>Hamiltonian Variational Auto-Encoder</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2018, vol. 31, 8167–8177.</span>
 
-<span id="CatDouSej2018_materials">
+<span id="CatDouSej2018_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#CatDouSej2018_abstract" data-toggle="collapse" href="#CatDouSej2018" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5110,7 +5324,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="LawSejCamLucFlaBatFuk2018">H. C. L. Law, D. Sejdinovic, E. Cameron, T. C. D. Lucas, S. Flaxman, K. Battle, and K. Fukumizu, <b>Variational Learning on Aggregate Outputs with Gaussian Processes</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2018, vol. 31, 6081–6091.</span>
 
-<span id="LawSejCamLucFlaBatFuk2018_materials">
+<span id="LawSejCamLucFlaBatFuk2018_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LawSejCamLucFlaBatFuk2018_abstract" data-toggle="collapse" href="#LawSejCamLucFlaBatFuk2018" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5165,7 +5379,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="MitSejTeh2018">J. Mitrovic, D. Sejdinovic, and Y. W. Teh, <b>Causal Inference via Kernel Deviance Measures</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2018, vol. 31, 6986–6994.</span>
 
-<span id="MitSejTeh2018_materials">
+<span id="MitSejTeh2018_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#MitSejTeh2018_abstract" data-toggle="collapse" href="#MitSejTeh2018" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5214,7 +5428,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="LawSutSejFla2018">H. C. L. Law, D. J. Sutherland, D. Sejdinovic, and S. Flaxman, <b>Bayesian Approaches to Distribution Regression</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2018, vol. PMLR 84, 1167–1176.</span>
 
-<span id="LawSutSejFla2018_materials">
+<span id="LawSutSejFla2018_materials" data-publication-venue="International Conference on Artificial Intelligence and Statistics (AISTATS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LawSutSejFla2018_abstract" data-toggle="collapse" href="#LawSutSejFla2018" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5263,7 +5477,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="LawYauSej2017">H. C. L. Law, C. Yau, and D. Sejdinovic, <b>Testing and Learning on Distributions with Symmetric Noise Invariance</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, 2017, vol. 30, 1343–1353.</span>
 
-<span id="LawYauSej2017_materials">
+<span id="LawYauSej2017_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LawYauSej2017_abstract" data-toggle="collapse" href="#LawYauSej2017" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5318,7 +5532,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="SchStrPaiSej2017">I. Schuster, H. Strathmann, B. Paige, and D. Sejdinovic, <b>Kernel Sequential Monte Carlo</b>, in <i>European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)</i>, 2017, vol. 10534, 390–409.</span>
 
-<span id="SchStrPaiSej2017_materials">
+<span id="SchStrPaiSej2017_materials" data-publication-venue="European Conference on Machine Learning and Principles and Practice of Knowledge Discovery in Databases (ECML-PKDD)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SchStrPaiSej2017_abstract" data-toggle="collapse" href="#SchStrPaiSej2017" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5369,7 +5583,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="ZhaFilFlaSej2017">Q. Zhang, S. Filippi, S. Flaxman, and D. Sejdinovic, <b>Feature-to-Feature Regression for a Two-Step Conditional Independence Test</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2017.</span>
 
-<span id="ZhaFilFlaSej2017_materials">
+<span id="ZhaFilFlaSej2017_materials" data-publication-venue="Uncertainty in Artificial Intelligence (UAI)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ZhaFilFlaSej2017_abstract" data-toggle="collapse" href="#ZhaFilFlaSej2017" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5419,7 +5633,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="MitSejTeh2017">J. Mitrovic, D. Sejdinovic, and Y. W. Teh, <b>Deep Kernel Machines via the Kernel Reparametrization Trick</b>, in <i>International Conference on Learning Representations (ICLR) - Workshop Track</i>, 2017.</span>
 
-<span id="MitSejTeh2017_materials">
+<span id="MitSejTeh2017_materials" data-publication-venue="International Conference on Learning Representations (ICLR) - Workshop Track">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#MitSejTeh2017_abstract" data-toggle="collapse" href="#MitSejTeh2017" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5463,7 +5677,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="FlaTehSej2017">S. Flaxman, Y. W. Teh, and D. Sejdinovic, <b>Poisson Intensity Estimation with Reproducing Kernels</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2017, vol. PMLR 54, 270–279.</span>
 
-<span id="FlaTehSej2017_materials">
+<span id="FlaTehSej2017_materials" data-publication-venue="International Conference on Artificial Intelligence and Statistics (AISTATS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#FlaTehSej2017_abstract" data-toggle="collapse" href="#FlaTehSej2017" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5515,7 +5729,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="VukJaketal2016b">D. Vukobratovic, D. Jakovetic, V. Skachek, D. Bajovic, and D. Sejdinovic, <b>Network Function Computation as a Service in Future 5G Machine Type Communications</b>, in <i>International Symposium on Turbo Codes &amp; Iterative Information Processing (ISTC)</i>, 2016, 365–369.</span>
 
-<span id="VukJaketal2016b_materials">
+<span id="VukJaketal2016b_materials" data-publication-venue="International Symposium on Turbo Codes &amp; Iterative Information Processing (ISTC)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#VukJaketal2016b_abstract" data-toggle="collapse" href="#VukJaketal2016b" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5561,7 +5775,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="MitSejTeh2016">J. Mitrovic, D. Sejdinovic, and Y. W. Teh, <b>DR-ABC: Approximate Bayesian Computation with Kernel-Based Distribution Regression</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2016, vol. PMLR 48, 1482–1491.</span>
 
-<span id="MitSejTeh2016_materials">
+<span id="MitSejTeh2016_materials" data-publication-venue="International Conference on Machine Learning (ICML)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#MitSejTeh2016_abstract" data-toggle="collapse" href="#MitSejTeh2016" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5610,7 +5824,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="FraAngSej2016">G. Franchi, J. Angulo, and D. Sejdinovic, <b>Hyperspectral Image Classification with Support Vector Machines on Kernel Distribution Embeddings</b>, in <i>IEEE International Conference on Image Processing (ICIP)</i>, 2016, 1898–1902.</span>
 
-<span id="FraAngSej2016_materials">
+<span id="FraAngSej2016_materials" data-publication-venue="IEEE International Conference on Image Processing (ICIP)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#FraAngSej2016_abstract" data-toggle="collapse" href="#FraAngSej2016" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5659,7 +5873,7 @@ readily scales to high dimensions and large-scale datasets.</p>
 </li>
 <li><span id="PaiSejWoo2016">B. Paige, D. Sejdinovic, and F. Wood, <b>Super-Sampling with a Reservoir</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2016, 567–576.</span>
 
-<span id="PaiSejWoo2016_materials">
+<span id="PaiSejWoo2016_materials" data-publication-venue="Uncertainty in Artificial Intelligence (UAI)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#PaiSejWoo2016_abstract" data-toggle="collapse" href="#PaiSejWoo2016" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5705,7 +5919,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="FlaSejCunFil2016">S. Flaxman, D. Sejdinovic, J. P. Cunningham, and S. Filippi, <b>Bayesian Learning of Kernel Embeddings</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2016, 182–191.</span>
 
-<span id="FlaSejCunFil2016_materials">
+<span id="FlaSejCunFil2016_materials" data-publication-venue="Uncertainty in Artificial Intelligence (UAI)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#FlaSejCunFil2016_abstract" data-toggle="collapse" href="#FlaSejCunFil2016" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5756,7 +5970,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="ParJitSej2016">M. Park, W. Jitkrittum, and D. Sejdinovic, <b>K2-ABC: Approximate Bayesian Computation with Kernel Embeddings</b>, in <i>International Conference on Artificial Intelligence and Statistics (AISTATS)</i>, 2016, vol. PMLR 51, 398–407.</span>
 
-<span id="ParJitSej2016_materials">
+<span id="ParJitSej2016_materials" data-publication-venue="International Conference on Artificial Intelligence and Statistics (AISTATS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ParJitSej2016_abstract" data-toggle="collapse" href="#ParJitSej2016" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5808,7 +6022,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="StrSejLivSzaGre2015">H. Strathmann, D. Sejdinovic, S. Livingstone, Z. Szabo, and A. Gretton, <b>Gradient-free Hamiltonian Monte Carlo with Efficient Kernel Exponential Families</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, vol. 28, 2015, 955–963.</span>
 
-<span id="StrSejLivSzaGre2015_materials">
+<span id="StrSejLivSzaGre2015_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#StrSejLivSzaGre2015_abstract" data-toggle="collapse" href="#StrSejLivSzaGre2015" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5857,7 +6071,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="ChwRamSejGre2015">K. Chwialkowski, A. Ramdas, D. Sejdinovic, and A. Gretton, <b>Fast Two-Sample Testing with Analytic Representations of Probability Measures</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, vol. 28, 2015, 1981–1989.</span>
 
-<span id="ChwRamSejGre2015_materials">
+<span id="ChwRamSejGre2015_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChwRamSejGre2015_abstract" data-toggle="collapse" href="#ChwRamSejGre2015" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5906,7 +6120,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="VukSejPiz2015">D. Vukobratovic, D. Sejdinovic, and A. Pizurica, <b>Compressed Sensing Using Sparse Binary Measurements: A Rateless Coding Perspective</b>, in <i>IEEE International Workshop on Signal Processing Advances in Wireless Communications (SPAWC)</i>, 2015.</span>
 
-<span id="VukSejPiz2015_materials">
+<span id="VukSejPiz2015_materials" data-publication-venue="IEEE International Workshop on Signal Processing Advances in Wireless Communications (SPAWC)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#VukSejPiz2015_abstract" data-toggle="collapse" href="#VukSejPiz2015" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -5951,7 +6165,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="JitGreHeeEslLakSejSza2015">W. Jitkrittum, A. Gretton, N. Heess, S. M. A. Eslami, B. Lakshminarayanan, D. Sejdinovic, and Z. Szabó, <b>Kernel-Based Just-In-Time Learning for Passing Expectation Propagation Messages</b>, in <i>Uncertainty in Artificial Intelligence (UAI)</i>, 2015.</span>
 
-<span id="JitGreHeeEslLakSejSza2015_materials">
+<span id="JitGreHeeEslLakSejSza2015_materials" data-publication-venue="Uncertainty in Artificial Intelligence (UAI)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#JitGreHeeEslLakSejSza2015_abstract" data-toggle="collapse" href="#JitGreHeeEslLakSejSza2015" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6004,7 +6218,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="ChwSejGre2014">K. Chwialkowski, D. Sejdinovic, and A. Gretton, <b>A Wild Bootstrap for Degenerate Kernel Tests</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, vol. 27, 2014, 3608–3616.</span>
 
-<span id="ChwSejGre2014_materials">
+<span id="ChwSejGre2014_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChwSejGre2014_abstract" data-toggle="collapse" href="#ChwSejGre2014" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6056,7 +6270,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejStrGarAndGre14">D. Sejdinovic, H. Strathmann, M. G. Lomeli, C. Andrieu, and A. Gretton, <b>Kernel Adaptive Metropolis-Hastings</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2014, 1665–1673.</span>
 
-<span id="SejStrGarAndGre14_materials">
+<span id="SejStrGarAndGre14_materials" data-publication-venue="International Conference on Machine Learning (ICML)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejStrGarAndGre14_abstract" data-toggle="collapse" href="#SejStrGarAndGre14" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6110,7 +6324,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejGreBer2013">D. Sejdinovic, A. Gretton, and W. Bergsma, <b>A Kernel Test for Three-Variable Interactions</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, vol. 26, 2013, 1124–1132.</span>
 
-<span id="SejGreBer2013_materials">
+<span id="SejGreBer2013_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejGreBer2013_abstract" data-toggle="collapse" href="#SejGreBer2013" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6168,7 +6382,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="GreSriSejStrBalPonFuk2012">A. Gretton, D. Sejdinovic, H. Strathmann, S. Balakrishnan, M. Pontil, K. Fukumizu, and B. K. Sriperumbudur, <b>Optimal Kernel Choice for Large-Scale Two-Sample Tests</b>, in <i>Advances in Neural Information Processing Systems (NeurIPS)</i>, vol. 25, 2012, 1205–1213.</span>
 
-<span id="GreSriSejStrBalPonFuk2012_materials">
+<span id="GreSriSejStrBalPonFuk2012_materials" data-publication-venue="Advances in Neural Information Processing Systems (NeurIPS)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#GreSriSejStrBalPonFuk2012_abstract" data-toggle="collapse" href="#GreSriSejStrBalPonFuk2012" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6217,7 +6431,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejGreSriFuk12">D. Sejdinovic, A. Gretton, B. K. Sriperumbudur, and K. Fukumizu, <b>Hypothesis Testing Using Pairwise Distances and Associated Kernels</b>, in <i>International Conference on Machine Learning (ICML)</i>, 2012, 1111–1118.</span>
 
-<span id="SejGreSriFuk12_materials">
+<span id="SejGreSriFuk12_materials" data-publication-venue="International Conference on Machine Learning (ICML)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejGreSriFuk12_abstract" data-toggle="collapse" href="#SejGreSriFuk12" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6268,7 +6482,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="PieSej2012">R. Piechocki and D. Sejdinovic, <b>Combinatorial Channel Signature Modulation for Wireless ad-hoc Networks</b>, in <i>IEEE International Conference on Communications (ICC)</i>, 2012.</span>
 
-<span id="PieSej2012_materials">
+<span id="PieSej2012_materials" data-publication-venue="IEEE International Conference on Communications (ICC)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#PieSej2012_abstract" data-toggle="collapse" href="#PieSej2012" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6319,7 +6533,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="MulSejPie2012">A. Muller, D. Sejdinovic, and R. Piechocki, <b>Approximate Message Passing under Finite Alphabet Constraints</b>, in <i>IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</i>, 2012.</span>
 
-<span id="MulSejPie2012_materials">
+<span id="MulSejPie2012_materials" data-publication-venue="IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#MulSejPie2012_abstract" data-toggle="collapse" href="#MulSejPie2012" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6370,7 +6584,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="DaiSejMil2011">W. Dai, D. Sejdinovic, and O. Milenkovic, <b>Gaussian Dynamic Compressive Sensing</b>, in <i>International Conference on Sampling Theory and Applications (SampTA)</i>, 2011.</span>
 
-<span id="DaiSejMil2011_materials">
+<span id="DaiSejMil2011_materials" data-publication-venue="International Conference on Sampling Theory and Applications (SampTA)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#DaiSejMil2011_abstract" data-toggle="collapse" href="#DaiSejMil2011" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6414,7 +6628,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejJoh2010">D. Sejdinovic and O. Johnson, <b>Note on Noisy Group Testing: Asymptotic Bounds and Belief Propagation Reconstruction</b>, in <i>48th Annual Allerton Conference on Communication, Control, and Computing</i>, 2010, 998–1003.</span>
 
-<span id="SejJoh2010_materials">
+<span id="SejJoh2010_materials" data-publication-venue="48th Annual Allerton Conference on Communication, Control, and Computing">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejJoh2010_abstract" data-toggle="collapse" href="#SejJoh2010" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6463,7 +6677,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejAndPie2010">D. Sejdinovic, C. Andrieu, and R. Piechocki, <b>Bayesian Sequential Compressed Sensing in Sparse Dynamical Systems</b>, in <i>48th Annual Allerton Conference on Communication, Control, and Computing</i>, 2010, 1730–1736.</span>
 
-<span id="SejAndPie2010_materials">
+<span id="SejAndPie2010_materials" data-publication-venue="48th Annual Allerton Conference on Communication, Control, and Computing">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejAndPie2010_abstract" data-toggle="collapse" href="#SejAndPie2010" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6509,7 +6723,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejPieDou2009ITW">D. Sejdinovic, R. J. Piechocki, and A. Doufexi, <b>AND-OR Tree Analysis of Distributed LT Codes</b>, in <i>IEEE Information Theory Workshop (ITW)</i>, 2009, 261–265.</span>
 
-<span id="SejPieDou2009ITW_materials">
+<span id="SejPieDou2009ITW_materials" data-publication-venue="IEEE Information Theory Workshop (ITW)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejPieDou2009ITW_abstract" data-toggle="collapse" href="#SejPieDou2009ITW" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6558,7 +6772,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="VukStaStaSej2009">D. Vukobratovic, V. Stankovic, L. Stankovic, and D. Sejdinovic, <b>Precoded EWF Codes for Unequal Error Protection of Scalable Video</b>, in <i>International ICST Mobile Multimedia Communications Conference (MOBIMEDIA)</i>, 2009.</span>
 
-<span id="VukStaStaSej2009_materials">
+<span id="VukStaStaSej2009_materials" data-publication-venue="International ICST Mobile Multimedia Communications Conference (MOBIMEDIA)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#VukStaStaSej2009_abstract" data-toggle="collapse" href="#VukStaStaSej2009" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6606,7 +6820,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejPieDou2009">D. Sejdinovic, R. J. Piechocki, and A. Doufexi, <b>Rateless Distributed Source Code Design</b>, in <i>International ICST Mobile Multimedia Communications Conference (MOBIMEDIA)</i>, 2009.</span>
 
-<span id="SejPieDou2009_materials">
+<span id="SejPieDou2009_materials" data-publication-venue="International ICST Mobile Multimedia Communications Conference (MOBIMEDIA)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejPieDou2009_abstract" data-toggle="collapse" href="#SejPieDou2009" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6654,7 +6868,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="VukStaSejStaXio2008">D. Vukobratovic, V. Stankovic, D. Sejdinovic, L. Stankovic, and Z. Xiong, <b>Expanding Window Fountain Codes for Scalable Video Multicast</b>, in <i>IEEE International Conference on Multimedia and Expo (ICME)</i>, 2008, 77–80.</span>
 
-<span id="VukStaSejStaXio2008_materials">
+<span id="VukStaSejStaXio2008_materials" data-publication-venue="IEEE International Conference on Multimedia and Expo (ICME)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#VukStaSejStaXio2008_abstract" data-toggle="collapse" href="#VukStaSejStaXio2008" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6700,7 +6914,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejPieDouIsm2008ICC">D. Sejdinovic, R. J. Piechocki, A. Doufexi, and M. Ismail, <b>Fountain Coding with Decoder Side Information</b>, in <i>IEEE International Conference on Communications (ICC)</i>, 2008, 4477–4482.</span>
 
-<span id="SejPieDouIsm2008ICC_materials">
+<span id="SejPieDouIsm2008ICC_materials" data-publication-venue="IEEE International Conference on Communications (ICC)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejPieDouIsm2008ICC_abstract" data-toggle="collapse" href="#SejPieDouIsm2008ICC" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6746,7 +6960,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejPonPieDou2008">D. Sejdinovic, V. Ponnampalam, R. J. Piechocki, and A. Doufexi, <b>The Throughput Analysis of Different IR-HARQ Schemes based on Fountain Codes</b>, in <i>IEEE Wireless Communications and Networking Conference (WCNC)</i>, 2008, 267–272.</span>
 
-<span id="SejPonPieDou2008_materials">
+<span id="SejPonPieDou2008_materials" data-publication-venue="IEEE Wireless Communications and Networking Conference (WCNC)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejPonPieDou2008_abstract" data-toggle="collapse" href="#SejPonPieDou2008" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6795,7 +7009,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejPieDouIsm2008">D. Sejdinovic, R. J. Piechocki, A. Doufexi, and M. Ismail, <b>Rate Adaptive Binary Erasure Quantization with Dual Fountain Codes</b>, in <i>IEEE Global Telecommunications Conference (GLOBECOM)</i>, 2008.</span>
 
-<span id="SejPieDouIsm2008_materials">
+<span id="SejPieDouIsm2008_materials" data-publication-venue="IEEE Global Telecommunications Conference (GLOBECOM)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejPieDouIsm2008_abstract" data-toggle="collapse" href="#SejPieDouIsm2008" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6843,7 +7057,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="VukStaSejStaXio2007">D. Vukobratovic, V. Stankovic, D. Sejdinovic, L. Stankovic, and Z. Xiong, <b>Scalable Data Multicast Using Expanding Window Fountain Codes</b>, in <i>45th Annual Allerton Conference on Communication, Control, and Computing</i>, 2007, 344–351.</span>
 
-<span id="VukStaSejStaXio2007_materials">
+<span id="VukStaSejStaXio2007_materials" data-publication-venue="45th Annual Allerton Conference on Communication, Control, and Computing">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#VukStaSejStaXio2007_abstract" data-toggle="collapse" href="#VukStaSejStaXio2007" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6888,7 +7102,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejVukDouSenPie2007">D. Sejdinovic, D. Vukobratovic, A. Doufexi, V. Senk, and R. Piechocki, <b>Expanding Window Fountain Codes for Unequal Error Protection</b>, in <i>Asilomar Conference on Signals, Systems and Computers</i>, 2007, 1020–1024.</span>
 
-<span id="SejVukDouSenPie2007_materials">
+<span id="SejVukDouSenPie2007_materials" data-publication-venue="Asilomar Conference on Signals, Systems and Computers">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejVukDouSenPie2007_abstract" data-toggle="collapse" href="#SejVukDouSenPie2007" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6936,10 +7150,11 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </span>
 </li></ol>
 
-<h3 id="discussions">Discussions</h3>
+<h3 class="publication-section" id="discussions">Discussions</h3>
+
 <ol class="bibliography"><li><span id="SchJitSzaSejGre2022">A. Schrab, W. Jitkrittum, Z. Szabo, D. Sejdinovic, and A. Gretton, <b>Discussion of ‘Multiscale Fisher’s Independence Test for Multivariate Dependence,’</b> <i>Biometrika</i>, vol. 109, no. 3, 597–603, 2022.</span>
 
-<span id="SchJitSzaSejGre2022_materials">
+<span id="SchJitSzaSejGre2022_materials" data-publication-venue="Biometrika">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SchJitSzaSejGre2022_abstract" data-toggle="collapse" href="#SchJitSzaSejGre2022" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -6991,7 +7206,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2020-discussion">D. Sejdinovic, <b>Discussion of ‘Functional models for time-varying random objects’ by Dubey and Müller</b>, <i>Journal of the Royal Statistical Society: Series B</i>, vol. 82, no. 2, 312–313, 2020.</span>
 
-<span id="Sej2020-discussion_materials">
+<span id="Sej2020-discussion_materials" data-publication-venue="Journal of the Royal Statistical Society: Series B">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Sej2020-discussion_abstract" data-toggle="collapse" href="#Sej2020-discussion" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7038,10 +7253,11 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </span>
 </li></ol>
 
-<h3 id="patents">Patents</h3>
+<h3 class="publication-section" id="patents">Patents</h3>
+
 <ol class="bibliography"><li><span id="PieSej_patent">R. J. Piechocki and D. Sejdinovic, <b>Communication System, Method and Apparatus</b>. US Patent 8,879,664, Nov-2014.</span>
 
-<span id="PieSej_patent_materials">
+<span id="PieSej_patent_materials" data-publication-venue="">
   <ul class="nav nav-pills">
     
 
@@ -7083,10 +7299,11 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </span>
 </li></ol>
 
-<h3 id="theses">Theses</h3>
+<h3 class="publication-section" id="theses">Theses</h3>
+
 <ol class="bibliography"><li><span id="Sej2009">D. Sejdinovic, <b>Topics in Fountain Coding</b>, PhD dissertation, University of Bristol, 2009.</span>
 
-<span id="Sej2009_materials">
+<span id="Sej2009_materials" data-publication-venue="">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Sej2009_abstract" data-toggle="collapse" href="#Sej2009" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7132,7 +7349,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2006thesis">D. Sejdinovic, <b>Neka svojstva Zeta funkcija</b>, DiplMath-Inf dissertation, University of Sarajevo, 2006.</span>
 
-<span id="Sej2006thesis_materials">
+<span id="Sej2006thesis_materials" data-publication-venue="">
   <ul class="nav nav-pills">
     
 
@@ -7170,10 +7387,56 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </span>
 </li></ol>
 
-<h3 id="selected-non-archival-papers-and-abstracts">Selected Non-Archival Papers and Abstracts</h3>
-<ol class="bibliography"><li><span id="ZhaBouOngFlaSej2026eiml">M. Zhang, S. Bouabid, C. S. Ong, S. Flaxman, and D. Sejdinovic, <b>Indirect Query Bayesian Optimization with Integrated Feedback</b>, in <i>ICML 2026 Workshop on Epistemic Intelligence in Machine Learning</i>, 2026.</span>
+<h3 class="publication-section" id="selected-non-archival-papers-and-abstracts">Selected Non-Archival Papers and Abstracts</h3>
 
-<span id="ZhaBouOngFlaSej2026eiml_materials">
+<ol class="bibliography"><li><span id="FlaCarJakMasSej2026sim2sci">S. Flaxman, J. Carr, A. Jakob, M. Masiak, and D. Sejdinovic, <b>FADO: Learning Causal Explanations with Prior-Fitted Networks</b>, in <i>NeurIPS 2026 Workshop Sim2Science: ML with Imperfect Scientific Models</i>, 2026.</span>
+
+<span id="FlaCarJakMasSej2026sim2sci_materials" data-publication-venue="NeurIPS 2026 Workshop Sim2Science: ML with Imperfect Scientific Models">
+  <ul class="nav nav-pills">
+    
+    <li><a class="bib-materials" data-target="#FlaCarJakMasSej2026sim2sci_abstract" data-toggle="collapse" href="#FlaCarJakMasSej2026sim2sci" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+
+    <li><a class="bib-materials" data-target="#FlaCarJakMasSej2026sim2sci_bibtex" data-toggle="collapse" href="#FlaCarJakMasSej2026sim2sci" onclick="return false">bib</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+
+    
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    <li><a class="bib-materials" href="https://openreview.net/forum?id=JboyppJ3gV" target="_blank">OpenReview</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+    
+	
+    
+
+    
+  </ul>
+
+  
+  <p id="FlaCarJakMasSej2026sim2sci_abstract" class="collapse">In regression and classification tasks with tabular datasets, most of the literature on explanation in ML (e.g. SHAP, permutation importance) has focused on predictive attribution: does feature Xᵢ help predict outcome Y? At its heart, predictive attribution captures correlation, not causation. We instead ask a causal question: would manipulating feature Xᵢ change outcome Y? We define a natural quantity to answer this question, the feature intervention effect: Δᵢ = E[Y | do(Xᵢ = +1)] − E[Y | do(Xᵢ = −1)]. In general, estimating this quantity from observational data alone would entail strong causal assumptions. We propose FADO (Feature-wise Amortized Do-Operators), an amortized inference method using prior-fitted networks trained on synthetic tabular datasets generated by structural causal models. During training, the synthetic data-generating process is known, so we can compute ground-truth intervention effects Δᵢ, and train a model to predict them at test time from a purely observational tabular dataset. As we demonstrate through extensive experiments, our new causal explainability method is easy to train and provides better explanations under a range of settings for which standard predictive attribution fails, including proxy variables, confounders, colliders, and placebos. We evaluate it on real, synthetic and semi-synthetic datasets, with and without hidden confounders, and compare it to existing predictive attribution methods and state-of-the-art causal inference methods.</p>
+  
+
+  <pre id="FlaCarJakMasSej2026sim2sci_bibtex" class="pre pre-scrollable collapse">@inproceedings{FlaCarJakMasSej2026sim2sci,
+  title = {{FADO: Learning Causal Explanations with Prior-Fitted Networks}},
+  author = {Flaxman, Seth and Carr, Jess and Jakob, Annabel and Masiak, Marek and Sejdinovic, Dino},
+  year = {2026},
+  keywords = {nonarch},
+  booktitle = {NeurIPS 2026 Workshop Sim2Science: ML with Imperfect Scientific Models},
+  openreview = {https://openreview.net/forum?id=JboyppJ3gV}
+}
+</pre>
+
+</span>
+</li>
+<li><span id="ZhaBouOngFlaSej2026eiml">M. Zhang, S. Bouabid, C. S. Ong, S. Flaxman, and D. Sejdinovic, <b>Indirect Query Bayesian Optimization with Integrated Feedback</b>, in <i>ICML 2026 Workshop on Epistemic Intelligence in Machine Learning</i>, 2026.</span>
+
+<span id="ZhaBouOngFlaSej2026eiml_materials" data-publication-venue="ICML 2026 Workshop on Epistemic Intelligence in Machine Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ZhaBouOngFlaSej2026eiml_abstract" data-toggle="collapse" href="#ZhaBouOngFlaSej2026eiml" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7215,7 +7478,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="ChaSchGreSejMua2025isipta">S. L. Chau, A. Schrab, A. Gretton, D. Sejdinovic, and K. Muandet, <b>Credal Two-Sample Tests of Epistemic Uncertainty</b>, in <i>14th International Symposium on Imprecise Probabilities: Theories and Applications (ISIPTA)</i>, 2025.</span>
 
-<span id="ChaSchGreSejMua2025isipta_materials">
+<span id="ChaSchGreSejMua2025isipta_materials" data-publication-venue="14th International Symposium on Imprecise Probabilities: Theories and Applications (ISIPTA)">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#ChaSchGreSejMua2025isipta_abstract" data-toggle="collapse" href="#ChaSchGreSejMua2025isipta" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7257,7 +7520,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="BouSejWat2023egu">S. Bouabid, D. Sejdinovic, and D. Watson-Parris, <b>Probabilistic climate emulation with physics-constrained Gaussian processes</b>, in <i>EGU General Assembly</i>, 2023, EGU23–15660.</span>
 
-<span id="BouSejWat2023egu_materials">
+<span id="BouSejWat2023egu_materials" data-publication-venue="EGU General Assembly">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#BouSejWat2023egu_abstract" data-toggle="collapse" href="#BouSejWat2023egu" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7304,7 +7567,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="LenQuaSej2023egu">J. Lenhardt, J. Quaas, and D. Sejdinovic, <b>From MODIS cloud properties to cloud types using semi-supervised learning</b>, in <i>EGU General Assembly</i>, 2023, EGU23–13250.</span>
 
-<span id="LenQuaSej2023egu_materials">
+<span id="LenQuaSej2023egu_materials" data-publication-venue="EGU General Assembly">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LenQuaSej2023egu_abstract" data-toggle="collapse" href="#LenQuaSej2023egu" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7351,7 +7614,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="BouWatSej2022w">S. Bouabid, D. Watson-Parris, and D. Sejdinovic, <b>Bayesian Inference for Aerosol Vertical Profiles</b>, in <i>NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning</i>, 2022.</span>
 
-<span id="BouWatSej2022w_materials">
+<span id="BouWatSej2022w_materials" data-publication-venue="NeurIPS 2022 Workshop on Tackling Climate Change with Machine Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#BouWatSej2022w_abstract" data-toggle="collapse" href="#BouWatSej2022w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7396,7 +7659,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="LenQuaSej2022egu">J. Lenhardt, J. Quaas, and D. Sejdinovic, <b>Combining cloud properties and synoptic observations to predict cloud base height using machine learning</b>, in <i>EGU General Assembly</i>, 2022, EGU22–7355.</span>
 
-<span id="LenQuaSej2022egu_materials">
+<span id="LenQuaSej2022egu_materials" data-publication-venue="EGU General Assembly">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LenQuaSej2022egu_abstract" data-toggle="collapse" href="#LenQuaSej2022egu" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7443,7 +7706,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SteBouStiNenSej2021w">S. Stefanovic, S. Bouabid, P. Stier, A. Nenes, and D. Sejdinovic, <b>Reconstructing Aerosols Vertical Profiles with Aggregate Output Learning</b>, in <i>ICML 2021 Workshop on Tackling Climate Change with Machine Learning</i>, 2021.</span>
 
-<span id="SteBouStiNenSej2021w_materials">
+<span id="SteBouStiNenSej2021w_materials" data-publication-venue="ICML 2021 Workshop on Tackling Climate Change with Machine Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SteBouStiNenSej2021w_abstract" data-toggle="collapse" href="#SteBouStiNenSej2021w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7489,7 +7752,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="CatCorSejDou2020w">A. Caterini, R. Cornish, D. Sejdinovic, and A. Doucet, <b>Variational Inference with Continuously-Indexed Normalizing Flows</b>, in <i>ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explicit Likelihood Models</i>, 2020.</span>
 
-<span id="CatCorSejDou2020w_materials">
+<span id="CatCorSejDou2020w_materials" data-publication-venue="ICML 2020 Workshop on Invertible Neural Networks, Normalizing Flows, and Explicit Likelihood Models">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#CatCorSejDou2020w_abstract" data-toggle="collapse" href="#CatCorSejDou2020w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7534,7 +7797,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Watetal2019b">D. Watson-Parris, S. Sutherland, M. Christensen, A. Caterini, D. Sejdinovic, and P. Stier, <b>A Large-Scale Analysis of Pockets of Open Cells Enabled by Deep Learning</b>, in <i>American Geophysical Union Fall Meeting Abstracts</i>, 2019, A11L–2769.</span>
 
-<span id="Watetal2019b_materials">
+<span id="Watetal2019b_materials" data-publication-venue="American Geophysical Union Fall Meeting Abstracts">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Watetal2019b_abstract" data-toggle="collapse" href="#Watetal2019b" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7577,7 +7840,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Watetal2019a">D. Watson-Parris, S. Sutherland, M. Christensen, A. Caterini, D. Sejdinovic, and P. Stier, <b>Detecting Anthropogenic Cloud Perturbations with Deep Learning</b>, in <i>ICML 2019 Workshop on Climate Change: How Can AI Help?</i>, 2019.</span>
 
-<span id="Watetal2019a_materials">
+<span id="Watetal2019a_materials" data-publication-venue="ICML 2019 Workshop on Climate Change: How Can AI Help?">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Watetal2019a_abstract" data-toggle="collapse" href="#Watetal2019a" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7628,7 +7891,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="CohSej2019w">S. Cohen and D. Sejdinovic, <b>On the Gromov-Wasserstein Distance and Coupled Deep Generative Models</b>, in <i>NeurIPS 2019 Workshop on Optimal Transport &amp; Machine Learning</i>, 2019.</span>
 
-<span id="CohSej2019w_materials">
+<span id="CohSej2019w_materials" data-publication-venue="NeurIPS 2019 Workshop on Optimal Transport &amp; Machine Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#CohSej2019w_abstract" data-toggle="collapse" href="#CohSej2019w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7670,7 +7933,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Nguyenetal2019w">V. Nguyen, D. T. Lennon, H. Moon, N. M. van Esbroeck, D. Sejdinovic, M. A. Osborne, G. A. D. Briggs, and N. Ares, <b>Controlling Quantum Dot Devices using Deep Reinforcement Learning</b>, in <i>NeurIPS 2019 Workshop on Deep Reinforcement Learning</i>, 2019.</span>
 
-<span id="Nguyenetal2019w_materials">
+<span id="Nguyenetal2019w_materials" data-publication-venue="NeurIPS 2019 Workshop on Deep Reinforcement Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Nguyenetal2019w_abstract" data-toggle="collapse" href="#Nguyenetal2019w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7712,7 +7975,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Tonetal2019w">J.-F. Ton, L. Chan, Y. W. Teh, and D. Sejdinovic, <b>Noise Contrastive Meta-Learning for Conditional Density Estimation using Kernel Mean Embeddings</b>, in <i>NeurIPS 2019 Workshop on Meta Learning</i>, 2019.</span>
 
-<span id="Tonetal2019w_materials">
+<span id="Tonetal2019w_materials" data-publication-venue="NeurIPS 2019 Workshop on Meta Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Tonetal2019w_abstract" data-toggle="collapse" href="#Tonetal2019w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7757,7 +8020,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="LawZhaHuaSej2018w">H. C. L. Law, P. Zhao, J. Huang, and D. Sejdinovic, <b>Hyperparameter Learning via Distributional Transfer</b>, in <i>NeurIPS 2018 Workshop on Meta Learning</i>, 2018.</span>
 
-<span id="LawZhaHuaSej2018w_materials">
+<span id="LawZhaHuaSej2018w_materials" data-publication-venue="NeurIPS 2018 Workshop on Meta Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LawZhaHuaSej2018w_abstract" data-toggle="collapse" href="#LawZhaHuaSej2018w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7802,7 +8065,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Mitetal2018w">J. Mitrovic, P. Wirnsberger, C. Blundell, D. Sejdinovic, and Y. W. Teh, <b>Infinitely Deep Infinite-Width Networks</b>, in <i>NeurIPS 2018 Workshop on Bayesian Deep Learning</i>, 2018.</span>
 
-<span id="Mitetal2018w_materials">
+<span id="Mitetal2018w_materials" data-publication-venue="NeurIPS 2018 Workshop on Bayesian Deep Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Mitetal2018w_abstract" data-toggle="collapse" href="#Mitetal2018w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7844,7 +8107,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="RudSej2017w">T. G. J. Rudner and D. Sejdinovic, <b>Inter-Domain Deep Gaussian Processes</b>, in <i>NeurIPS 2017 Workshop on Bayesian Deep Learning</i>, 2017.</span>
 
-<span id="RudSej2017w_materials">
+<span id="RudSej2017w_materials" data-publication-venue="NeurIPS 2017 Workshop on Bayesian Deep Learning">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#RudSej2017w_abstract" data-toggle="collapse" href="#RudSej2017w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7889,7 +8152,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="LawSutSejFla2017w">H. C. L. Law, D. J. Sutherland, D. Sejdinovic, and S. Flaxman, <b>Bayesian Approaches to Distribution Regression</b>, in <i>NeurIPS 2017 Workshop: Learning on Distributions, Functions, Graphs and Groups</i>, 2017.</span>
 
-<span id="LawSutSejFla2017w_materials">
+<span id="LawSutSejFla2017w_materials" data-publication-venue="NeurIPS 2017 Workshop: Learning on Distributions, Functions, Graphs and Groups">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#LawSutSejFla2017w_abstract" data-toggle="collapse" href="#LawSutSejFla2017w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7931,7 +8194,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="MitSejTeh2017w">J. Mitrovic, D. Sejdinovic, and Y. W. Teh, <b>Causal Inference via Kernel Deviance Measures</b>, in <i>NeurIPS 2017 Workshop on Causal Inference and Machine Learning for Intelligent Decision Making: From ’What If?’ To ’What Next?,’</i> 2017.</span>
 
-<span id="MitSejTeh2017w_materials">
+<span id="MitSejTeh2017w_materials" data-publication-venue="NeurIPS 2017 Workshop on Causal Inference and Machine Learning for Intelligent Decision Making: From ’What If?’ To ’What Next?’">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#MitSejTeh2017w_abstract" data-toggle="collapse" href="#MitSejTeh2017w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -7973,7 +8236,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="RunSejFla2017egu">J. Runge, D. Sejdinovic, and S. Flaxman, <b>Overcoming Autocorrelation Biases for Causal Inference in Large Nonlinear Geoscientific Time Series Datasets</b>, in <i>Geophysical Research Abstracts</i>, 2017, vol. 19, EGU2017–11366.</span>
 
-<span id="RunSejFla2017egu_materials">
+<span id="RunSejFla2017egu_materials" data-publication-venue="Geophysical Research Abstracts">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#RunSejFla2017egu_abstract" data-toggle="collapse" href="#RunSejFla2017egu" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -8017,7 +8280,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2017dagstuhla">D. Sejdinovic, <b>Kernel Embeddings and Bayesian Quadrature</b>, in <i>Dagstuhl Reports: New Directions for Learning with Kernels and Gaussian Processes (Dagstuhl Seminar 16481)</i>, 2017, vol. 6, no. 11, 157.</span>
 
-<span id="Sej2017dagstuhla_materials">
+<span id="Sej2017dagstuhla_materials" data-publication-venue="Dagstuhl Reports: New Directions for Learning with Kernels and Gaussian Processes (Dagstuhl Seminar 16481)">
   <ul class="nav nav-pills">
     
 
@@ -8063,7 +8326,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2017dagstuhlb">D. Sejdinovic, <b>Connections and Differences between Kernels and GPs</b>, in <i>Dagstuhl Reports: New Directions for Learning with Kernels and Gaussian Processes (Dagstuhl Seminar 16481)</i>, 2017, vol. 6, no. 11, 166.</span>
 
-<span id="Sej2017dagstuhlb_materials">
+<span id="Sej2017dagstuhlb_materials" data-publication-venue="Dagstuhl Reports: New Directions for Learning with Kernels and Gaussian Processes (Dagstuhl Seminar 16481)">
   <ul class="nav nav-pills">
     
 
@@ -8109,7 +8372,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2015dagstuhl">D. Sejdinovic, <b>Kernel Hypothesis Tests on Dependent Data</b>, in <i>Dagstuhl Reports: Machine Learning with Interdependent and Non-identically Distributed Data (Dagstuhl Seminar 15152)</i>, 2015, vol. 5, no. 4, 50–51.</span>
 
-<span id="Sej2015dagstuhl_materials">
+<span id="Sej2015dagstuhl_materials" data-publication-venue="Dagstuhl Reports: Machine Learning with Interdependent and Non-identically Distributed Data (Dagstuhl Seminar 15152)">
   <ul class="nav nav-pills">
     
 
@@ -8155,7 +8418,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Jitetal2015w">W. Jitkrittum, A. Gretton, N. Heess, S. M. A. Eslami, B. Lakshminarayanan, D. Sejdinovic, and Z. Szabó, <b>Just-In-Time Kernel Regression for Expectation Propagation</b>, in <i>ICML 2015 Workshop on Large-Scale Kernel Learning: Challenges and New Opportunities</i>, 2015.</span>
 
-<span id="Jitetal2015w_materials">
+<span id="Jitetal2015w_materials" data-publication-venue="ICML 2015 Workshop on Large-Scale Kernel Learning: Challenges and New Opportunities">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Jitetal2015w_abstract" data-toggle="collapse" href="#Jitetal2015w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -8200,7 +8463,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Chwetal2015w">K. Chwialkowski, A. Ramdas, D. Sejdinovic, and A. Gretton, <b>Fast Two Sample Tests using Smooth Random Features</b>, in <i>ICML 2015 Workshop on Large-Scale Kernel Learning: Challenges and New Opportunities</i>, 2015.</span>
 
-<span id="Chwetal2015w_materials">
+<span id="Chwetal2015w_materials" data-publication-venue="ICML 2015 Workshop on Large-Scale Kernel Learning: Challenges and New Opportunities">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#Chwetal2015w_abstract" data-toggle="collapse" href="#Chwetal2015w" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -8245,7 +8508,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejPieDou2007ws">D. Sejdinovic, R. Piechocki, and A. Doufexi, <b>Note on Systematic Raptor Design</b>, in <i>Winter School on Coding and Information Theory</i>, 2007.</span>
 
-<span id="SejPieDou2007ws_materials">
+<span id="SejPieDou2007ws_materials" data-publication-venue="Winter School on Coding and Information Theory">
   <ul class="nav nav-pills">
     
     <li><a class="bib-materials" data-target="#SejPieDou2007ws_abstract" data-toggle="collapse" href="#SejPieDou2007ws" onclick="return false">abstract</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
@@ -8286,10 +8549,11 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </span>
 </li></ol>
 
-<h3 id="miscellanea">Miscellanea</h3>
+<h3 class="publication-section" id="miscellanea">Miscellanea</h3>
+
 <ol class="bibliography"><li><span id="Sej2010_Tangenta">D. Sejdinovic, <b>Dijkstrin algoritam za nalaženje najkraćeg puta</b>, <i>Tangenta (Serbia)</i>, no. 59(3), 15–22, 2010.</span>
 
-<span id="Sej2010_Tangenta_materials">
+<span id="Sej2010_Tangenta_materials" data-publication-venue="Tangenta (Serbia)">
   <ul class="nav nav-pills">
     
 
@@ -8329,7 +8593,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejTan2009_OML">D. Sejdinovic and I. Tanovic, <b>O harmonijskom redu i njegovim dijelovima</b>, <i>Osječki matematički list (Croatia)</i>, vol. 9, 31–39, 2009.</span>
 
-<span id="SejTan2009_OML_materials">
+<span id="SejTan2009_OML_materials" data-publication-venue="Osječki matematički list (Croatia)">
   <ul class="nav nav-pills">
     
 
@@ -8372,7 +8636,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2008_Sigma">D. Sejdinovic, <b>Algoritam i algoritamska rešlivost</b>, <i>Sigma (FYROM)</i>, no. 79, 8–19, 2008.</span>
 
-<span id="Sej2008_Sigma_materials">
+<span id="Sej2008_Sigma_materials" data-publication-venue="Sigma (FYROM)">
   <ul class="nav nav-pills">
     
 
@@ -8413,7 +8677,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2008_MFL">D. Sejdinovic, <b>Quine: samoreproducirajući kod</b>, <i>Matematičko-fizički list (Croatia)</i>, vol. 58, no. 1, 24–26, 2008.</span>
 
-<span id="Sej2008_MFL_materials">
+<span id="Sej2008_MFL_materials" data-publication-venue="Matematičko-fizički list (Croatia)">
   <ul class="nav nav-pills">
     
 
@@ -8454,7 +8718,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2008_MH">D. Sejdinovic, <b>Mathematics of the Human-Vampire Conflict</b>, <i>Math Horizons</i>, vol. 16, no. 2, 14–15, 2008.</span>
 
-<span id="Sej2008_MH_materials">
+<span id="Sej2008_MH_materials" data-publication-venue="Math Horizons">
   <ul class="nav nav-pills">
     
 
@@ -8496,7 +8760,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2006_Tangenta">D. Sejdinovic, <b>Quine: samoreprodukujući kod</b>, <i>Tangenta (Serbia)</i>, no. 46(2), 17–18, 2006.</span>
 
-<span id="Sej2006_Tangenta_materials">
+<span id="Sej2006_Tangenta_materials" data-publication-venue="Tangenta (Serbia)">
   <ul class="nav nav-pills">
     
 
@@ -8536,7 +8800,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="SejKop2006">D. Sejdinovic and A. Kopic, <b>O Oberwolfach problemu</b>, <i>Hrvatski matematički elektronski časopis math.e (Croatia)</i>, vol. 7, 2006.</span>
 
-<span id="SejKop2006_materials">
+<span id="SejKop2006_materials" data-publication-venue="Hrvatski matematički elektronski časopis math.e (Croatia)">
   <ul class="nav nav-pills">
     
 
@@ -8578,7 +8842,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li>
 <li><span id="Sej2006_OML">D. Sejdinovic, <b>Eliptičke krivulje u kriptografiji</b>, <i>Osječki matematički list (Croatia)</i>, vol. 6, 85–97, 2006.</span>
 
-<span id="Sej2006_OML_materials">
+<span id="Sej2006_OML_materials" data-publication-venue="Osječki matematički list (Croatia)">
   <ul class="nav nav-pills">
     
 
@@ -8621,6 +8885,120 @@ projection tree, allowing for an algorithm which runs in a single pass through t
 </li></ol>
 
 <p><em>Built with <a href="https://github.com/inukshuk/jekyll-scholar">jekyll-scholar</a>.</em></p>
+
+<script>
+(() => {
+  const nav = document.getElementById('publication-nav');
+  const facets = JSON.parse(document.getElementById('publication-filter-data').textContent);
+  const clear = nav.querySelector('[data-publication-clear]');
+  const status = nav.querySelector('[role="status"]');
+  const groups = Object.fromEntries(['venues', 'topics'].map(kind => {
+    const row = nav.querySelector(`[data-publication-facet="${kind}"]`);
+    return [kind, {
+      row,
+      options: row.querySelector('.publication-facet-options'),
+      toggle: row.querySelector('.publication-facet-toggle'),
+      selection: row.querySelector('.publication-facet-selection')
+    }];
+  }));
+  const normalizeVenue = text => text.toLowerCase().replace(/[{}]/g, '')
+    .replace(/\s+/g, ' ').trim().replace(/^\d+(?:st|nd|rd|th) annual /, '');
+  const venueAliases = new Map(facets.venues.flatMap((venue, i) =>
+    [...(venue.aliases || []), venue.title].filter(Boolean).map(alias => [normalizeVenue(alias), i])));
+  const topicKeys = facets.topics.map(topic => new Set(topic.keys.trim().split(/\s+/)));
+  const archival = new Set(['journal-articles', 'conference-proceedings', 'discussions']);
+  const controls = [];
+
+  const sections = Array.from(nav.querySelectorAll('[data-publication-types] a'), (link, index) => {
+    const id = link.hash.slice(1);
+    const heading = document.getElementById(id);
+    const list = heading?.nextElementSibling;
+    if (!list?.matches('ol.bibliography')) return null;
+    const entries = Array.from(list.children, item => {
+      const reference = item.querySelector('[data-publication-venue]');
+      const key = reference?.id.replace(/_materials$/, '');
+      const venue = archival.has(id) && reference
+        ? venueAliases.get(normalizeVenue(reference.dataset.publicationVenue)) : undefined;
+      return { item, venue, topics: topicKeys.flatMap((keys, i) => keys.has(key) ? [i] : []) };
+    });
+    return { link, heading, list, index, entries };
+  }).filter(Boolean);
+  const entries = sections.flatMap(section => section.entries);
+  // Number the complete, unfiltered list once, then keep the number attached
+  // to the entry even if earlier entries or entire sections are hidden.
+  entries.forEach(({ item }, index) => {
+    item.dataset.publicationNumber = entries.length - index;
+  });
+
+  let active = null;
+  function showView(view) {
+    active = view;
+    let total = 0;
+    for (const { heading, list, index, entries } of sections) {
+      let visible = 0;
+      for (const entry of entries) {
+        const show = !view ||
+          (view.kind === 'types' && view.index === index) ||
+          (view.kind === 'venues' && view.index === entry.venue) ||
+          (view.kind === 'topics' && entry.topics.includes(view.index));
+        entry.item.hidden = !show;
+        if (show) visible += 1;
+      }
+      heading.hidden = list.hidden = !!view && visible === 0;
+      total += visible;
+    }
+    for (const control of controls) {
+      control.button.setAttribute('aria-pressed', String(view === control));
+    }
+    for (const [kind, group] of Object.entries(groups)) {
+      group.selection.textContent = view?.kind === kind ? ` ${view.label}` : '';
+    }
+    status.textContent = view ? `Showing ${total} publication${total === 1 ? '' : 's'}.` : '';
+    clear.hidden = !view;
+  }
+
+  function addControl(kind, index, label, text) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = text;
+    button.setAttribute('aria-pressed', 'false');
+    const control = { button, kind, index, label };
+    button.addEventListener('click', () => showView(active === control ? null : control));
+    controls.push(control);
+    return button;
+  }
+
+  // Without JavaScript the type links remain ordinary section anchors.
+  for (const { link, index } of sections) {
+    link.replaceWith(addControl('types', index, null, link.textContent));
+  }
+  for (const [kind, values] of Object.entries(facets)) {
+    const { row, options, toggle } = groups[kind];
+    toggle.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', String(toggle.getAttribute('aria-expanded') === 'false'));
+    });
+    const choices = values.map(({ label, title }, index) => ({
+      label, title, index,
+      count: entries.filter(entry => kind === 'venues' ? entry.venue === index : entry.topics.includes(index)).length
+    })).filter(choice => choice.count);
+    if (kind === 'topics') choices.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, 'en'));
+    for (const { label, title, index, count } of choices) {
+      const button = addControl(kind, index, label, `${label} (${count})`);
+      if (title && title !== label) button.title = title;
+      options.append(button);
+    }
+    row.hidden = !choices.length;
+  }
+  clear.addEventListener('click', () => {
+    const previous = active;
+    showView(null);
+    if (previous?.button.offsetParent) previous.button.focus();
+    else groups[previous?.kind]?.toggle.focus();
+  });
+})();
+
+</script>
+
 
 
       
