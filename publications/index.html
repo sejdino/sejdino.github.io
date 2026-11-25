@@ -8981,7 +8981,7 @@ projection tree, allowing for an algorithm which runs in a single pass through t
       label, title, index,
       count: entries.filter(entry => kind === 'venues' ? entry.venue === index : entry.topics.includes(index)).length
     })).filter(choice => choice.count);
-    if (kind === 'topics') choices.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, 'en'));
+    choices.sort((a, b) => b.count - a.count || a.label.localeCompare(b.label, 'en'));
     for (const { label, title, index, count } of choices) {
       const button = addControl(kind, index, label, `${label} (${count})`);
       if (title && title !== label) button.title = title;
